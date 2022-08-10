@@ -2,7 +2,7 @@
 
 Name | E-Mail-Adresse | Github-Nutzer | Foto | Komponenten der Anwendung | Links
 --- | --- | --- | --- | --- | ---
-Benedikt Boehlke |  | Beneboehlke | ![Profilbild Benedikt B] |  | 
-Natalie Röhrle | natalie.roehrle@gmx.de | NaCesca | ![Profilbild Natalie R](https://github.com/MME-Aufgaben-im-Sommer-2022/mee-ss22-team-7/blob/main/docs/Profilbild%20Natalie%20R.jpeg) | 
-Florian Feist | | FeistFlo | ![Profilbild Florian F] |
-Johannes Klein | | johnnyklein | ![Profilbild Johannes K] |
+Benedikt Boehlke | benedikt.boehlke@stud.uni-regensburg.de | Beneboehlke | ![Profilbild Benedikt B] |  | 
+Natalie Röhrle | natalie.roehrle@stud.uni-regensburg.de | NaCesca | ![Profilbild Natalie R] | 
+Florian Feist | florian.feist@stud.uni-regensburg.de | FeistFlo | ![Profilbild Florian F] |
+Johannes Klein | johannes.klein@stud.uni-regensburg.de | johnnyklein | ![Profilbild Johannes K] |
