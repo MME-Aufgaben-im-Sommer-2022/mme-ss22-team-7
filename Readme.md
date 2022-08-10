@@ -17,7 +17,7 @@ _Beschreiben Sie die zentralen Funktionen Ihrer Anwendung und deren Verwendung. 
 _Listen Sie tabelarisch alle Teammitglieder mit Name, E-Mail-Adresse und Foto auf. Halten Sie für jedes Mitglied kurz fest, welchen Teilbereich der Anwendung die jeweilige Person maßgeblich bearbeitet hat._
 
 
-Name | E-Mail-Adresse | Github-Nutzer | Foto | Komponenten der Anwendung 
+Name | E-Mail-Adresse | Github-Nutzer | Foto | Komponenten der Anwendung |
 --- | --- | --- | --- | --- | ---
 Benedikt Boehlke | benedikt.boehlke@stud.uni-regensburg.de | Beneboehlke | ![Profilbild Benedikt B] |  | 
 Natalie Röhrle | natalie.roehrle@stud.uni-regensburg.de | NaCesca | ![Profilbild Natalie R] | 
