@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+    takes normal css and tailwind :)
+*/
+
+/*
+    example for tailwind
+
+.main-heading {
+  @apply bg-green-100;
+}
+
+*/
