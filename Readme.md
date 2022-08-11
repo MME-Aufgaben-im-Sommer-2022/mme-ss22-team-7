@@ -8,6 +8,14 @@ Dieses Repository bildet die Grundlage für Ihre Projektarbeit und wurde über d
 
 _Fassen Sie kurz die wichtigsten Features, die intendierte Zielgruppe und die grundlegende Motivation des Projekts zusammen. Nennen Sie die aktuell bereits implementierten Funktionen und verlinken Sie den aktuellsten Release._
 
+Die wichtigsten Features bilden zum Einen, die erstellbaren CO2-Einträge und deren visuelle Darstellung auf der Hauptseite, zum Anderen aber auch das Vergleichen von Werten zwischen Freunden. Das bewältigen von Challeges, steht ebenfalls im Fokus der Anwendung.
+
+Die stetig steigende CO2-Emission und deren schlechte Auswirkungen auf die Umwelt, sind ein universales Problem dieser Gesellschaft. Durch sie wird der Klimawandel...
+Die Anwendung richtet sich an Menschen, denen eine Verbesserung oder auch lediglich eine Einschätzung, des eigenen CO2-Verbrauchs, wichtig ist. Sie sollten durch das Leaderboard und die Challenges motiviert werden, sich stetig neu herauszufordern und zu verbessern. Somit können die Nutzer nicht nur über sich hinaus wachsen, sondern auch dazu beitragen, die CO2-Bilanz zu senken.
+
+
+Motivation:
+
 ## Beschreibung & Anleitung
 
 _Beschreiben Sie die zentralen Funktionen Ihrer Anwendung und deren Verwendung. Nutzen Sie dazu Screenshots und/oder Videos. Verlinken Sie ein min. 60-sekündiges Demo-Video, das die Verwendung aller wichtigen Funktionen zeigt und in Form eines Audio-Kommentars beschreibt._
