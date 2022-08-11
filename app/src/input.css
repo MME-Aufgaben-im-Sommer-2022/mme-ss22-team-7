@@ -14,3 +14,11 @@
 }
 
 */
+
+.main {
+  @apply max-w-screen-sm;
+}
+
+.content {
+  @apply flex flex-row justify-center;
+}
