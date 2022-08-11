@@ -2,7 +2,7 @@
   "name": "mme-projects",
   "version": "0.0.1",
   "description": "A template for your MME Projects",
-  "type": "module",
+  "type": "commonjs",
   "main": "index.js",
   "watch": {
     "runDevelopementServer": {
