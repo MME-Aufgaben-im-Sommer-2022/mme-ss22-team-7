@@ -1,0 +1,60 @@
+body {
+    background-color: #fff;
+    font-size: 1.6rem;
+    font-family: arial, "lucida console", "Open Sans", sans-serif;
+    color: #2b3e51
+}
+
+h2 {
+    font-weight: 300;
+    text-align: center;
+}
+
+#login {
+    background-color: #5ba95b;
+    width: 35%;
+    text-align: center;
+    margin: 30px auto;
+    padding: 22px 0 0 0;
+    border-radius: 7px;
+    box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.3);
+}
+
+
+input {
+    display: block;
+    box-sizing: border-box;
+    line-height: 50px;
+    width: 50%;
+    height: 60px;
+    border-radius: 4px;
+    margin: auto;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 50%;
+  padding: 0 0 0 10px;
+  margin: auto;
+  font-style: normal;
+  font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: #c3cdca;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+    font-size: 18px;
+    text-align: center;
+}
+
+#register-here {
+background-color: #eeedf1;
+  color: #87888a;
+  font-size: 14px;
+  width: 100%;
+  padding: 8px 0;
+  border-radius: 0 0 7px 7px;
+}
