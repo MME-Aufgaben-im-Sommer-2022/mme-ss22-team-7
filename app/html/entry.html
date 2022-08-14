@@ -8,14 +8,91 @@
 </head>
 
 <body>
-    <div>
-        <label>transport</label>
-    </div>
-    <div>
-        <label>food</label></div>
-    <div>
-        <label>fun</label>
-    </div>
+
+    <fieldset>
+        <legend>Transport</legend>
+        <label>How many kilometers do you drive by the following means of transport?  </label>
+
+        <div>
+            <label>Car:</label>
+            <input type="number" id="car-km-field" name="car-km-field" min="0" max="500000" step="500" checked>
+            <label>km per year.</label>
+        </div>
+        <div>
+            <label>Bus:</label>
+            <input type="number" id="bus-km-field" name="bus-km-field" min="0" max="500000" step="500" checked>
+            <label>km per year.</label>
+        </div>
+        <div>
+            <label>Long-distance transport (train, flight):</label>
+            <input type="number" id="long-distance-transport-km-field" name="long-distance-transport-km-field" min="0" max="500000" step="500" checked>
+            <label>km per year.</label>
+        </div>
+        <div>
+            <label>Public transport:</label>
+            <input type="number" id="public-transport-km-field" name="public-transport-km-field" min="0" max="500000" step="500" checked>
+            <label>km per year.</label>
+        </div>
+        <div>
+            <input type="checkbox" id="default-km-field" name="default-km-field">
+            <label>None of these.</label>
+        </div>
+    </fieldset>
+
+    
+        <fieldset>
+            <legend>Food</legend>
+        <label>Which diet applies to you?  </label>
+
+        <div>
+            <label>Meet eater</label>
+            
+        </div>
+
+        <div>
+            <label>Vegetarian</label>
+            
+        </div>
+        <div>
+            <label>Vegan</label>
+            
+        </div>
+        <div>
+            <label>Pescetarian</label>
+            
+        </div>
+        <div>
+            <input type="checkbox" id="default-km-field" name="default-km-field">
+            <label>None of these.</label>
+        </div>
+        </fieldset>
+    
+    
+        <fieldset>
+            <legend>Fun</legend>
+        <label>How many kilometers do you drive by the following means of transport?  </label>
+
+        <div>
+            <label>Car</label>
+            <input type="number" id="car-km-field" name="car-km-field" min="0" max="500000" step="500" checked>
+            <label>km per year.</label>
+        </div>
+        <div>
+            <label>Bus</label>
+            <input type="number" id="bus-km-field" name="bus-km-field" min="0" max="500000" step="500" checked>
+            <label>km per year.</label>
+        </div>
+        <div>
+            <label>Train</label>
+            <input type="number" id="train-km-field" name="train-km-field" min="0" max="500000" step="500" checked>
+            <label>km per year.</label>
+        </div>
+        <div>
+            <input type="checkbox" id="default-km-field" name="default-km-field">
+            <label>None of these.</label>
+        </div>
+        </fieldset>
+    
 </body>
 
 </html>
