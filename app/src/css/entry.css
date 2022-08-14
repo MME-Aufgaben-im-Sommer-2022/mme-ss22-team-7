@@ -1,0 +1,76 @@
+body {
+    background-color: #fff;
+    font-size: 1.6rem;
+    font-family: arial, "lucida console", "Open Sans", sans-serif;
+    color: #2b3e51
+}
+
+/* popup erstellen:
+#entry-popup{
+    position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+*/
+
+/*die Überschriften*/
+#food {
+    background-color: #bcefef;
+    font-weight: bold;
+    width: 10%;
+
+}
+
+#other {
+    background-color: #f0c37e;
+    font-weight: bold;
+    width: 10%;
+}
+
+#transport {
+    background-color: #f0c0f7bf;
+    font-weight: bold;
+    width: 10%;
+}
+
+/*die einzelnen Felder*/
+.fieldset {
+    background-color: rgb(245, 245, 236);
+
+}
+
+/*die Beschreibungen zu den Angaben*/
+.text {
+    padding-bottom: 15px;
+    font-weight: bold;
+}
+
+.means-of-transport {
+    padding-bottom: 15px;
+}
+
+.checkboxes {
+    padding: 5px;
+}
+
+
+#text-thrift-shopping {
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+/*button*/
+#save-button {
+    background: #BDECB6;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 4px;
+    border-color: #2b3e51;
+    cursor: pointer;
+    width: 160px;
+
+}
+
+#save-button:hover {
+    background-color: #a0c899;
+}
