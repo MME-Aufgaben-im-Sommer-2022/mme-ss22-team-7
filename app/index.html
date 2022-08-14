@@ -5,17 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Greenbook</title>
     <link href="/dist/output.css" rel="stylesheet" />
+    <!-- <script src="https://unpkg.com/feather-icons"></script> -->
   </head>
 
-  <body class="max-w-screen-2xl bg-indigo-600 mx-auto">
+  <body class="max-w-screen-2xl mx-auto">
     <div class="grid grid-cols-12">
-      <div class="grid col-span-9 bg-red-800">
-        <h1 class="main-heading text-5xl mt-10">Greenbook</h1>
+      <div class="grid col-span-9">
+        <div class="flex flex-row mt-10">
+          <!-- example usage of a feather icon see:https://www.npmjs.com/package/feather-icons#api-reference  for more information -->
+          <svg class="feather my-auto">
+            <use href="./src/icons/feather-sprite.svg#menu" />
+          </svg>
+          <div class="flex flex-grow justify-center">
+            <h1 class="main-heading text-5xl place-self-center">Greenbook</h1>
+          </div>
+        </div>
       </div>
-      <div class="gid col-span-3">
-        <p>test</p>
+      <div class="gid col-span-3 mt-10">
+        <p>this is leaderboard</p>
       </div>
     </div>
-    <script type="module" src="./src/index.js"></script>
+    <script type="module" src="./src/index.js">
+      //   const feather = require("feather-icons");
+      //   feather.replace({ class: 'feather' })
+    </script>
   </body>
 </html>
