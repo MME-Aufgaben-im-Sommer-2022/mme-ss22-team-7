@@ -9,31 +9,31 @@
   </head>
 
   <body class="">
-    <div class="">
-      <div class="">
-        <div class="">
+    <div id="main-container">
+      <div id="main-header">
+        <div id="header-container">
           <!-- example usage of a feather icon see:https://www.npmjs.com/package/feather-icons#api-reference  for more information -->
-          <svg class="feather">
-            <use href="./src/icons/feather-sprite.svg#menu" />
+          <svg class="feather" id="burger-menu">
+            <use href="../icons/feather-sprite.svg#menu" />
           </svg>
-          <div class="">
+          <div id="app-name">
             <h1 class="">Greenbook</h1>
           </div>
-          <div class="">
-            <div class="">
-              <p>my score</p>
-              <div class="">420</div>
+          <div id="header-score">
+            <div id="score-container">
+              <p id="score-heading">my score</p>
+              <div id="score">420</div>
             </div>
           </div>
         </div>
       </div>
-      <div class="">
+      <div id="main">
+        <p>main</p>
+      </div>
+      <div id="main-leaderboard">
         <p>this is leaderboard</p>
       </div>
     </div>
-    <script type="module" src="./src/index.js">
-      //   const feather = require("feather-icons");
-      //   feather.replace({ class: 'feather' })
-    </script>
+    <script type="module" src="../js/index.js"></script>
   </body>
 </html>

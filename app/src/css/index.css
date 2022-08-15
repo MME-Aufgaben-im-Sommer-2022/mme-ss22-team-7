@@ -1,3 +1,78 @@
-body {
-  background-color: red;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.feather {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+html {
+  display: grid;
+  grid-template-columns: minmax(200px, 1200px);
+  justify-content: center;
+}
+
+#main-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
+    "header header header header sidebar"
+    "main main main main sidebar";
+}
+
+#main-header {
+  grid-area: header;
+}
+
+#header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#burger-menu,
+#app-name,
+#header-score {
+  display: flex;
+}
+
+#burger-menu {
+  margin: auto 0px auto 1em;
+  justify-content: center;
+}
+
+#score-container {
+  margin-right: 1em;
+  justify-content: center;
+}
+
+#score-heading,
+#score {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#score {
+  font-size: x-large;
+  margin-top: -0.5em;
+}
+
+#main {
+  grid-area: main;
+  background-color: yellow;
+}
+
+#main-leaderboard {
+  grid-area: sidebar;
+  background-color: rgba(150, 256, 0, 0.3);
 }
