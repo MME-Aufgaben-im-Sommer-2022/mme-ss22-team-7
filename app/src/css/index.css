@@ -18,10 +18,12 @@ html {
   display: grid;
   grid-template-columns: minmax(200px, 1200px);
   justify-content: center;
+  background-color: dimgray;
 }
 
 #main-container {
   display: grid;
+  background-color: floralwhite;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: auto;
   grid-template-areas:
@@ -47,6 +49,8 @@ html {
 
 #burger-menu {
   margin: auto 0px auto 1em;
+  width: 1.5em;
+  height: 1.5em;
   justify-content: center;
 }
 
@@ -65,6 +69,51 @@ html {
 #score {
   font-size: x-large;
   margin-top: -0.5em;
+}
+
+.profile-container {
+  position: fixed;
+  top: 8px;
+  width: 20rem;
+  z-index: 20;
+  background-color: rgb(215, 248, 248);
+  transform: translateY(-110%);
+}
+.showMenu {
+  transform: translateY(0);
+}
+
+#x-burger-menu {
+  margin: 2em auto auto 1em;
+  width: 1.5em;
+  height: 1.5em;
+}
+
+#img-outer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#profile-img-container {
+  margin-top: 2em;
+  display: inline-block;
+  position: relative;
+  width: 50%;
+}
+
+#dummy-profile-img {
+  margin-top: 100%;
+}
+
+#profile-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: silver;
+  border-radius: 50%;
 }
 
 #main {
