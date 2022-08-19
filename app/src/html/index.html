@@ -5,47 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Greenbook</title>
     <link rel="stylesheet" href="../css/index.css" />
-    <!-- <script src="https://unpkg.com/feather-icons"></script> -->
   </head>
 
-  <body class="">
-    <div id="main-container">
-      <div id="main-header">
-        <div id="header-container">
-          <!-- example usage of a feather icon see:https://www.npmjs.com/package/feather-icons#api-reference  for more information -->
-          <svg class="feather" id="burger-menu">
-            <use href="../icons/feather-sprite.svg#menu" />
-          </svg>
-          <div id="app-name">
-            <h1 class="">Greenbook</h1>
-          </div>
-          <div id="header-score">
-            <div id="score-container">
-              <p id="score-heading">my score</p>
-              <div id="score">420</div>
+  <body>
+    <div class="main-container">
+        <div class="left-main-container">
+            <div class="header-container">
+                <div class="burger-menu-container">
+                    menu
+                </div>
+                <div class="title-container">
+                    title
+                </div>
+                <div class="score-container">
+                    score
+                </div>
             </div>
-          </div>
+            <div class="content-container">
+                <div class="stats-container">
+                    stats
+                </div>
+                <div class="challenge-container">
+                    challenges
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div id="main">
-        <p>main</p>
-      </div>
-      <div id="main-leaderboard">
-        <p>this is leaderboard</p>
-      </div>
-    </div>
-    <div class="profile-container">
-      <svg class="feather" id="x-burger-menu">
-        <use href="../icons/feather-sprite.svg#x" />
-      </svg>
-      <div id="img-outer-container">
-        <div id="profile-img-container">
-          <div id="dummy-profile-img"></div>
-          <div id="profile-img"></div>
+        <div class="right-main-container">
+            <div class="leaderboard-container">
+                leaderboard
+            </div>
+            <div class="history-container">
+                history
+            </div>
         </div>
-      </div>
     </div>
-    <script type="module" src="../js/index.js"></script>
   </body>
 </html>
