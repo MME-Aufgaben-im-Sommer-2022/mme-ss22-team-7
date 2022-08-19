@@ -1,0 +1,29 @@
+body {
+    background-color: #fff;
+    font-size:1.6em;
+    font-family: arial, "lucida console", "Open Sans", sams-serif;
+    color: #2b3e51;
+}
+
+#profil-popup {
+    background-color: #BDECB6;
+    width: 25%;
+    margin: 30px auto; /*nur für bessere Ansicht*/
+    padding: 0px 0 0 10px;
+    border-radius: 7px;
+}
+
+/*geht nicht*/
+#profil-id {
+    text-align: right;
+}
+
+#profil-friend-list {
+    list-style: none;
+}
+
+
+/*geht nicht*/
+.friends{
+    padding-bottom: 10px;
+}
