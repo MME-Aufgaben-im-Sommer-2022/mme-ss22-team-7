@@ -144,7 +144,6 @@ body {
   flex-direction: column;
   justify-content: start;
   align-items: stretch;
-  background-color: blue;
 }
 
 .header-container {
@@ -157,19 +156,32 @@ body {
 .burger-menu-container {
   flex-grow: 1;
   text-align: center;
-  background-color: magenta;
+  background-color:antiquewhite;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
 }
 
 .title-container {
   flex-grow: 10;
   text-align: center;
-  background-color: cyan;
+  background-color:antiquewhite;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
 }
 
 .score-container {
   flex-grow: 2;
   text-align: center;
-  background-color: darksalmon;
+  background-color:antiquewhite;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  display: flex;
+	align-items: center;
+	justify-content: center;
+  flex-direction: column;
 }
 
 .content-container {
@@ -178,18 +190,25 @@ body {
   align-items: stretch;
   flex-direction: column;
   height: 86vh;
+  overflow: auto;
 }
 
 .stats-container {
   text-align: center;
   flex-grow: 2;
-  background-color: chartreuse;
+  background-color:antiquewhite;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
 }
 
 .challenge-container {
   text-align: center;
   flex-grow: 1;
-  background-color: aqua;
+  background-color:antiquewhite;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
 }
 
 .right-main-container {
@@ -203,13 +222,43 @@ body {
 .leaderboard-container {
   text-align: center;
   flex-grow: 1;
-  height: 48vh;
-  background-color: blueviolet;
+  height: 47vh;
+  background-color:antiquewhite;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
 }
 
 .history-container {
   text-align: center;
   flex-grow: 1;
   height: 48vh;
-  background-color: chocolate;
+  background-color:antiquewhite;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.title {
+	height: 3vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  color: darkgreen;
+}
+
+.score-title {
+  color: black;
+}
+
+.score {
+  font-size: 2em;
+  color: black;
+}
+
+.burger-menu-icon {
+  height: 9vh;
+  display: flex;
+	align-items: center;
+	justify-content: center;
 }
