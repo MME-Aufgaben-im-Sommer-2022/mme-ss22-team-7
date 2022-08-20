@@ -1,6 +1,6 @@
 body {
     background-color: #fff;
-    font-size:1.6em;
+    font-size: 1.6em;
     font-family: arial, "lucida console", "Open Sans", sams-serif;
     color: #2b3e51;
 }
@@ -8,22 +8,70 @@ body {
 #profil-popup {
     background-color: #BDECB6;
     width: 25%;
-    margin: 30px auto; /*nur für bessere Ansicht*/
-    padding: 0px 0 0 10px;
+    margin: 30px auto;
+    /*nur für bessere Ansicht*/
     border-radius: 7px;
 }
+
+i {
+    display: inline-block;
+    border-radius: 60px;
+    box-shadow: 0 0 2px rgb(0, 0, 0);
+    padding: 0.5em 0.6em;
+}
+
+
+
+
+
+
 
 /*geht nicht*/
 #profil-id {
     text-align: right;
 }
 
-#profil-friend-list {
-    list-style: none;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Freunde Tabelle*/
+table,
+th {
+    border: 2px solid #334556;
+    border-collapse: collapse;
 }
 
+table {
+    width: 100%;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
 
-/*geht nicht*/
-.friends{
-    padding-bottom: 10px;
+td {
+    background: url("../icons/user.svg");
+    background-size: 5.5%;
+    background-repeat: no-repeat;
+    background-position: 0.25%;
+    padding: 2%;
+    padding-left: 7%;
 }
