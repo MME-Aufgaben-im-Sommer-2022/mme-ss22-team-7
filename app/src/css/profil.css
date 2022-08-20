@@ -7,10 +7,15 @@ body {
 
 #profil-popup {
     background-color: #BDECB6;
+    text-align: center;
     width: 25%;
     margin: 30px auto;
     /*nur für bessere Ansicht*/
     border-radius: 7px;
+}
+
+#icon{
+    padding: 5%;
 }
 
 i {
@@ -18,43 +23,35 @@ i {
     border-radius: 60px;
     box-shadow: 0 0 2px rgb(0, 0, 0);
     padding: 0.5em 0.6em;
+    margin: 0 auto;
 }
 
-
-
-
-
-
-
-/*geht nicht*/
-#profil-id {
-    text-align: right;
+#add-friend-field{
+    padding-bottom: 10px;
 }
 
+/*Button*/
+#add-button{
+    display: inline-block;
+    height:30px;
+    width: 30px;
+    background: #BDECB6;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 50%;
+    border-color: #2b3e51;
+    cursor: pointer;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#add-button:hover {
+    background-color: #a0c899;
+}
 
 /*Freunde Tabelle*/
+#friend-list{
+    text-align: left;
+}
+
 table,
 th {
     border: 2px solid #334556;
