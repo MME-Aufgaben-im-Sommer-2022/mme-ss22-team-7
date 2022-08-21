@@ -16,6 +16,7 @@ body {
 
 #icon{
     padding: 5%;
+    
 }
 
 i {
@@ -24,6 +25,7 @@ i {
     box-shadow: 0 0 2px rgb(0, 0, 0);
     padding: 0.5em 0.6em;
     margin: 0 auto;
+    background-color: #fff;
 }
 
 #add-friend-field{
@@ -35,7 +37,7 @@ i {
     display: inline-block;
     height:30px;
     width: 30px;
-    background: #BDECB6;
+    background-color:#fff;
     text-align: center;
     font-size: 18px;
     border-radius: 50%;
@@ -44,7 +46,7 @@ i {
 }
 
 #add-button:hover {
-    background-color: #a0c899;
+    background-color: rgb(235, 235, 235);
 }
 
 /*Freunde Tabelle*/
@@ -66,9 +68,9 @@ table {
 
 td {
     background: url("../icons/user.svg");
-    background-size: 5.5%;
+    background-size: 7.5%;
     background-repeat: no-repeat;
     background-position: 0.25%;
     padding: 2%;
-    padding-left: 7%;
+    padding-left: 10%;
 }
