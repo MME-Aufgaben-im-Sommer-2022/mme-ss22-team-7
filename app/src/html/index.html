@@ -31,21 +31,62 @@
             </div>
             <div class="content-container">
                 <div class="stats-container">
-                    stats
+                    <div class="upper-stats-container">
+                        <div class="co2-score-label">
+                            CO2 <br /> Score
+                        </div>
+                        <table class="score-category-table">
+                            <tr>
+                                <th class="transport-score-label">Transport</th>
+                                <th class="food-score-label">Food</th>
+                                <th class="others-score-label">Others</th>
+                            </tr>
+                            <tr>
+                                <td class="transport-score">0</td>
+                                <td class="food-score">0</td>
+                                <td class="others-score">0</td>
+                              </tr>
+                        </table>
+                        <div class="entry-description">
+                            Add a new entry <br /> to track your sustainability
+                        </div>
+                        <button class="new-entry-button">
+                            New Entry
+                        </button>
+                    </div>
+                    <canvas class="diagram-canvas"></canvas>
                 </div>
                 <div class="challenge-container">
-                    challenges
+                    <div class="active-challenges-container">
+                        <div class="active-challenge-label">
+                            Active <br /> Challenges
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="right-main-container">
             <div class="leaderboard-container">
-                leaderboard
+                <div class="leaderboard-header">
+                    Leaderboard
+                </div>
+                <hr>
+                <div class="leaderboard-content-container"></div> 
             </div>
             <div class="history-container">
-                history
+                <div class="history-header">
+                    History
+                </div>
+                <hr>
+                <div class="history-content-container"></div> 
             </div>
         </div>
     </div>
+    <template id="leaderboard-element-template">
+
+    </template>
+    <template id="history-element-template">
+
+    </template>
   </body>
 </html>

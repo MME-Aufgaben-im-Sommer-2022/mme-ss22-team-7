@@ -200,6 +200,7 @@ body {
   border-color: black;
   border-width: 1px;
   border-style: solid;
+  height: 10vh;
 }
 
 .challenge-container {
@@ -257,8 +258,62 @@ body {
 }
 
 .burger-menu-icon {
-  height: 9vh;
+  height: 10vh;
   display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+.leaderboard-header {
+  color: darkgreen;
+  font-size: large;
+  margin-top: 5px;
+}
+
+.history-header {
+  color: darkgreen;
+  font-size:large;
+  margin-top: 5px;
+}
+
+hr {
+  border-color: darkgreen;
+  border-width: 1px;
+}
+
+.upper-stats-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.co2-score-label {
+  flex-grow: 1;
+}
+
+.score-category-table {
+  flex-grow: 1;
+}
+
+.entry-description {
+  flex-grow: 1;
+}
+
+.new-entry-button {
+  flex-grow: 1;
+}
+
+.diagram-canvas {
+  background-color: darkgreen;
+  margin-top: 2em;
+  height: 40vh;
+  width: 50vw;
+}
+
+.active-challenges-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.active-challenge-label {
+  
 }
