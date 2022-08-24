@@ -312,8 +312,22 @@ hr {
 .active-challenges-container {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
+  height: 10vh;
 }
 
 .active-challenge-label {
-  
+
+}
+
+.new-challenge-label {
+  background-color: darkgreen;
+  color: antiquewhite;
+  text-align: center;
+  height: 3vh;
+}
+
+.new-challenge-container {
+  display: flex;
+  justify-content: space-evenly;
 }
