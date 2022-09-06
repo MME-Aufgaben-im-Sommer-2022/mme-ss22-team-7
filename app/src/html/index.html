@@ -5,35 +5,143 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Greenbook</title>
     <link rel="stylesheet" href="../css/index.css" />
-    <!-- <script src="https://unpkg.com/feather-icons"></script> -->
+    <script src="https://kit.fontawesome.com/300d45943a.js" crossorigin="anonymous"></script>
   </head>
 
-  <body class="">
-    <div class="">
-      <div class="">
-        <div class="">
-          <!-- example usage of a feather icon see:https://www.npmjs.com/package/feather-icons#api-reference  for more information -->
-          <svg class="feather">
-            <use href="./src/icons/feather-sprite.svg#menu" />
-          </svg>
-          <div class="">
-            <h1 class="">Greenbook</h1>
-          </div>
-          <div class="">
-            <div class="">
-              <p>my score</p>
-              <div class="">420</div>
+  <body>
+    <div class="main-container">
+        <div class="left-main-container">
+            <div class="header-container">
+                <div class="burger-menu-container">
+                    <i class="fa-solid fa-align-justify fa-xl burger-menu-icon"></i>
+                </div>
+                <div class="title-container">
+                    <h1 class="title">
+                        Greenbook
+                    </h1>
+                </div>
+                <div class="score-container">
+                    <div class="score-title">
+                        My score
+                    </div>
+                    <div class="score">
+                        0
+                    </div>
+                </div>
             </div>
-          </div>
+            <div class="content-container">
+                <div class="stats-container">
+                    <div class="upper-stats-container">
+                        <div class="co2-score-label">
+                            CO2 <br /> Score
+                        </div>
+                        <table class="score-category-table">
+                            <tr>
+                                <th class="transport-score-label">Transport</th>
+                                <th class="food-score-label">Food</th>
+                                <th class="others-score-label">Others</th>
+                            </tr>
+                            <tr>
+                                <td class="transport-score">0</td>
+                                <td class="food-score">0</td>
+                                <td class="others-score">0</td>
+                              </tr>
+                        </table>
+                        <div class="entry-description">
+                            Add a new entry <br /> to track your sustainability
+                        </div>
+                        <button class="new-entry-button">
+                            New Entry
+                        </button>
+                    </div>
+                    <canvas class="diagram-canvas"></canvas>
+                </div>
+                <div class="challenge-container">
+                    <div class="active-challenges-container">
+                        <div class="active-challenge-label">
+                            Active <br /> Challenges
+                        </div>
+                        <div class="challenge-1-container">
+                            <div class="challenge-1-description">
+                                do not drink water
+                            </div>
+                            <div class="challenge-1-score">
+                                0/7
+                            </div>
+                            <div class="challenge-1-interact-container">
+                                <button class="challenge-1-accept">
+                                    <i class="fa-solid fa-check"></i>
+                                </button>
+                                <button class="challenge-1-decline">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="challenge-2-container">
+                            <div class="challenge-2-description">
+                                do not drink tea
+                            </div>
+                            <div class="challenge-2-score">
+                                0/7
+                            </div>
+                            <div class="challenge-2-interact-container">
+                                <button class="challenge-2-accept">
+                                    <i class="fa-solid fa-check"></i>
+                                </button>
+                                <button class="challenge-2-decline">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="challenge-3-container">
+                            <div class="challenge-3-description">
+                                do not drink apple juice
+                            </div>
+                            <div class="challenge-3-score">
+                                0/7
+                            </div>
+                            <div class="challenge-3-interact-container">
+                                <button class="challenge-3-accept">
+                                    <i class="fa-solid fa-check"></i>
+                                </button>
+                                <button class="challenge-3-decline">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="new-challenge-label">
+                        Add a new challenge
+                    </div>
+                    <div class="new-challenge-container"></div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="">
-        <p>this is leaderboard</p>
-      </div>
+        <div class="right-main-container">
+            <div class="leaderboard-container">
+                <div class="leaderboard-header">
+                    Leaderboard
+                </div>
+                <hr>
+                <div class="leaderboard-content-container"></div> 
+            </div>
+            <div class="history-container">
+                <div class="history-header">
+                    History
+                </div>
+                <hr>
+                <div class="history-content-container"></div> 
+            </div>
+        </div>
     </div>
-    <script type="module" src="./src/index.js">
-      //   const feather = require("feather-icons");
-      //   feather.replace({ class: 'feather' })
-    </script>
+    <template id="leaderboard-element-template">
+
+    </template>
+    <template id="history-element-template">
+
+    </template>
+    <template id="challenge-element-template">
+
+    </template>
   </body>
 </html>
