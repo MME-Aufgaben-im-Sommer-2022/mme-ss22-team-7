@@ -1,0 +1,76 @@
+body {
+    background-color: #fff;
+    font-size: 1.6em;
+    font-family: arial, "lucida console", "Open Sans", sams-serif;
+    color: #2b3e51;
+}
+
+#profil-popup {
+    background-color: #BDECB6;
+    text-align: center;
+    width: 25%;
+    margin: 30px auto;
+    /*nur für bessere Ansicht*/
+    border-radius: 7px;
+}
+
+#icon{
+    padding: 5%;
+    
+}
+
+i {
+    display: inline-block;
+    border-radius: 60px;
+    box-shadow: 0 0 2px rgb(0, 0, 0);
+    padding: 0.5em 0.6em;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+#add-friend-field{
+    padding-bottom: 10px;
+}
+
+/*Button*/
+#add-button{
+    display: inline-block;
+    height:30px;
+    width: 30px;
+    background-color:#fff;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 50%;
+    border-color: #2b3e51;
+    cursor: pointer;
+}
+
+#add-button:hover {
+    background-color: rgb(235, 235, 235);
+}
+
+/*Freunde Tabelle*/
+#friend-list{
+    text-align: left;
+}
+
+table,
+th {
+    border: 2px solid #334556;
+    border-collapse: collapse;
+}
+
+table {
+    width: 100%;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+td {
+    background: url("../icons/user.svg");
+    background-size: 7.5%;
+    background-repeat: no-repeat;
+    background-position: 0.25%;
+    padding: 2%;
+    padding-left: 10%;
+}
