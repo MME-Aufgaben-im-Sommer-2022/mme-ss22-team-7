@@ -3,7 +3,7 @@ import Observable from "./utils/Observable";
 
 
 function initEntry(){
-    let entryEl = document.querySelector("#entry-popup");
+    let entryEl = document.querySelector("#entry-popup"),
     entry = new Entry(entryEl);
     initInputs(entry);
     initEvents(entry);
@@ -14,7 +14,7 @@ entry.inputs = {
     carEl = entry.el.querySelector("#car-km-field"),
     publicTransEl = entry.el.querySelector("#public-transport-km-field"),
     planeEl = entry.el.querySelector("#plane-hours-field"),
-    ncruiseShipEl = entry.el.querySelector("#cruise-ship-weeks-field"),
+    cruiseShipEl = entry.el.querySelector("#cruise-ship-weeks-field"),
 
     //food
     vegEl_20 = entry.el.querySelector("#veg-seas-20"),
