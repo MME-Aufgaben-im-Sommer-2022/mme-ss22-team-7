@@ -13,41 +13,36 @@
             <summary id="transport">Transport</summary>
             <fieldset class="fieldset">
                 <div class="text">
-                    <label>How many kilometers do you drive by the following means of transport?
+                    <label>How much did you use the following means of transport recently?
                     </label>
                 </div>
 
                 <div class="means-of-transport">
                     <label>Car:</label>
                     <br>
-                    <input type="number" id="car-km-field" name="car-km-field" min="0" max="500000" step="100" checked />
-                    <label>km per year.</label>
-                </div>
-
-                <div class="means-of-transport">
-                    <label>Bus:</label>
-                    <br>
-                    <input type="number" id="bus-km-field" name="bus-km-field" min="0" max="500000" step="100" checked />
-                    <label>km per year.</label>
-                </div>
-
-                <div class="means-of-transport">
-                    <label>Long-distance transport:</label>
-                    <br>
-                    <input type="number" id="long-distance-transport-km-field" name="long-distance-transport-km-field" min="0" max="500000" step="100" checked />
-                    <label>km per year.</label>
+                    <input type="number" id="car-km-field" min="0" max="500000" step="100" checked />
+                    <label>km today.</label>
                 </div>
 
                 <div class="means-of-transport">
                     <label>Public transport:</label>
                     <br>
-                    <input type="number" id="public-transport-km-field" name="public-transport-km-field" min="0" max="500000" step="100" checked />
-                    <label>km per year.</label>
+                    <input type="number" id="public-transport-km-field" min="0" max="500000" step="100" checked />
+                    <label>km today.</label>
                 </div>
 
-                <div>
-                    <input type="checkbox" id="default-km-field" name="default-km-field" />
-                    <label>None of these.</label>
+                <div class="means-of-transport">
+                    <label>Plane:</label>
+                    <br>
+                    <input type="number" id="plane-hours-field" min="0" max="500000" step="0.5" checked />
+                    <label>hours.</label>
+                </div>
+
+                <div class="means-of-transport">
+                    <label>Cruise ship:</label>
+                    <br>
+                    <input type="number" id="cruise-ship-weeks-field" min="0" max="500000" step="0.5" checked />
+                    <label>weeks.</label>
                 </div>
 
             </fieldset>
@@ -58,6 +53,62 @@
 
         <details open>
             <summary id="food">Food</summary>
+
+            <fieldset class="fieldset">
+                <div class="text">
+                    <label>What percentage of seasonal vegetables/fruits did you consume today? </label>
+                </div>
+                <div class="checkboxes">
+                    <input type="checkbox" id="veg-seas-20" />
+                    <label>0 - 20%</label>
+                </div>
+                <div class="checkboxes">
+                    <input type="checkbox" id="veg-seas-40" />
+                    <label>21 - 40%</label>
+                </div>
+                <div class="checkboxes">
+                    <input type="checkbox" id="veg-seas-60" />
+                    <label>41 - 60%</label>
+                </div>
+                <div class="checkboxes">
+                    <input type="checkbox" id="veg-seas-80" />
+                    <label>61 - 80%</label>
+                </div>
+                <div class="checkboxes">
+                    <input type="checkbox" id="veg-seas-100" />
+                    <label>81 - 100%</label>
+                </div>
+            </fieldset>
+
+
+
+            <fieldset class="fieldset">
+                <div class="text">
+                    <label>How much money did you spend on food from restaurants? </label>
+                </div>
+                <div class="checkboxes">
+                    <input type="checkbox" id="restaurant-food-20" />
+                    <label>10 - 20€</label>
+                </div>
+                <div class="checkboxes">
+                    <input type="checkbox" id="restaurant-food-40" />
+                    <label>21 - 40€</label>
+                </div>
+                <div class="checkboxes">
+                    <input type="checkbox" id="restaurant-food-60" />
+                    <label>41 - 60€</label>
+                </div>
+                <div class="checkboxes">
+                    <input type="checkbox" id="restaurant-food-80" />
+                    <label>61 - 80€</label>
+                </div>
+                <div class="checkboxes">
+                    <input type="checkbox" id="restaurant-food-100" />
+                    <label>81 - 100€</label>
+                </div>
+            </fieldset>
+
+            <!-- Brauchen wir das, weil das eine generelle Angabe ist?
             <fieldset class="fieldset">
                 <div class="text">
                     <label>Which diet applies to you? </label>
@@ -83,37 +134,66 @@
                     <label>None of these.</label>
                 </div>
             </fieldset>
+-->
         </details>
 
 
 
-        <details>
+        <details open>
             <summary id="other">Other</summary>
             <fieldset class="fieldset">
                 <div class="text">
-                    <label>How is your buying behavior?</label>
+                    <label>How much money did you spend on clothes today?</label>
                 </div>
                 <div class="checkboxes">
-                    <input type="checkbox" id="sparingly-field" name="sparingly-field" />
-                    <label>sparingly</label></div>
-                <div class="checkboxes"><input type="checkbox" id="average-field" name="average-field" />
-                    <label>average</label></div>
-                <div class="checkboxes"><input type="checkbox" id="high-field" name="high-field" />
-                    <label>high</label></div>
-                <div class="text" id="text-thrift-shopping">
-                    <label>How often do you go thrift shopping?</label>
-                </div>
-                <div class="checkboxes">
-                    <input type="checkbox" id="yes-thrift-shop-field" name="yes-thrift-shop-field" />
-                    <label>most of the time</label></div>
-                <div class="checkboxes"><input type="checkbox" id="sometimes-thrift-shop-field" name="sometimes-thrift-shop-field" />
-                    <label>sometimes</label></div>
-                <div class="checkboxes"><input type="checkbox" id="never-thrift-shop-field" name="never-thrift-shop-field" />
-                    <label>never</label></div>
+                    <input type="checkbox" id="clothes-20" />
+                    <label>about 20 €</label></div>
+                <div class="checkboxes"><input type="checkbox" id="clothes-50" />
+                    <label>about 50 €</label></div>
+                <div class="checkboxes"><input type="checkbox" id="clothes-100" />
+                    <label>about 100 €</label></div>
+                <div class="checkboxes"><input type="checkbox" id="clothes-200" />
+                    <label>about 200 €</label></div>
+                <div class="checkboxes"><input type="checkbox" id="clothes-300" />
+                    <label>300+ €</label></div>
 
             </fieldset>
-        </details>
 
+            <fieldset class="fieldset">
+                <div class="text">
+                    <label>How much money did you spend on culture and hobbys today?</label>
+                </div>
+                <div class="checkboxes">
+                    <input type="checkbox" id="culture-50" />
+                    <label>30 - 50€</label></div>
+                <div class="checkboxes"><input type="checkbox" id="culture-100" />
+                    <label>51 - 100€</label></div>
+                <div class="checkboxes"><input type="checkbox" id="culture-200" />
+                    <label>101 - 200€</label></div>
+                <div class="checkboxes"><input type="checkbox" id="culture-350" />
+                    <label>201 - 350€</label></div>
+                <div class="checkboxes"><input type="checkbox" id="culture-600" />
+                    <label>351 - 600€</label></div>
+
+            </fieldset>
+
+            <fieldset class="fieldset">
+                <div class="text">
+                    <label>How much money did you spend on household devices recently?</label>
+                </div>
+                <div class="checkboxes">
+                    <input type="checkbox" id="household-devices-30" />
+                    <label>30 - 50€</label></div>
+                <div class="checkboxes"><input type="checkbox" id="household-devices-50" />
+                    <label>51 - 100€</label></div>
+                <div class="checkboxes"><input type="checkbox" id="household-devices-200" />
+                    <label>101 - 200€</label></div>
+                <div class="checkboxes"><input type="checkbox" id="household-devices-300" />
+                    <label>201 - 300€</label></div>
+                <div class="checkboxes"><input type="checkbox" id="household-devices-400" />
+                    <label>301 - 400€</label></div>
+            </fieldset>
+        </details>
 
         <button id="save-button" style="float: right;">save</button>
     </div>
