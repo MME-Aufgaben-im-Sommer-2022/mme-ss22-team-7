@@ -28,8 +28,15 @@ i {
     background-color: #fff;
 }
 
-#add-friend-field{
-    padding-bottom: 10px;
+#suchbegriff{
+   background-color: #BDECB6;
+   border-color: #2b3e51;
+   border-top:#BDECB6;
+   border-left: #BDECB6;
+   border-right: #BDECB6;
+   
+   border-bottom-width: 3px;
+   padding-left: 0.5em;
 }
 
 /*Button*/
