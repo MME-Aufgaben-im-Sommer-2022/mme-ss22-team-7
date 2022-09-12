@@ -319,7 +319,7 @@ hr {
   transform: translateY(0);
 }
 
-.entries-popUp {
+.popUp {
   position: absolute;
   width: 80%;
   height: 80%;
