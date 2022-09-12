@@ -1,13 +1,44 @@
+import {initInputs} from "./entries/entryData.js";
+
+console.log("start");
+const entryButton = document.querySelector(".new-entry-button"),
+entriesPopUp = document.querySelector(".overlay-entries");
+entryButton.addEventListener("click", toggleEntries);
+
+function toggleEntries() {
+  //popup
+  if (entriesPopUp.classList.contains("showMenu")) {
+    entriesPopUp.classList.remove("showMenu");
+    entriesPopUp.style.display = "none";
+  } else {
+    entriesPopUp.classList.add("showMenu");
+    entriesPopUp.style.display = "block";
+    onPopUp();
+  }
+}
+
+function onEntrySave(){
+  entriesPopUp.classList.remove("showMenu");
+}
+
+function onPopUp(){
+  let iframe = document.querySelector(".popUp").contentWindow,
+  saveButtonEl = iframe.document.querySelector("#save-button"),
+  inputs = initInputs(iframe);
+  saveButtonEl.addEventListener("click", onEntrySave);
+}
+
+
+
 // const hamburger = document.querySelector("#burger-menu"),
 //   closeIcon = document.querySelector("#x-burger-menu"),
 //   profile = document.querySelector(".profile-container"),
 
-const entryButton = document.querySelector(".new-entry-button"),
-  entriesPopUp = document.querySelector(".overlay-entries");
 
 //hamburger.addEventListener("click", toggleMenu);
 //closeIcon.addEventListener("click", toggleMenu);
-entryButton.addEventListener("click", toggleEntries);
+
+
 
 // function toggleMenu() {
 //   if (profile.classList.contains("showMenu")) {
@@ -18,19 +49,3 @@ entryButton.addEventListener("click", toggleEntries);
 //     closeIcon.style.display = "block";
 //   }
 // }
-
-function toggleEntries() {
-  if (entriesPopUp.classList.contains("showMenu")) {
-    entriesPopUp.classList.remove("showMenu");
-    entriesPopUp.style.display = "none";
-  } else {
-    entriesPopUp.classList.add("showMenu");
-    entriesPopUp.style.display = "block";
-  }
-}
-
-function init() {
-  console.log("### Starting MME Project ###"); // eslint-disable-line no-console
-}
-
-init();
