@@ -1,4 +1,5 @@
 import {initEntryPage} from "./entries/entries.js";
+import {initInputs} from "./entries/entryData.js";
 
 
 console.log("start");
@@ -8,6 +9,7 @@ entriesPopUp = document.querySelector(".overlay-entries");
 entryButton.addEventListener("click", toggleEntries);
 
 function toggleEntries() {
+  //popup
   if (entriesPopUp.classList.contains("showMenu")) {
     entriesPopUp.classList.remove("showMenu");
     entriesPopUp.style.display = "none";
@@ -15,9 +17,10 @@ function toggleEntries() {
     entriesPopUp.classList.add("showMenu");
     entriesPopUp.style.display = "block";
     let iframe = document.querySelector(".popUp"),
-    safeButtonEl = iframe.contentWindow.document.querySelector("#save-button");
-    //saveButton
-    safeButtonEl.addEventListener("click", onEntrySave);
+    saveButtonEl = iframe.contentWindow.document.querySelector("#save-button"),
+    inputs = initInputs(iframe.contentWindow);
+    console.log(inputs.carEl.score);
+    saveButtonEl.addEventListener("click", onEntrySave);
     initEntryPage();
   }
 }
@@ -29,9 +32,6 @@ function onEntrySave(){
 
 function init() {
   console.log("### Starting MME Project ###"); // eslint-disable-line no-console
-  //ausführen vom weiteren Code funktioniert manchmal nicht wegen "favico.icon" Fehler
-  //EntryView.init();
-  //entriesPopUp.addEventListener("saved", onEntrySave);
 }
 
 init();
