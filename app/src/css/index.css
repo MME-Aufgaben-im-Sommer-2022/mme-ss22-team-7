@@ -154,7 +154,7 @@ body {
 .burger-menu-container {
   flex-grow: 1;
   text-align: center;
-  background-color: antiquewhite;
+  background-color: #83944c;
   border-color: black;
   border-width: 1px;
   border-style: solid;
@@ -163,7 +163,7 @@ body {
 .title-container {
   flex-grow: 10;
   text-align: center;
-  background-color: antiquewhite;
+  background-color: #83944c;
   border-color: black;
   border-width: 1px;
   border-style: solid;
@@ -172,7 +172,7 @@ body {
 .score-container {
   flex-grow: 2;
   text-align: center;
-  background-color: antiquewhite;
+  background-color: #83944c;
   border-color: black;
   border-width: 1px;
   border-style: solid;
@@ -194,7 +194,7 @@ body {
 .stats-container {
   text-align: center;
   flex-grow: 2;
-  background-color: antiquewhite;
+  background-color: #faedcd;
   border-color: black;
   border-width: 1px;
   border-style: solid;
@@ -204,7 +204,7 @@ body {
 .challenge-container {
   text-align: center;
   flex-grow: 1;
-  background-color: antiquewhite;
+  background-color: #faedcd;
   border-color: black;
   border-width: 1px;
   border-style: solid;
@@ -222,7 +222,7 @@ body {
   text-align: center;
   flex-grow: 1;
   height: 47vh;
-  background-color: antiquewhite;
+  background-color: #83944c;
   border-color: black;
   border-width: 1px;
   border-style: solid;
@@ -232,7 +232,7 @@ body {
   text-align: center;
   flex-grow: 1;
   height: 48vh;
-  background-color: antiquewhite;
+  background-color: #83944c;
   border-color: black;
   border-width: 1px;
   border-style: solid;
@@ -243,7 +243,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgb(76, 153, 76);
+  color:black;
 }
 
 .score-title {
@@ -298,9 +298,9 @@ hr {
 
 .new-entry-button {
   flex-grow: 1;
-  background-color: rgb(76, 153, 76);
+  background-color: #a77e55;
   border-color: antiquewhite;
-  color: antiquewhite;
+  color:black;
 }
 
 /*
@@ -333,7 +333,7 @@ hr {
 }
 
 .diagram-canvas {
-  background-color: rgb(76, 153, 76);
+  background-color: #b99776;
   margin-top: 2em;
   height: 40vh;
   width: 50vw;
@@ -381,8 +381,8 @@ hr {
 }
 
 .new-challenge-label {
-  background-color: rgb(76, 153, 76);
-  color: antiquewhite;
+  background-color: #83944C;
+  color:black;
   text-align: center;
   height: 3vh;
 }

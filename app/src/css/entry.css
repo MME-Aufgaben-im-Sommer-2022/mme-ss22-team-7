@@ -1,5 +1,5 @@
 body {
-    background-color: #fff;
+    background-color:#83944c;
     font-size: 1.6rem;
     font-family: arial, "lucida console", "Open Sans", sans-serif;
     color: #2b3e51
@@ -7,27 +7,27 @@ body {
 
 /*die Überschriften*/
 #food {
-    background-color: #bcefef;
+    background-color: #7b4171;
     font-weight: bold;
     width: 10%;
 
 }
 
 #other {
-    background-color: #f0c37e;
+    background-color: #985046 ;
     font-weight: bold;
     width: 10%;
 }
 
 #transport {
-    background-color: #f0c0f7bf;
+    background-color: #4c7494;
     font-weight: bold;
     width: 10%;
 }
 
 /*die einzelnen Felder*/
 .fieldset {
-    background-color:antiquewhite;
+    background-color:#faedcd;
 
 }
 
@@ -53,7 +53,7 @@ body {
 
 /*button*/
 #save-button {
-    background: rgb(76, 153, 76);;
+    background: #faedcd;
     text-align: center;
     font-size: 18px;
     border-radius: 4px;
@@ -64,5 +64,5 @@ body {
 }
 
 #save-button:hover {
-    background-color:antiquewhite;
+    background-color:#c3cdca;
 }

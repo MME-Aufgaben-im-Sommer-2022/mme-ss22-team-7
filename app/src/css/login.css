@@ -12,7 +12,7 @@ h2 {
 
 /* grüne Box */
 #login {
-    background-color: rgb(76, 153, 76);
+    background-color: #83944C;
     width: 35%;
     text-align: center;
     margin: 30px auto;
@@ -39,7 +39,7 @@ input[type="password"] {
   margin: auto;
   font-style: normal;
   font-size: 16px;
-  background-color: antiquewhite;
+  background-color: #FEFAE0;
 }
 
 input[type="submit"]:hover {
