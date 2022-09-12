@@ -1,7 +1,9 @@
 import {initInputs} from "./entries/entryData.js";
 
 console.log("start");
+var score = 0;
 const entryButton = document.querySelector(".new-entry-button"),
+scoreEl = document.querySelector(".score"),
 entriesPopUp = document.querySelector(".overlay-entries");
 entryButton.addEventListener("click", toggleEntries);
 
@@ -19,6 +21,7 @@ function toggleEntries() {
 
 function onEntrySave(){
   entriesPopUp.classList.remove("showMenu");
+  updateScore();
 }
 
 function onPopUp(){
@@ -26,6 +29,12 @@ function onPopUp(){
   saveButtonEl = iframe.document.querySelector("#save-button"),
   inputs = initInputs(iframe);
   saveButtonEl.addEventListener("click", onEntrySave);
+}
+
+function updateScore(){
+ //TODO implement score-calculation / fetch and update database
+  scoreEl.innerHTML = score;
+  console.log(score);
 }
 
 
