@@ -30,24 +30,8 @@ function toggleEntries() {
     entriesPopUp.style.display = "block";
   }
 }
-
-const client = new Client();
-client
-    .setEndpoint('https://appwrite.software-engineering.education/v1')
-    .setProject('62ed22f3b5f7f7c609a8');
-    
-const account = new Account(client);
-
-    // Register User
-   
+ 
 function init() {
-  console.log("appwrite");
-  account.create('23423423', 'me@example.com', 'password', 'Jane Doe')
-  .then(function (response) {
-      console.log(response);
-  }, function (error) {
-      console.log(error);
-  });
   console.log("### Starting MME Project ###"); // eslint-disable-line no-console
 }
 
