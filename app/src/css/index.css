@@ -201,15 +201,6 @@ body {
   height: 10vh;
 }
 
-.challenge-container {
-  text-align: center;
-  flex-grow: 1;
-  background-color: antiquewhite;
-  border-color: black;
-  border-width: 1px;
-  border-style: solid;
-}
-
 .right-main-container {
   flex-grow: 1;
   display: flex;
@@ -336,54 +327,13 @@ hr {
   width: 50vw;
 }
 
-.active-challenges-container {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 10vh;
+
+/*
+* contains challenges.html
+*/
+.challenges-view {
+  height: 10rem;
 }
 
-.active-challenge-label {
-}
 
-.challenge-1-container,
-.challenge-2-container,
-.challenge-3-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
 
-.challenge-1-description,
-.challenge-2-description,
-.challenge-3-description {
-  width: 10vw;
-}
-
-.challenge-1-score,
-.challenge-2-score,
-.challenge-3-score {
-  width: 2vw;
-}
-
-.challenge-1-interact-container,
-.challenge-2-interact-container,
-.challenge-3-interact-container {
-  width: 2vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 1vw;
-}
-
-.new-challenge-label {
-  background-color: darkgreen;
-  color: antiquewhite;
-  text-align: center;
-  height: 3vh;
-}
-
-.new-challenge-container {
-  display: flex;
-  justify-content: space-evenly;
-}
