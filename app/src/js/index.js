@@ -32,6 +32,7 @@ function onPopUp(){
 }
 
 function updateScore(){
+  //ab hier Datanbank nötig
  //TODO implement score-calculation / fetch and update database
   scoreEl.innerHTML = score;
   console.log(score);
