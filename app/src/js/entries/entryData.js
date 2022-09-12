@@ -28,7 +28,7 @@ function initInputs(){
         cultureEl_50 : document.querySelector("#culture-50"),
         cultureEl_100 : document.querySelector("#culture-100"),
         cultureEl_200 : document.querySelector("#culture-200"),
-        cultureEl_300 : document.querySelector("#culture-300"),
+        cultureEl_350 : document.querySelector("#culture-350"),
         cultureEl_600 : document.querySelector("#culture-600"),
     
         houseDeviceEl_30 : document.querySelector("#household-devices-30"),
@@ -65,7 +65,7 @@ function initInputs(){
     inputs.cultureEl_50.score = -10; //score per €
     inputs.cultureEl_100.score = -20; //score per €
     inputs.cultureEl_200.score = -40; //score per €
-    inputs.cultureEl_300.score = -60; //score per €
+    inputs.cultureEl_350.score = -60; //score per €
     inputs.cultureEl_600.score = -127; //score per €
 
     inputs.houseDeviceEl_30.score = -20; //score per €
