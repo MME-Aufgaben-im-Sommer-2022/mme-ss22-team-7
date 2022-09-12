@@ -259,9 +259,9 @@ body {
 
 .burger-menu-icon {
   height: 10vh;
-  display: flex;
 	align-items: center;
 	justify-content: center;
+  margin-top: 4vh;
 }
 
 .leaderboard-header {
@@ -317,7 +317,7 @@ hr {
 }
 
 .active-challenge-label {
-
+ font-size: medium;
 }
 
 .challenge-1-container, .challenge-2-container, .challenge-3-container {

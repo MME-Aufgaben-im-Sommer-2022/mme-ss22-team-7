@@ -5,18 +5,15 @@ import {initInputs} from "./entryData.js"
 
 function initEntry(){
     let entryEl = document.querySelector("#entry-popup"),
-    entry = new Entry(entryEl);
-    initInputs(entry);
-    //initEvents(entry);
+    inputs = initInputs();
+    //initEvents();
 }
 
+function saveBtn(){
+    let saveBtnEl = document.querySelector("#save-button");
+    saveBtnEl.addEventListener("click", onSaveBtnClick);
+}
 
-
-
-class EntryView extends Observable{
-    constructor(entry){
-        this.entry = entry;
-
-    }
-    
+function onSaveBtnClick(){
+    console.log("Saved");
 }
