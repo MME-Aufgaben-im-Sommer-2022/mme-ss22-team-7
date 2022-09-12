@@ -80,9 +80,7 @@ html {
   background-color: rgb(215, 248, 248);
   transform: translateY(-110%);
 }
-.showMenu {
-  transform: translateY(0);
-}
+
 
 #x-burger-menu {
   margin: 2em auto auto 1em;
@@ -156,7 +154,7 @@ body {
 .burger-menu-container {
   flex-grow: 1;
   text-align: center;
-  background-color:antiquewhite;
+  background-color: antiquewhite;
   border-color: black;
   border-width: 1px;
   border-style: solid;
@@ -165,7 +163,7 @@ body {
 .title-container {
   flex-grow: 10;
   text-align: center;
-  background-color:antiquewhite;
+  background-color: antiquewhite;
   border-color: black;
   border-width: 1px;
   border-style: solid;
@@ -174,13 +172,13 @@ body {
 .score-container {
   flex-grow: 2;
   text-align: center;
-  background-color:antiquewhite;
+  background-color: antiquewhite;
   border-color: black;
   border-width: 1px;
   border-style: solid;
   display: flex;
-	align-items: center;
-	justify-content: center;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
 }
 
@@ -196,7 +194,7 @@ body {
 .stats-container {
   text-align: center;
   flex-grow: 2;
-  background-color:antiquewhite;
+  background-color: antiquewhite;
   border-color: black;
   border-width: 1px;
   border-style: solid;
@@ -206,7 +204,7 @@ body {
 .challenge-container {
   text-align: center;
   flex-grow: 1;
-  background-color:antiquewhite;
+  background-color: antiquewhite;
   border-color: black;
   border-width: 1px;
   border-style: solid;
@@ -214,7 +212,7 @@ body {
 
 .right-main-container {
   flex-grow: 1;
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: stretch;
@@ -224,7 +222,7 @@ body {
   text-align: center;
   flex-grow: 1;
   height: 47vh;
-  background-color:antiquewhite;
+  background-color: antiquewhite;
   border-color: black;
   border-width: 1px;
   border-style: solid;
@@ -234,17 +232,17 @@ body {
   text-align: center;
   flex-grow: 1;
   height: 48vh;
-  background-color:antiquewhite;
+  background-color: antiquewhite;
   border-color: black;
   border-width: 1px;
   border-style: solid;
 }
 
 .title {
-	height: 3vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  height: 3vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: darkgreen;
 }
 
@@ -272,7 +270,7 @@ body {
 
 .history-header {
   color: darkgreen;
-  font-size:large;
+  font-size: large;
   margin-top: 5px;
 }
 
@@ -302,6 +300,35 @@ hr {
   flex-grow: 1;
 }
 
+/*
+* new Entry
+*/
+
+.overlay-entries {
+  position: absolute;
+  display: none;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 2;
+  transform: translateY(-110%);
+}
+.showMenu {
+  transform: translateY(0);
+}
+
+.entries-popUp {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  top: 10%;
+  left: 10%;
+  text-align: center;
+  background: white;
+}
+
 .diagram-canvas {
   background-color: darkgreen;
   margin-top: 2em;
@@ -320,21 +347,29 @@ hr {
  font-size: medium;
 }
 
-.challenge-1-container, .challenge-2-container, .challenge-3-container {
+.challenge-1-container,
+.challenge-2-container,
+.challenge-3-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-.challenge-1-description, .challenge-2-description, .challenge-3-description {
+.challenge-1-description,
+.challenge-2-description,
+.challenge-3-description {
   width: 10vw;
 }
 
-.challenge-1-score, .challenge-2-score, .challenge-3-score {
+.challenge-1-score,
+.challenge-2-score,
+.challenge-3-score {
   width: 2vw;
 }
 
-.challenge-1-interact-container, .challenge-2-interact-container, .challenge-3-interact-container {
+.challenge-1-interact-container,
+.challenge-2-interact-container,
+.challenge-3-interact-container {
   width: 2vw;
   display: flex;
   flex-direction: column;
