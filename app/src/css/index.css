@@ -243,7 +243,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: darkgreen;
+  color: rgb(76, 153, 76);
 }
 
 .score-title {
@@ -263,20 +263,20 @@ body {
 }
 
 .leaderboard-header {
-  color: darkgreen;
+  color: black;
   font-size: large;
   margin-top: 5px;
 }
 
 .history-header {
-  color: darkgreen;
+  color: black;
   font-size: large;
   margin-top: 5px;
 }
 
 hr {
-  border-color: darkgreen;
-  border-width: 1px;
+  border-color: black;
+  border-bottom: 1px;
 }
 
 .upper-stats-container {
@@ -298,6 +298,9 @@ hr {
 
 .new-entry-button {
   flex-grow: 1;
+  background-color: rgb(76, 153, 76);
+  border-color: antiquewhite;
+  color: antiquewhite;
 }
 
 /*
@@ -330,7 +333,7 @@ hr {
 }
 
 .diagram-canvas {
-  background-color: darkgreen;
+  background-color: rgb(76, 153, 76);
   margin-top: 2em;
   height: 40vh;
   width: 50vw;
@@ -378,7 +381,7 @@ hr {
 }
 
 .new-challenge-label {
-  background-color: darkgreen;
+  background-color: rgb(76, 153, 76);
   color: antiquewhite;
   text-align: center;
   height: 3vh;
