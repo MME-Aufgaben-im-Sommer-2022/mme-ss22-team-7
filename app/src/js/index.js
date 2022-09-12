@@ -1,11 +1,8 @@
-import {initEntryPage} from "./entries/entries.js";
 import {initInputs} from "./entries/entryData.js";
-
 
 console.log("start");
 const entryButton = document.querySelector(".new-entry-button"),
 entriesPopUp = document.querySelector(".overlay-entries");
-//new entry Button
 entryButton.addEventListener("click", toggleEntries);
 
 function toggleEntries() {
@@ -16,12 +13,7 @@ function toggleEntries() {
   } else {
     entriesPopUp.classList.add("showMenu");
     entriesPopUp.style.display = "block";
-    let iframe = document.querySelector(".popUp"),
-    saveButtonEl = iframe.contentWindow.document.querySelector("#save-button"),
-    inputs = initInputs(iframe.contentWindow);
-    console.log(inputs.carEl.score);
-    saveButtonEl.addEventListener("click", onEntrySave);
-    initEntryPage();
+    onPopUp();
   }
 }
 
@@ -29,16 +21,12 @@ function onEntrySave(){
   entriesPopUp.classList.remove("showMenu");
 }
 
-
-function init() {
-  console.log("### Starting MME Project ###"); // eslint-disable-line no-console
+function onPopUp(){
+  let iframe = document.querySelector(".popUp").contentWindow,
+  saveButtonEl = iframe.document.querySelector("#save-button"),
+  inputs = initInputs(iframe);
+  saveButtonEl.addEventListener("click", onEntrySave);
 }
-
-init();
-
-
-
-
 
 
 
