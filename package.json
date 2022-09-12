@@ -33,7 +33,7 @@
     "open": "^8.4.0"
   },
   "dependencies": {
-    "appwrite": "^9.0.1",
+    "appwrite": "^9.0.2",
     "feather-icons": "^4.29.0"
   }
 }

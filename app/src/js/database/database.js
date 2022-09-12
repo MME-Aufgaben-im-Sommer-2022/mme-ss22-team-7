@@ -1,6 +1,6 @@
-import { Client, Databases, Databases, Query } from "appwrite";
+//import { Client, Databases, Databases, Query } from "appwrite";
 
-
+/*
 //Create new document
 const client = new Client();
 
@@ -53,3 +53,4 @@ databases.listDocuments(
     ['title', 'year'], // orderAttributes
     ['ASC', 'DESC'] // orderTypes	
 );
+*/
