@@ -12,7 +12,7 @@ h2 {
 
 /* grüne Box */
 #register {
-    background-color: #BDECB6;
+    background-color: rgb(76, 153, 76);;
     width: 35%;
     text-align: center;
     margin: 30px auto;
@@ -39,6 +39,7 @@ input[type="email"] {
     margin: auto;
     font-style: normal;
     font-size: 16px;
+    background-color: antiquewhite;
 }
 
 /*button*/

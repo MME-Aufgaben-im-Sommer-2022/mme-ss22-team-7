@@ -27,7 +27,7 @@ body {
 
 /*die einzelnen Felder*/
 .fieldset {
-    background-color: rgb(245, 245, 236);
+    background-color:antiquewhite;
 
 }
 
@@ -53,7 +53,7 @@ body {
 
 /*button*/
 #save-button {
-    background: #BDECB6;
+    background: rgb(76, 153, 76);;
     text-align: center;
     font-size: 18px;
     border-radius: 4px;
@@ -64,5 +64,5 @@ body {
 }
 
 #save-button:hover {
-    background-color: #a0c899;
+    background-color:antiquewhite;
 }

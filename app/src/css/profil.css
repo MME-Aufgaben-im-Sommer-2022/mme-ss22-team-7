@@ -6,7 +6,7 @@ body {
 }
 
 #profil-popup {
-    background-color: #BDECB6;
+    background-color: rgb(76, 153, 76);
     text-align: center;
     width: 25%;
     margin: 30px auto;
@@ -29,13 +29,13 @@ i {
 }
 
 #suchbegriff{
-   background-color: #BDECB6;
+   background-color:rgb(88, 182, 88);
    border-color: #2b3e51;
-   border-top:#BDECB6;
-   border-left: #BDECB6;
-   border-right: #BDECB6;
+   border-top:rgb(76, 153, 76);
+   border-left: rgb(76, 153, 76);
+   border-right: rgb(76, 153, 76);
    
-   border-bottom-width: 3px;
+   border-bottom-width: 2px;
    padding-left: 0.5em;
 }
 
