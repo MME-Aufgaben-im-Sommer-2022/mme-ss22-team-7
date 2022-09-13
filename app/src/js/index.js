@@ -3,26 +3,21 @@ import {initInputs} from "./entries/entryData.js";
 console.log("start");
 var score = 0;
 const entryButton = document.querySelector(".new-entry-button"),
-<<<<<<< Updated upstream
   scoreEl = document.querySelector(".score"),
   entriesPopUp = document.querySelector(".overlay-entries"),
   hamburger = document.querySelector("#burger-menu-open"),
   closeIcon = document.querySelector("#burger-menu-close"),
+  loginPopUp = document.querySelector(".overlay-login"),
   profile = document.querySelector(".profile-container");
 
 entryButton.addEventListener("click", toggleEntries);
 hamburger.addEventListener("click", toggleMenu);
 closeIcon.addEventListener("click", toggleMenu);
 
-
-=======
-scoreEl = document.querySelector(".score"),
-entriesPopUp = document.querySelector(".overlay-entries"),
-loginPopUp = document.querySelector(".overlay-login");
 entryButton.addEventListener("click", toggleEntries);
 let login = "none";
 handleLoginPopup();
->>>>>>> Stashed changes
+
 
 function toggleEntries() {
   if (entriesPopUp.classList.contains("showMenu")) {
@@ -54,7 +49,6 @@ function updateScore(){
   console.log(score);
 }
 
-<<<<<<< Updated upstream
 function toggleMenu() {
   if (profile.classList.contains("showMenu")) {
     profile.classList.remove("showMenu");
@@ -64,7 +58,6 @@ function toggleMenu() {
     closeIcon.style.display = "block";
   }
 }
-=======
 function handleLoginPopup(){
   loginPopUp.classList.add("showMenu");
   //loginPopUp.style.display = "block";
@@ -126,4 +119,3 @@ function setUpClosing(){
 //     closeIcon.style.display = "block";
 //   }
 // }
->>>>>>> Stashed changes
