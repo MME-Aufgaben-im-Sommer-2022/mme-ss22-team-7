@@ -116,7 +116,7 @@ body {
   justify-content: start;
   align-items: stretch;
   flex-direction: column;
-  height: 86vh;
+  height: 105vh;
   overflow: auto;
 }
 
@@ -130,7 +130,7 @@ body {
   height: 10vh;
 }
 
-.challenge-container {
+.challenges-view {
   text-align: center;
   flex-grow: 1;
   background-color: #faedcd;
