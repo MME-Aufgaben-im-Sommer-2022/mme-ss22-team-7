@@ -229,7 +229,7 @@ hr {
 * new Entry
 */
 
-.overlay-entries {
+.overlay-entries, .overlay-login {
   position: absolute;
   display: none;
   top: 0;
@@ -249,6 +249,16 @@ hr {
   width: 80%;
   height: 80%;
   top: 10%;
+  left: 10%;
+  text-align: center;
+  background: white;
+}
+
+.popUp-login {
+  position: absolute;
+  width: 80%;
+  height: 90%;
+  top: 5%;
   left: 10%;
   text-align: center;
   background: white;
