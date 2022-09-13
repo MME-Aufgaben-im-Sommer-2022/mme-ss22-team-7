@@ -1,55 +1,57 @@
-import { Client, Databases, Databases, Query } from "appwrite";
+import { Client as Appwrite, Databases, Account} from "appwrite";
+import { Server } from "../utils/config";
 
-
-//Create new document
-const client = new Client();
-
-client
-    .setEndpoint('https://appwrite.software-engineering.education/v1')
-    .setProject('62ed22f3b5f7f7c609a8');
-
-const databases = new Databases(client, '6311ece9c6ebefc4b0f0');
-
-const promise = databases.createDocument('[COLLECTION_ID]', 'unique()', {});
-
-promise.then(function (response) {
-    console.log(response); // Success
-}, function (error) {
-    console.log(error); // Failure
-});
-
-//find entry
-databases.listDocuments('movies', [
-    Query.equal('title', 'Avatar')
-]);
-
-databases.listDocuments('movies', [
-    Query.equal('title', ['Avatar', 'Lord of the Rings']),
-    Query.greater('year', 1999)
-]);
-
-//order results
-
-const databases1 = new Databases(client, "[DATABASE_ID]");  // 'client' comes from setup
-databases.listDocuments(
-    'movies', // collectionId
-    [], // queries
-    25, // limit
-    0, // offset
-    '', // cursor
-    'after', // cursorDirection
-    ['title'], // orderAttributes
-    ['ASC'] // orderTypes
-);
-
-const databases2 = new Databases(client, "[DATABASE_ID]");  // 'client' comes from setup
-databases.listDocuments(
-    'movies', // collectionId
-    [], // query
-    25, // limit
-    0, // offset
-    '', // cursor
-    'after', // cursorDirection
-    ['title', 'year'], // orderAttributes
-    ['ASC', 'DESC'] // orderTypes	
-);
+let api = {
+    sdk: null,
+  
+    provider: () => {
+      if (api.sdk) {
+        return api.sdk;
+      }
+      let appwrite = new Appwrite();
+      appwrite.setEndpoint(Server.endpoint).setProject(Server.project);
+      const account = new Account(appwrite);
+      const database = new Databases(appwrite, Server.databaseID);
+  
+      api.sdk = { database, account };
+      return appwrite;
+    },
+  
+    createAccount: (email, password, name) => {
+      return api.provider().account.create('unique()', email, password, name);
+    },
+  
+    getAccount: () => {
+      return api.provider().account.get();
+    },
+  
+    createSession: (email, password) => {
+      return api.provider().account.createEmailSession(email, password);
+    },
+  
+    deleteCurrentSession: () => {
+      return api.provider().account.deleteSession('current');
+    },
+  
+    createDocument: (collectionId, data, read, write) => {
+      return api
+        .provider()
+        .database.createDocument(collectionId, 'unique()', data, read, write);
+    },
+  
+    listDocuments: (collectionId) => {
+      return api.provider().database.listDocuments(collectionId);
+    },
+  
+    updateDocument: (collectionId, documentId, data, read, write) => {
+      return api
+        .provider()
+        .database.updateDocument(collectionId, documentId, data, read, write);
+    },
+  
+    deleteDocument: (collectionId, documentId) => {
+      return api.provider().database.deleteDocument(collectionId, documentId);
+    },
+  };
+  
+  export default api;
