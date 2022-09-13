@@ -10,15 +10,42 @@ _Fassen Sie kurz die wichtigsten Features, die intendierte Zielgruppe und die gr
 
 Die wichtigsten Features bilden zum Einen, die erstellbaren CO2-Einträge und deren visuelle Darstellung auf der Hauptseite, zum Anderen aber auch das Vergleichen von Werten zwischen Freunden. Das bewältigen von Challeges, steht ebenfalls im Fokus der Anwendung.
 
-Die stetig steigende CO2-Emission und deren schlechte Auswirkungen auf die Umwelt, sind ein universales Problem dieser Gesellschaft. Durch sie wird der Klimawandel...
-Die Anwendung richtet sich an Menschen, denen eine Verbesserung oder auch lediglich eine Einschätzung, des eigenen CO2-Verbrauchs, wichtig ist. Sie sollten durch das Leaderboard und die Challenges motiviert werden, sich stetig neu herauszufordern und zu verbessern. Somit können die Nutzer nicht nur über sich hinaus wachsen, sondern auch dazu beitragen, die CO2-Bilanz zu senken.
+Die stetig steigende CO2-Emission und deren schlechte Auswirkungen auf die Umwelt, sind ein universales Problem dieser Gesellschaft. Durch sie wird der Klimawandel beschleunigt und stellt so eine Gefahr für Mensch und Natur dar.
+Die Anwendung richtet sich an Menschen allen Alters, denen eine Verbesserung oder auch lediglich das Bewusstsein, des eigenen CO2-Verbrauchs, wichtig ist. Sie sollten durch das Leaderboard und die Challenges motiviert werden, sich stetig neu herauszufordern und zu verbessern. Somit können die Nutzer nicht nur über sich hinaus wachsen, sondern auch dazu beitragen, die CO2-Bilanz zu senken.
+
+Implementierte Funktionen:
+- Das Anmelden: _Verlinkung des aktuellsten Release_
+- Das Registrieren: _Verlinkung des aktuellsten Release_
+- Das Erstellen eines Eintrags: _Verlinkung des aktuellsten Release_
+- Das Bearbeiten von getätigten Einträgen: _Verlinkung des aktuellsten Release_
+- Das Anzeigen des Verbrauchs, anhand eines Grafen: _Verlinkung des aktuellsten Release_
+- Das Annehmen von Challenges: _Verlinkung des aktuellsten Release_
+- Das Bearbeiten von aktiven Challenges: _Verlinkung des aktuellsten Release_
+- Das Suchen und Hinzufügen von Freunden: _Verlinkung des aktuellsten Release_
+- Die Darstellung der History: _Verlinkung des aktuellsten Release_
+- Die Darstellung des Leaderboards: _Verlinkung des aktuellsten Release_
 
 
-Motivation:
 
 ## Beschreibung & Anleitung
 
 _Beschreiben Sie die zentralen Funktionen Ihrer Anwendung und deren Verwendung. Nutzen Sie dazu Screenshots und/oder Videos. Verlinken Sie ein min. 60-sekündiges Demo-Video, das die Verwendung aller wichtigen Funktionen zeigt und in Form eines Audio-Kommentars beschreibt._
+--> Screenshots, Video und Audioaufnahme fehlen!!
+
+Die Anwendung startet mit der Möglichkeit, dass der Nutzer sich anmelden kann oder über eine Verlinkung registrieren kann. Hierfür werden Username und Passwort oder Username, Passwort und eine E-Mail Adresse benötigt. Anschließend wird der Nutzer auf die Hauptseite der Greenbook Anwendung geleitet. Diese bietet einen Überblick über die meisten Funktionen, wie der Anzeige des aktuellen Scores, des Leaderboards, des Grafen, der Challenges oder der History.
+
+Von der Hauptseite aus kann der User mithilfe eines Burgermenüs sein Profil öffnen, woduch sein Username, seine ID und seine Freundesliste angezeigt werden. Im Burgermenü besteht außerdem die Möglichkeit neue Freunde per ID zu adden und der Freundesliste hinzuzufügen.
+
+Zurück auf der Hauptseite kann der Nutzer mithilfe des "new Entry"-Buttons ein Popup öffnen. In diesem können verschiedene Angaben zum individuellen CO2-Verbrauch angegeben werden. Mit dem save-Button werden diese mit einem Score verrechnet und aktualisiert.
+
+Der Score wird auf der Hauptseite, als Zahl aber auch als grafische Abbildung dargestellt. _Der Graf des Nutzers kann mithilfe eines Buttons, mit dem Grafen eines Freundes auf Platz 1 im Leaderboard verglichen werden_ .
+
+Das Leaderboard wird auf der rechten Seite des Hauptbildschirms angezeigt und listet die fünf Freunde mit dem höchsten Score nacheinander auf. 
+
+Im unteren Teil der Hauptseite werden auswählbare Challenges angezeigt. Diese können mithilfe eines Buttons aktiviert und somit in ein Feld darüber verschoben werden. Die aktivierten Challenges zeigen den Fortschritt an, können aber auch abgebrochen oder abgeschlossen werden.
+
+So kann der Score mithilfe von neuen Einträgen mit negativen Werten und durch das erfolgreiche abschließen von Challenges mir positiven Wertem verrechnet werden. Ein Verlauf von absolvierten Challenges und erstellten Einträgen wird in der History angezeigt. Auch hier hat der Nutzer die Möglichkeit diese zu löschen. 
+
 
 ## Team
 
@@ -28,7 +55,7 @@ _Listen Sie tabelarisch alle Teammitglieder mit Name, E-Mail-Adresse und Foto au
 
 Name | E-Mail-Adresse | Github-Nutzer | Foto | Komponenten der Anwendung
 --- | --- | --- | --- | ---
-Benedikt Boehlke | benedikt.boehlke@stud.uni-regensburg.de | Beneboehlke | ![Profilbild Benedikt B] | 
-Natalie Röhrle | natalie.roehrle@stud.uni-regensburg.de | NaCesca | ![Profilbild Natalie R] | 
-Florian Feist | florian.feist@stud.uni-regensburg.de | FeistFlo | ![Profilbild Florian F] |
-Johannes Klein | johannes.klein@stud.uni-regensburg.de | johnnyklein | ![Profilbild Johannes K] |
+Benedikt Boehlke | benedikt.boehlke@stud.uni-regensburg.de | Beneboehlke | ![Profilbild Benedikt B] | Challenges, Popup,...
+Natalie Röhrle | natalie.roehrle@stud.uni-regensburg.de | NaCesca | ![Profilbild Natalie R] | Layouts, Entries,...
+Florian Feist | florian.feist@stud.uni-regensburg.de | FeistFlo | ![Profilbild Florian F] | Haupt-Layout, Entries, Popup,...
+Johannes Klein | johannes.klein@stud.uni-regensburg.de | johnnyklein | ![Profilbild Johannes K] | Datenbank, Challenges,...
