@@ -1,91 +1,27 @@
 /*
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
-.feather {
-  width: 24px;
-  height: 24px;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  fill: none;
-}
-
-html {
-  display: grid;
-  grid-template-columns: minmax(200px, 1200px);
-  justify-content: center;
-  background-color: dimgray;
-}
-
-#main-container {
-  display: grid;
-  background-color: floralwhite;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: auto;
-  grid-template-areas:
-    "header header header header sidebar"
-    "main main main main sidebar";
-}
-
-#main-header {
-  grid-area: header;
-}
-
-#header-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-#burger-menu,
-#app-name,
-#header-score {
-  display: flex;
-}
-
-#burger-menu {
-  margin: auto 0px auto 1em;
-  width: 1.5em;
-  height: 1.5em;
-  justify-content: center;
-}
-
-#score-container {
-  margin-right: 1em;
-  justify-content: center;
-}
-
-#score-heading,
-#score {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-#score {
-  font-size: x-large;
-  margin-top: -0.5em;
-}
-
+----------------------  Profile View  -------------------------------------------------------------------------------------
+*/
 .profile-container {
   position: fixed;
-  top: 8px;
-  width: 20rem;
+  width: 35rem;
   z-index: 20;
   background-color: rgb(215, 248, 248);
   transform: translateY(-110%);
 }
 
+.menu-close-container {
+  display: flex;
+  justify-content: end;
+}
 
-#x-burger-menu {
-  margin: 2em auto auto 1em;
-  width: 1.5em;
-  height: 1.5em;
+#burger-menu-open {
+	align-items: center;
+	justify-content: center;
+  margin-top: 4vh;
+}
+
+#burger-menu-close {
+  margin: 1.5em 1.5em auto 1em;
 }
 
 #img-outer-container {
@@ -98,7 +34,7 @@ html {
   margin-top: 2em;
   display: inline-block;
   position: relative;
-  width: 50%;
+  width: 40%;
 }
 
 #dummy-profile-img {
@@ -115,15 +51,8 @@ html {
   border-radius: 50%;
 }
 
-#main {
-  grid-area: main;
-  background-color: yellow;
-}
-
-#main-leaderboard {
-  grid-area: sidebar;
-  background-color: rgba(150, 256, 0, 0.3);
-}
+/*
+----------------------  main application  -------------------------------------------------------------------------------------
 */
 
 body {
@@ -253,13 +182,6 @@ body {
 .score {
   font-size: 2em;
   color: black;
-}
-
-.burger-menu-icon {
-  height: 10vh;
-	align-items: center;
-	justify-content: center;
-  margin-top: 4vh;
 }
 
 .leaderboard-header {

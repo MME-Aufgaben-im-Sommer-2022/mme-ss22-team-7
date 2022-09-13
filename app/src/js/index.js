@@ -3,12 +3,19 @@ import {initInputs} from "./entries/entryData.js";
 console.log("start");
 var score = 0;
 const entryButton = document.querySelector(".new-entry-button"),
-scoreEl = document.querySelector(".score"),
-entriesPopUp = document.querySelector(".overlay-entries");
+  scoreEl = document.querySelector(".score"),
+  entriesPopUp = document.querySelector(".overlay-entries"),
+  hamburger = document.querySelector("#burger-menu-open"),
+  closeIcon = document.querySelector("#burger-menu-close"),
+  profile = document.querySelector(".profile-container");
+
 entryButton.addEventListener("click", toggleEntries);
+hamburger.addEventListener("click", toggleMenu);
+closeIcon.addEventListener("click", toggleMenu);
+
+
 
 function toggleEntries() {
-  //popup
   if (entriesPopUp.classList.contains("showMenu")) {
     entriesPopUp.classList.remove("showMenu");
     entriesPopUp.style.display = "none";
@@ -38,24 +45,12 @@ function updateScore(){
   console.log(score);
 }
 
-
-
-// const hamburger = document.querySelector("#burger-menu"),
-//   closeIcon = document.querySelector("#x-burger-menu"),
-//   profile = document.querySelector(".profile-container"),
-
-
-//hamburger.addEventListener("click", toggleMenu);
-//closeIcon.addEventListener("click", toggleMenu);
-
-
-
-// function toggleMenu() {
-//   if (profile.classList.contains("showMenu")) {
-//     profile.classList.remove("showMenu");
-//     closeIcon.style.display = "none";
-//   } else {
-//     profile.classList.add("showMenu");
-//     closeIcon.style.display = "block";
-//   }
-// }
+function toggleMenu() {
+  if (profile.classList.contains("showMenu")) {
+    profile.classList.remove("showMenu");
+    closeIcon.style.display = "none";
+  } else {
+    profile.classList.add("showMenu");
+    closeIcon.style.display = "block";
+  }
+}
