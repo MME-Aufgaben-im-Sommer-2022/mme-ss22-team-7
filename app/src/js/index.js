@@ -7,7 +7,8 @@ const entryButton = document.querySelector(".new-entry-button"),
   entriesPopUp = document.querySelector(".overlay-entries"),
   hamburger = document.querySelector("#burger-menu-open"),
   closeIcon = document.querySelector("#burger-menu-close"),
-  loginPopUp = document.querySelector(".overlay-login"),
+  loginPopUp = document.querySelector(".login-popUp"),
+  registerPopUp = document.querySelector(".register-popUp"),
   profile = document.querySelector(".profile-container");
 
 entryButton.addEventListener("click", toggleEntries);
@@ -58,14 +59,17 @@ function toggleMenu() {
     closeIcon.style.display = "block";
   }
 }
+
+
+
+
 function handleLoginPopup(){
-  loginPopUp.classList.add("showMenu");
-  //loginPopUp.style.display = "block";
-  //checkLogInVar();
-  //setUpClosing();
+  loginPopUp.style.display = "block";
+  registerPopUp.style.display = "none";
 }
 
-//TODO
+
+//ab hier unsinn(aber wiederverwendbar)
 function checkLogInVar(){
   let iframe = document.querySelector(".popUp-login").contentWindow;
   if(iframe.document.querySelector("#login") != null){
@@ -79,6 +83,7 @@ function checkLogInVar(){
 }
 
 function onLoginClose(){
+  //class website-hidden entfernen, um hintergrund wieder sichtbar zu machen
   console.log("closing login");
   loginPopUp.classList.remove("showMenu");
   loginPopUp.style.display = "none";
