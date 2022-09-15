@@ -1,130 +1,107 @@
-import Observable from "../utils/Observable";
+// diese hier
 
-var openChallenges = [
-{
-    id: "abc123",
-    name: "nameone",
-    length: 3,
-}, 
-{
-    id: "aaaaa",
-    name: "nametwo",
-    length: 2,
-}, 
-{
-    id: "bbbbb",
-    name: "namethree",
-    length: 1,
-}, 
-],
+import Challenge from "./challenge.js";
+import ChallengeView from "./challengeView.js";
 
- activeChallenges = [
-    {
-        id: "ccccc",
-        name: "aone",
-        length: 4,
-    }, 
-    {
-        id: "ddddd",
-        name: "atwo",
-        length: 5,
-    }, 
-    {
-        id: "eeee",
-        name: "athree",
-        length: 6,
-    }, 
-    ],
-
-finishedChallenges = [
-
+let activeChallenges = [
+  {
+    tid: "aaa",
+    name: "aone",
+    description: "",
+    length: 4,
+    completed: false,
+    Uid: "u273942947329",
+    startDate: 40922,
+    endDate: 110922,
+    scoreValue: 13,
+  },
+  {
+    tid: "bbb",
+    name: "bone",
+    description: "",
+    length: 4,
+    completed: false,
+    Uid: "u273942947329",
+    startDate: 40922,
+    endDate: 110922,
+    scoreValue: 13,
+  },
+  {
+    tid: "ccc",
+    name: "cone",
+    description: "",
+    length: 4,
+    completed: false,
+    Uid: "u273942947329",
+    startDate: 40922,
+    endDate: 110922,
+    scoreValue: 13,
+  },
 ];
 
-const listActive = document.querySelector('#active-challenges');
+class Challenges {
+  constructor(listA) {
+    this.listA = listA;
+    this.ChallengeViews = [];
 
-activeChallenges.forEach(element => {
-    const activeElement = document.createElement('div');
-    // find better way to create content of div,
-    // also how to style that dv and its content?
-    activeElement.innerHTML = element.name;
-    listActive.appendChild(activeElement);
-});
+    this.populateActiveChallenges(activeChallenges);
+  }
 
-openChallenges.forEach(element => {
-    const openElement = document.createElement('div');
-    // find better way to create content of div,
-    // also how to style that dv and its content?
-    openElement.innerHTML = element.name;
-    listActive.appendChild(openElement);
-});
+  populateActiveChallenges(challenges) {
+    //load data from backend
 
-// function when finishing challenge 
-function finishChallenge (challenge) {
-    activeChallenges.forEach(element => {
-        if (element.id === challenge.id) {
-            activeChallenges.splice(activeChallenges[element - 1], 0);
-        }
+    // creating a challengeItem
+    challenges.forEach((challenge) =>
+      this.addChallenge(Challenge.fromObject(challenge))
+    );
+  }
+
+  addChallenge(challenge) {
+    const ChallengeViews = this.ChallengeViews;
+    const challengeView = new ChallengeView();
+    challengeView.addEventListener("decline", (event) =>
+      this.declineChallenge(challenge)
+    );
+
+    challengeView.challenge = challenge;
+    ChallengeViews.push(challengeView);
+    // is challengeView.element right? the element?
+    this.listA.appendChild(challengeView.element);
+  }
+
+  declineChallenge(challenge) {
+    // sort challenge back into open challenges
+    console.log(challenge);
+  }
+
+  finishChallenge(challenge) {
+    activeChallenges.forEach((element) => {
+      if (element.id === challenge.id) {
+        // remove challenge from active Challenges in backend
+        activeChallenges.splice(activeChallenges[element - 1], 0);
+      }
     });
-    finishedChallenges.appendChild(challenge);
     // add score related to the challenge to the users score
-}
+  }
 
-
-//die drei Methoden maybe unnötig
-//Start einer Challenge
-//Listener kann nicht zugegriffen werden
-function buttonIsClicked(){
-    startButton = document.querySelector(".btn");
-    startButton.addEventListener("click", onChallengeStart);
-    console.log("klick geht");
-}
-
-function createStartDate(){
-    //Datum des Challenge Starts
-}
-
-function onChallengeStart(){
-    let name = document.querySelector(".name").value;
-    let length = document.querySelector(".length").value;
-    let points = document.querySelector(".points").value;
-    let date = createStartDate();
-    challenge = new Challenge(name, null, length, date, points, true);
-    challenge.activateChallenge();
-}
-
-
-
-class Challenge extends Observable{
-
-    //desription aus db löschen!!
-    constructor(name,description,length,startDate,points,status="deactivated",challengeID){
-        super();
-        this.name = name;
-       // this.description = description;
-        this.length = length;
-        this.startDate = startDate;
-        this.points = points;
-        this.status = status;
-        this.challengeID = challengeID;
+  activateChallenge() {
+    this.status = "active";
+    this.notifyAll(new Event("activate", this));
+  }
+  deactivateChallenge() {
+    this.status = "deactivated";
+    this.notifyAll(new Event("deactivate", this));
+  }
+  // when challengeLength is 0, the challenge can be completed
+  completeChallenge() {
+    if (this.challengeLengthLeft() === 0) {
+      this.status = "completed";
+      this.notifyAll(new Event("complete", this));
     }
+  }
+  challengeLengthLeft() {
+    return this.length - (Date.now() - this.startDate);
+  }
+}
 
-    activateChallenge(){
-        this.status = "active";
-        this.notifyAll(new Event("activate",this));
-        console.log("challenge ist ab jetzt aktiv");
-    }
-    deactivateChallenge(){
-        this.status = "deactivated";
-        this.notifyAll(new Event("deactivate",this));
-    }
-    // when challengeLength is 0, the challenge can be completed
-    completeChallenge(){
-        if(this.challengeLengthLeft() === 0){
-        this.status = "completed";
-        this.notifyAll(new Event("complete",this));
-    }
-}
-    challengeLengthLeft(){
-        return this.length - (Date.now() - this.startDate);
-    }
-}
+export default Challenges;
