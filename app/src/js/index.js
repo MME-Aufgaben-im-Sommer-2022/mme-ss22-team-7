@@ -2,8 +2,8 @@
 const client = new Client();
 
 client
-  .setEndpoint("http://localhost/v1") // Your Appwrite Endpoint
-  .setProject("455x34dfkj"); // Your project ID
+  .setEndpoint("https://appwrite.software-engineering.education/v1") // Your Appwrite Endpoint
+  .setProject("62ed22f3b5f7f7c609a8"); // Your project ID
 
 const account = new Account(client);
 
