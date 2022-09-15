@@ -1,11 +1,11 @@
 // Init your Web SDK
-const client = new Client();
+const client = new Appwrite.Client();
 
 client
   .setEndpoint("https://appwrite.software-engineering.education/v1") // Your Appwrite Endpoint
   .setProject("62ed22f3b5f7f7c609a8"); // Your project ID
 
-const account = new Account(client);
+const account = new Appwrite.Account(client);
 
 // Register User
 account.create("unique()", "me@example.com", "password", "Jane Doe").then(
