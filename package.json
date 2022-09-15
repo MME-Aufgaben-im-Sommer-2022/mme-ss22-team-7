@@ -31,9 +31,5 @@
     "fs-extra": "^10.0.0",
     "npm-watch": "^0.11.0",
     "open": "^8.4.0"
-  },
-  "dependencies": {
-    "appwrite": "^9.0.2",
-    "feather-icons": "^4.29.0"
   }
 }
