@@ -1,4 +1,6 @@
 import {initInputs} from "./entries/entryData.js";
+import api from "./database/database.js";
+
 
 console.log("start");
 var score = 0;
@@ -105,28 +107,12 @@ function onRegisterClose(){
   websiteEl.classList.remove("website-hidden");
 }
 
-
-// Init your Web SDK
-const client = new Appwrite.Client();
-
-client
-  .setEndpoint("https://appwrite.software-engineering.education/v1") // Your Appwrite Endpoint
-  .setProject("62ed22f3b5f7f7c609a8"); // Your project ID
-
-const account = new Appwrite.Account(client);
-
 // Register User
-account.create("unique()", "me@example.com", "password", "Jane Doe").then(
-  (response) => {
-    console.log(response);
-  },
-  (error) => {
-    console.log(error);
-  }
-);
-
-
-
+/*api.createAccount("test@tes23t.com", "test123334", "peteaar").then(function (response) {
+  console.log(response);
+}, function (error) {
+  console.log(error);
+});*/
 
 // const hamburger = document.querySelector("#burger-menu"),
 //   closeIcon = document.querySelector("#x-burger-menu"),
