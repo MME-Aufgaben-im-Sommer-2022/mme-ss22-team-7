@@ -70,13 +70,37 @@ function finishChallenge (challenge) {
 }
 
 
+//die drei Methoden maybe unnötig
+//Start einer Challenge
+//Listener kann nicht zugegriffen werden
+function buttonIsClicked(){
+    startButton = document.querySelector(".btn");
+    startButton.addEventListener("click", onChallengeStart);
+    console.log("klick geht");
+}
+
+function createStartDate(){
+    //Datum des Challenge Starts
+}
+
+function onChallengeStart(){
+    let name = document.querySelector(".name").value;
+    let length = document.querySelector(".length").value;
+    let points = document.querySelector(".points").value;
+    let date = createStartDate();
+    challenge = new Challenge(name, null, length, date, points, true);
+    challenge.activateChallenge();
+}
+
+
 
 class Challenge extends Observable{
 
+    //desription aus db löschen!!
     constructor(name,description,length,startDate,points,status="deactivated",challengeID){
         super();
         this.name = name;
-        this.description = description;
+       // this.description = description;
         this.length = length;
         this.startDate = startDate;
         this.points = points;
@@ -87,6 +111,7 @@ class Challenge extends Observable{
     activateChallenge(){
         this.status = "active";
         this.notifyAll(new Event("activate",this));
+        console.log("challenge ist ab jetzt aktiv");
     }
     deactivateChallenge(){
         this.status = "deactivated";
