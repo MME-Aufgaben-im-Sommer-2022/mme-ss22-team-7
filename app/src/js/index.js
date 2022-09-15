@@ -9,6 +9,11 @@ const entryButton = document.querySelector(".new-entry-button"),
   closeIcon = document.querySelector("#burger-menu-close"),
   loginPopUp = document.querySelector(".login-popUp"),
   registerPopUp = document.querySelector(".register-popUp"),
+  loginButtonEl = document.querySelector("#login-button"),
+  registerButtonEl = document.querySelector("#register-button"),
+  loginCloseEl = document.querySelector("#sign-in"),
+  registerCloseEl = document.querySelector("#create-account"),
+  websiteEl = document.querySelector("#website"),
   profile = document.querySelector(".profile-container");
 
 entryButton.addEventListener("click", toggleEntries);
@@ -66,40 +71,39 @@ function toggleMenu() {
 function handleLoginPopup(){
   loginPopUp.style.display = "block";
   registerPopUp.style.display = "none";
+  login = "login";
+  loginButtonEl.addEventListener("click", onLoginSwitch);
+  registerButtonEl.addEventListener("click", onLoginSwitch);
+  loginCloseEl.addEventListener("click", onLoginClose);
+  registerCloseEl.addEventListener("click", onRegisterClose);
 }
 
-
-//ab hier unsinn(aber wiederverwendbar)
-function checkLogInVar(){
-  let iframe = document.querySelector(".popUp-login").contentWindow;
-  if(iframe.document.querySelector("#login") != null){
-    login = "login";
-  }else if(iframe.document.querySelector("#register") != null){
+function onLoginSwitch(){
+  if(login === "login"){
+    loginPopUp.style.display = "none";
+    registerPopUp.style.display = "block";
     login = "register";
-  }else{
-    login = "none";
+  }else if(login === "register"){
+    loginPopUp.style.display = "block";
+    registerPopUp.style.display = "none";
+    login = "login";
   }
-  console.log(login);
 }
 
 function onLoginClose(){
-  //class website-hidden entfernen, um hintergrund wieder sichtbar zu machen
-  console.log("closing login");
-  loginPopUp.classList.remove("showMenu");
+  login = "none";
   loginPopUp.style.display = "none";
+  registerPopUp.style.display = "none";
+  websiteEl.classList.remove("website-hidden");
 }
 
-function setUpClosing(){
-  let iframe = document.querySelector(".popUp-login").contentWindow,
-  closeLoginEl = iframe.document.querySelector("#sign-in"),
-  closeRegisterEl = iframe.document.querySelector("#create-account");
-  if(closeLoginEl != null){
-    closeLoginEl.addEventListener("click", onLoginClose);
-  }
-  if(closeRegisterEl != null){
-    closeRegisterEl.addEventListener("click", onLoginClose);
-  }
-}
+function onRegisterClose(){
+  login = "none";
+  loginPopUp.style.display = "none";
+  registerPopUp.style.display = "none";
+  websiteEl.classList.remove("website-hidden");
+} 
+
 
 
 
