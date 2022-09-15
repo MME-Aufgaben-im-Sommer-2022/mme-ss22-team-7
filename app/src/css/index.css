@@ -479,3 +479,30 @@ register
     padding: 8px 0;
     border-radius: 0 0 7px 7px;
   }
+
+  /*
+  history-template
+  */
+
+  .history-element-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px;
+  }
+
+  .negative {
+    background-color: red;
+  }
+
+  .positive {
+    background-color: green;
+  }
+
+  .history-element-description {
+    flex-grow: 4;
+  }
+
+  .history-element-score {
+    flex-grow: 1;
+  }

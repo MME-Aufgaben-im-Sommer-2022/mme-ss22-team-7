@@ -55,6 +55,8 @@ function updateScore(){
   console.log(score);
 }
 
+
+//popUp lieber über html/css? iframe noch mit bugs
 function toggleMenu() {
   if (profile.classList.contains("showMenu")) {
     profile.classList.remove("showMenu");
