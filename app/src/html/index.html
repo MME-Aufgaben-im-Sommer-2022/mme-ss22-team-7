@@ -82,6 +82,14 @@
               <!-- list with active challenges  -->
               <div class="active_container" id="active-challenges"></div>
             </div>
+            <div class="open-challenges-container">
+              <div class="open-challenge-label">
+                Open <br />
+                Challenges
+              </div>
+              <!-- list with open challenges  -->
+              <div class="open_container" id="open-challenges"></div>
+            </div>
             <div class="new-challenge-label">Add a new challenge</div>
             <div class="new-challenge-container"></div>
           </div>
@@ -110,12 +118,20 @@
   <!--  Template für die einzelnen widgets / cards der Challenges  -->
   <template id="challenge-widget-template">
     <li class="card">
-      <!-- <img src="eco9.png" alt="" style="width:100%"> -->
-      <h1 class="name"></h1>
+      <p class="name"></p>
       <p class="length"></p>
-      <p class="points"></p>
+      <p class="scoreValue"></p>
       <p><button class="approve"></button></p>
       <p><button class="decline"></button></p>
+    </li>
+  </template>
+  <!--  Templete für die noch offenen Challenges  -->
+  <template id="challenge-widget-template-open">
+    <li class="card">
+      <p class="name"></p>
+      <p class="length"></p>
+      <p class="scoreValue"></p>
+      <p><button class="accept"></button></p>
     </li>
   </template>
 </html>

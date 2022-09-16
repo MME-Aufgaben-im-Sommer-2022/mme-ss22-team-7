@@ -4,50 +4,86 @@ import Challenge from "./challenge.js";
 import ChallengeView from "./challengeView.js";
 
 let activeChallenges = [
-  {
-    tid: "aaa",
-    name: "aone",
-    description: "",
-    length: 4,
-    completed: false,
-    Uid: "u273942947329",
-    startDate: 40922,
-    endDate: 110922,
-    scoreValue: 13,
-  },
-  {
-    tid: "bbb",
-    name: "bone",
-    description: "",
-    length: 4,
-    completed: false,
-    Uid: "u273942947329",
-    startDate: 40922,
-    endDate: 110922,
-    scoreValue: 13,
-  },
-  {
-    tid: "ccc",
-    name: "cone",
-    description: "",
-    length: 4,
-    completed: false,
-    Uid: "u273942947329",
-    startDate: 40922,
-    endDate: 110922,
-    scoreValue: 13,
-  },
-];
+    {
+      tid: "aaa",
+      name: "aone",
+      length: 4,
+      completed: false,
+      Uid: "u273942947329",
+      startDate: 40922,
+      endDate: 110922,
+      scoreValue: 13,
+      active: true,
+    },
+    {
+      tid: "bbb",
+      name: "bone",
+      length: 4,
+      completed: false,
+      Uid: "u273942947329",
+      startDate: 40922,
+      endDate: 110922,
+      scoreValue: 13,
+      active: true,
+    },
+    {
+      tid: "ccc",
+      name: "cone",
+      length: 4,
+      completed: false,
+      Uid: "u273942947329",
+      startDate: 40922,
+      endDate: 110922,
+      scoreValue: 13,
+      active: true,
+    },
+  ],
+  openChallenges = [
+    {
+      tid: "aaa",
+      name: "aOpen",
+      length: 4,
+      completed: false,
+      Uid: "u273942947329",
+      startDate: 40922,
+      endDate: 110922,
+      scoreValue: 13,
+      active: false,
+    },
+    {
+      tid: "bbb",
+      name: "bOpen",
+      length: 4,
+      completed: false,
+      Uid: "u273942947329",
+      startDate: 40922,
+      endDate: 110922,
+      scoreValue: 13,
+      active: false,
+    },
+    {
+      tid: "ccc",
+      name: "cOpen",
+      length: 4,
+      completed: false,
+      Uid: "u273942947329",
+      startDate: 40922,
+      endDate: 110922,
+      scoreValue: 13,
+      active: false,
+    },
+  ];
 
 class Challenges {
   constructor(listA) {
     this.listA = listA;
     this.ChallengeViews = [];
 
-    this.populateActiveChallenges(activeChallenges);
+    this.populateChallenges(activeChallenges);
+    this.populateChallenges(openChallenges);
   }
 
-  populateActiveChallenges(challenges) {
+  populateChallenges(challenges) {
     //load data from backend
 
     // creating a challengeItem
@@ -58,12 +94,17 @@ class Challenges {
 
   addChallenge(challenge) {
     const ChallengeViews = this.ChallengeViews;
-    const challengeView = new ChallengeView();
+    console.log("in add challenge: ");
+    console.log(challenge);
+    const challengeView = new ChallengeView(challenge.active);
     challengeView.addEventListener("decline", (event) =>
       this.declineChallenge(challenge)
     );
-
-    challengeView.challenge = challenge;
+    if (challenge.active) {
+      challengeView.challenge = challenge;
+    } else {
+      challengeView.challengeOpen = challenge;
+    }
     ChallengeViews.push(challengeView);
     // is challengeView.element right? the element?
     this.listA.appendChild(challengeView.element);

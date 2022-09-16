@@ -1,29 +1,24 @@
 .challenge-container {
-    background-color: red;
-    display: flex;
-    text-align: center;
-    flex-grow: 1;
-    background-color: antiquewhite;
-    border-color: black;
-    border-width: 1px;
-    border-style: solid;
+  background-color: red;
+  display: flex;
+  text-align: center;
+  flex-grow: 1;
+  background-color: antiquewhite;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
 }
 
 .active_container {
-    background-color: red;
+  background-color: red;
 }
 
-  .active-challenges-container {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 10vh;
-  }
-
-  .active-challenge-label {
+.active-challenges-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 10vh;
 }
-
-
 
 .challenge-1-container,
 .challenge-2-container,
@@ -102,7 +97,7 @@
   height: 60px;
   padding: 8px;
   color: white;
-  background-color: #83944C;
+  background-color: #83944c;
   text-align: center;
   cursor: pointer;
   width: 100%;
@@ -115,6 +110,7 @@ a {
   color: black;
 }
 
-button:hover, a:hover {
+button:hover,
+a:hover {
   opacity: 0.7;
 }
