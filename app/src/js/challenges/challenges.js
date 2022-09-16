@@ -75,12 +75,15 @@ let activeChallenges = [
   ];
 
 class Challenges {
-  constructor(listA) {
+  constructor(listA, bool) {
     this.listA = listA;
     this.ChallengeViews = [];
 
-    this.populateChallenges(activeChallenges);
-    this.populateChallenges(openChallenges);
+    if (bool) {
+      this.populateChallenges(activeChallenges);
+    } else {
+      this.populateChallenges(openChallenges);
+    }
   }
 
   populateChallenges(challenges) {

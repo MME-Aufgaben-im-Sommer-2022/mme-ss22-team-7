@@ -3,8 +3,9 @@ import Challenges from "./challenges/challenges.js";
 
 // challenges.js wird angesprochen
 const listChallenges = document.querySelector(".active_container");
-const listOpenChallenges = document.querySelector(".open_challenges");
-const challenges = new Challenges(listChallenges);
+const listOpenChallenges = document.querySelector(".open_container");
+const challenges = new Challenges(listChallenges, true);
+const challengesOpen = new Challenges(listOpenChallenges, false);
 
 console.log("start");
 
