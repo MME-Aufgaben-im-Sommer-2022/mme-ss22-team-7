@@ -1,121 +1,143 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Greenbook</title>
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet" href="../css/challenges.css" />
     <script src="https://kit.fontawesome.com/300d45943a.js"></script>
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="main-container">
-      <div class="left-main-container">
-        <div class="header-container">
-          <div class="burger-menu-container">
-            <i
-              id="burger-menu-open"
-              class="fa-solid fa-align-justify fa-xl"
-            ></i>
-          </div>
-          <div class="title-container">
-            <h1 class="title">Greenbook</h1>
-          </div>
-          <div class="score-container">
-            <div class="score-title">My score</div>
-            <div class="score">0</div>
-          </div>
-        </div>
-        <!-- profile View - own .html?!  -->
-        <div class="profile-container">
-          <div class="menu-close-container">
-            <i id="burger-menu-close" class="fa-solid fa-xl fa-xmark"></i>
-          </div>
-          <div id="img-outer-container">
-            <div id="profile-img-container">
-              <div id="dummy-profile-img"></div>
-              <div id="profile-img"></div>
+        <div class="left-main-container">
+            <div class="header-container">
+                <div class="burger-menu-container">
+                    <i id="burger-menu-open" class="fa-solid fa-align-justify fa-xl"></i>
+                </div>
+                <div class="title-container">
+                    <h1 class="title">Greenbook</h1>
+                </div>
+                <div class="score-container">
+                    <div class="score-title">My score</div>
+                    <div class="score">0</div>
+                </div>
             </div>
-          </div>
-        </div>
-        <!-- popup Entries -->
-        <div class="overlay-entries">
-          <iframe class="popUp" src="./entry.html"></iframe>
-        </div>
-        <div class="content-container">
-          <div class="stats-container">
-            <div class="upper-stats-container">
-              <div class="co2-score-label">
-                CO2 <br />
-                Score
-              </div>
-              <table class="score-category-table">
-                <tr>
-                  <th class="transport-score-label">Transport</th>
-                  <th class="food-score-label">Food</th>
-                  <th class="others-score-label">Others</th>
-                </tr>
-                <tr>
-                  <td class="transport-score">0</td>
-                  <td class="food-score">0</td>
-                  <td class="others-score">0</td>
-                </tr>
-              </table>
-              <div class="entry-description">
-                Add a new entry <br />
-                to track your sustainability
-              </div>
-              <button class="new-entry-button">New Entry</button>
+            <!-- profile View - own .html?!  -->
+            <div class="profile-container">
+                <div class="menu-close-container">
+                    <i id="burger-menu-close" class="fa-solid fa-xl fa-xmark"></i>
+                </div>
+                <div id="img-outer-container">
+                    <div id="profile-img-container">
+                        <div id="dummy-profile-img"></div>
+                        <div id="profile-img"></div>
+                    </div>
+                </div>
             </div>
-            <canvas class="diagram-canvas"></canvas>
-          </div>
-          <!-- challenges View 
+            <!-- popup Entries -->
+            <div class="overlay-entries">
+                <iframe class="popUp" src="./entry.html"></iframe>
+            </div>
+            <div class="content-container">
+                <div class="stats-container">
+                    <div class="upper-stats-container">
+                        <div class="co2-score-label">
+                            CO2 <br />
+                            Score
+                        </div>
+                        <table class="score-category-table">
+                            <tr>
+                                <th class="transport-score-label">Transport</th>
+                                <th class="food-score-label">Food</th>
+                                <th class="others-score-label">Others</th>
+                            </tr>
+                            <tr>
+                                <td class="transport-score">0</td>
+                                <td class="food-score">0</td>
+                                <td class="others-score">0</td>
+                            </tr>
+                        </table>
+                        <div class="entry-description">
+                            Add a new entry <br />
+                            to track your sustainability
+                        </div>
+                        <button class="new-entry-button">New Entry</button>
+                    </div>
+                    <canvas class="diagram-canvas"></canvas>
+                </div>
+                <!-- challenges View 
                 maybe only temporarely here
            -->
-          <div class="challenge-container">
-            <div class="active-challenges-container">
-              <div class="active-challenge-label">
-                Active <br />
-                Challenges
-              </div>
-              <!-- list with active challenges  -->
-              <div class="active_container" id="active-challenges"></div>
+                <div class="challenge-container">
+                    <div class="active-challenges-container">
+                        <div class="active-challenge-label">
+                            Active <br />
+                            Challenges
+                        </div>
+                        <!-- list with active challenges  -->
+                        <div class="active_container" id="active-challenges">
+
+
+
+                            <li class="card">
+                              <div id="card-container">  
+                              <!-- <img src="eco9.png" alt="" style="width:100%"> -->
+                                <div id="card-content-container">
+                                    <h1 class="card-content" id="name">dfd</h1>
+                                    <p class="card-content" id="length">5</p>
+                                    <p class="card-content" id="points">87</p>
+                                </div>
+                                <div id="cart-content-btn-container">
+                                    <p><button class="card-content-btn" id="approve">done</button></p>
+                                    <p><button class="card-content-btn" id="decline">abbrechen</button></p>
+                                </div>
+                              </div>
+                            </li>
+
+
+
+
+
+                        </div>
+                    </div>
+                    <div class="new-challenge-label">Add a new challenge</div>
+                    <div class="new-challenge-container"></div>
+                </div>
+                <!-- until here challenges-->
             </div>
-            <div class="new-challenge-label">Add a new challenge</div>
-            <div class="new-challenge-container"></div>
-          </div>
-          <!-- until here challenges-->
         </div>
-      </div>
-      <div class="right-main-container">
-        <div class="leaderboard-container">
-          <div class="leaderboard-header">Leaderboard</div>
-          <hr />
-          <div class="leaderboard-content-container"></div>
+        <div class="right-main-container">
+            <div class="leaderboard-container">
+                <div class="leaderboard-header">Leaderboard</div>
+                <hr />
+                <div class="leaderboard-content-container"></div>
+            </div>
+            <div class="history-container">
+                <div class="history-header">History</div>
+                <hr />
+                <div class="history-content-container"></div>
+            </div>
         </div>
-        <div class="history-container">
-          <div class="history-header">History</div>
-          <hr />
-          <div class="history-content-container"></div>
-        </div>
-      </div>
     </div>
     <template id="leaderboard-element-template"> </template>
     <template id="history-element-template"> </template>
     <template id="challenge-element-template"> </template>
     <script type="module" src="../js/index.js" crossorigin="anonymous"></script>
-  </body>
+</body>
 
-  <!--  Template für die einzelnen widgets / cards der Challenges  -->
-  <template id="challenge-widget-template">
+<!--  Template für die einzelnen widgets / cards der Challenges  -->
+<template id="challenge-widget-template">
     <li class="card">
-      <!-- <img src="eco9.png" alt="" style="width:100%"> -->
-      <h1 class="name"></h1>
-      <p class="length"></p>
-      <p class="points"></p>
-      <p><button class="approve"></button></p>
-      <p><button class="decline"></button></p>
+        <!-- <img src="eco9.png" alt="" style="width:100%"> -->
+        <h1 class="name"></h1>
+        <p class="length"></p>
+        <p class="points"></p>
+        <p><button class="approve"></button></p>
+        <p><button class="decline"></button></p>
     </li>
-  </template>
+</template>
+
 </html>
