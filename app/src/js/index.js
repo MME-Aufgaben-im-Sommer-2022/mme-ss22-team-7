@@ -77,8 +77,8 @@ function handleLoginPopup(){
   login = "login";
   loginButtonEl.addEventListener("click", onLoginSwitch);
   registerButtonEl.addEventListener("click", onLoginSwitch);
-  loginCloseEl.addEventListener("click", onLoginClose);
-  registerCloseEl.addEventListener("click", onRegisterClose);
+  loginCloseEl.addEventListener("click", createUserSession);
+  registerCloseEl.addEventListener("click", createAccount);
 }
 
 function onLoginSwitch(){
@@ -92,15 +92,41 @@ function onLoginSwitch(){
     login = "login";
   }
 }
-
+function createUserSession(){
+  console.log("login close");
+  api.createSession(document.getElementById('email').value,
+  document.getElementById('password').value)
+  /* .then(function (response) {
+     console.log(response);
+     alert("Login successful");
+     onLoginClose();
+  }, function (error) {
+    alert("Invalid input!");
+    console.log(error);
+  }) */; 
+}
 function onLoginClose(){
+  console.log("login close");
   login = "none";
   loginPopUp.style.display = "none";
   registerPopUp.style.display = "none";
   websiteEl.classList.remove("website-hidden");
 }
-
+function createAccount(){
+   api.createAccount(document.getElementById('emailR').value,
+  document.getElementById('passwordR').value, 
+  document.getElementById('usernameR').value)
+  .then(function (response) {
+     console.log(response);
+     alert("Account created");
+     onRegisterClose();
+  }, function (error) {
+    alert("Invalid input!");
+    console.log(error);
+  }); 
+} 
 function onRegisterClose(){
+  console.log("register close");
   login = "none";
   loginPopUp.style.display = "none";
   registerPopUp.style.display = "none";
