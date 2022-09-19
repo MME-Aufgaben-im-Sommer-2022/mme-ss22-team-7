@@ -17,10 +17,10 @@ class ChallengeView extends Observable {
       const element = ChallengeView.elementFromTemplate(false);
       this.element = element;
 
-      this.nameLabel = element.querySelector(".name");
-      this.lengthLabel = element.querySelector(".length");
-      this.pointsLabel = element.querySelector(".scoreValue");
-      this.approveButtonLabel = element.querySelector(".accept");
+      this.nameLabel = element.querySelector('[name="name"]');
+      this.lengthLabel = element.querySelector('[name="length"]');
+      this.pointsLabel = element.querySelector('[name="points"]');
+      this.approveButtonLabel = element.querySelector('[name="accept"]');
     }
 
     // listeners also devided into active nad open?

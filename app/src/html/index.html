@@ -148,10 +148,28 @@
   <!--  Templete für die noch offenen Challenges  -->
   <template id="challenge-widget-template-open">
     <li class="card">
-      <p class="name"></p>
-      <p class="length"></p>
-      <p class="scoreValue"></p>
-      <p><button class="accept"></button></p>
+      <div class="card-container">
+        <!--classen geändert!! kann Auswirkungen auf den code haben-->
+        <div class="card-content-container">
+          <h1 class="card-content" name="name" style="font-size: 18px"></h1>
+          <p class="card-content" name="length"></p>
+          <p class="card-content" name="points"></p>
+        </div>
+        <div
+          class="card-content-btn-container"
+          style="
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+          "
+        >
+          <button
+            class="card-content-btn"
+            name="accept"
+            style="display: flex; flex-direction: column"
+          ></button>
+        </div>
+      </div>
     </li>
   </template>
 </html>
