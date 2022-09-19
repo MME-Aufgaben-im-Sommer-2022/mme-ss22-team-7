@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Greenbook</title>
     <link rel="stylesheet" href="../css/index.css" />
-    <script
-    src="https://kit.fontawesome.com/300d45943a.js"></script>
+    <link rel="stylesheet" href="../css/challenges.css" />
+    <script src="https://kit.fontawesome.com/300d45943a.js"></script>
   </head>
 
   <body>
@@ -15,7 +15,10 @@
       <div class="left-main-container">
         <div class="header-container">
           <div class="burger-menu-container">
-            <i id="burger-menu-open" class="fa-solid fa-align-justify fa-xl"></i>
+            <i
+              id="burger-menu-open"
+              class="fa-solid fa-align-justify fa-xl"
+            ></i>
           </div>
           <div class="title-container">
             <h1 class="title">Greenbook</h1>
@@ -68,8 +71,31 @@
             </div>
             <canvas class="diagram-canvas"></canvas>
           </div>
-          <!-- challenges View  -->
-          <iframe class="challenges-view" src="./challenges.html" ></iframe>
+          <!-- challenges View 
+                maybe only temporarely here
+           -->
+          <div class="challenge-container">
+            <div class="active-challenges-container">
+              <div class="active-challenge-label">
+                Active <br />
+                Challenges
+              </div>
+              <!-- list with active challenges  -->
+              <div class="active_container" id="active-challenges"></div>
+            </div>
+            <div class="open-challenges-container">
+              <div class="open-challenge-label">
+                Open <br />
+                Challenges
+              </div>
+              <!-- list with open challenges  -->
+              <p>this is a test</p>
+              <div class="open_container" id="open-challenges"></div>
+            </div>
+            <div class="new-challenge-label">Add a new challenge</div>
+            <div class="new-challenge-container"></div>
+          </div>
+          <!-- until here challenges-->
         </div>
       </div>
       <div class="right-main-container">
@@ -128,4 +154,24 @@
     ></script>
     <script type="module" src="../js/index.js"></script>
   </body>
+
+  <!--  Template für die einzelnen widgets / cards der Challenges  -->
+  <template id="challenge-widget-template">
+    <li class="card">
+      <p class="name"></p>
+      <p class="length"></p>
+      <p class="scoreValue"></p>
+      <p><button class="approve"></button></p>
+      <p><button class="decline"></button></p>
+    </li>
+  </template>
+  <!--  Templete für die noch offenen Challenges  -->
+  <template id="challenge-widget-template-open">
+    <li class="card">
+      <p class="name"></p>
+      <p class="length"></p>
+      <p class="scoreValue"></p>
+      <p><button class="accept"></button></p>
+    </li>
+  </template>
 </html>

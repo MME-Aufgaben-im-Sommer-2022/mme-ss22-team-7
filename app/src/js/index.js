@@ -1,8 +1,16 @@
-import {initInputs} from "./entries/entryData.js";
+import { initInputs } from "./entries/entryData.js";
+import Challenges from "./challenges/challenges.js";
 import api from "./database/database.js";
 
 
+// challenges.js wird angesprochen
+const listChallenges = document.querySelector(".active_container");
+const listOpenChallenges = document.querySelector(".open_container");
+const challenges = new Challenges(listChallenges, true);
+const challengesOpen = new Challenges(listOpenChallenges, false);
+
 console.log("start");
+
 var score = 0;
 const entryButton = document.querySelector(".new-entry-button"),
   scoreEl = document.querySelector(".score"),
@@ -37,21 +45,21 @@ function toggleEntries() {
   }
 }
 
-function onEntrySave(){
+function onEntrySave() {
   entriesPopUp.classList.remove("showMenu");
   updateScore();
 }
 
-function onPopUp(){
+function onPopUp() {
   let iframe = document.querySelector(".popUp").contentWindow,
-  saveButtonEl = iframe.document.querySelector("#save-button"),
-  inputs = initInputs(iframe);
+    saveButtonEl = iframe.document.querySelector("#save-button"),
+    inputs = initInputs(iframe);
   saveButtonEl.addEventListener("click", onEntrySave);
 }
 
-function updateScore(){
+function updateScore() {
   //ab hier Datanbank nötig
- //TODO implement score-calculation / fetch and update database
+  //TODO implement score-calculation / fetch and update database
   scoreEl.innerHTML = score;
   console.log(score);
 }
