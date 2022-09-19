@@ -2,14 +2,32 @@ import { initInputs } from "./entries/entryData.js";
 import Challenges from "./challenges/challenges.js";
 import api from "./database/database.js";
 
-
 // challenges.js wird angesprochen
 const listChallenges = document.querySelector(".active_container");
 const listOpenChallenges = document.querySelector(".open_container");
 const challenges = new Challenges(listChallenges, true);
 const challengesOpen = new Challenges(listOpenChallenges, false);
+const client = new Appwrite.Client();
 
-console.log("start");
+client
+  .setEndpoint("https://appwrite.software-engineering.education/v1") // Your API Endpoint
+  .setProject("62ed22f3b5f7f7c609a8"); // Your project ID
+
+const databases = new Appwrite.Databases(client);
+
+const promise = databases.listDocuments(
+  "[6311ece9c6ebefc4b0f0]",
+  "[6311ed940fc46037cbac]"
+);
+
+promise.then(
+  function (response) {
+    console.log(response); // Success
+  },
+  function (error) {
+    console.log(error); // Failure
+  }
+);
 
 var score = 0;
 const entryButton = document.querySelector(".new-entry-button"),
@@ -32,7 +50,6 @@ closeIcon.addEventListener("click", toggleMenu);
 
 let login = "none";
 handleLoginPopup();
-
 
 function toggleEntries() {
   if (entriesPopUp.classList.contains("showMenu")) {
@@ -64,7 +81,6 @@ function updateScore() {
   console.log(score);
 }
 
-
 //popUp lieber über html/css? iframe noch mit bugs
 function toggleMenu() {
   if (profile.classList.contains("showMenu")) {
@@ -76,10 +92,7 @@ function toggleMenu() {
   }
 }
 
-
-
-
-function handleLoginPopup(){
+function handleLoginPopup() {
   loginPopUp.style.display = "block";
   registerPopUp.style.display = "none";
   login = "login";
@@ -89,26 +102,26 @@ function handleLoginPopup(){
   registerCloseEl.addEventListener("click", onRegisterClose);
 }
 
-function onLoginSwitch(){
-  if(login === "login"){
+function onLoginSwitch() {
+  if (login === "login") {
     loginPopUp.style.display = "none";
     registerPopUp.style.display = "block";
     login = "register";
-  }else if(login === "register"){
+  } else if (login === "register") {
     loginPopUp.style.display = "block";
     registerPopUp.style.display = "none";
     login = "login";
   }
 }
 
-function onLoginClose(){
+function onLoginClose() {
   login = "none";
   loginPopUp.style.display = "none";
   registerPopUp.style.display = "none";
   websiteEl.classList.remove("website-hidden");
 }
 
-function onRegisterClose(){
+function onRegisterClose() {
   login = "none";
   loginPopUp.style.display = "none";
   registerPopUp.style.display = "none";
@@ -126,11 +139,8 @@ function onRegisterClose(){
 //   closeIcon = document.querySelector("#x-burger-menu"),
 //   profile = document.querySelector(".profile-container"),
 
-
 //hamburger.addEventListener("click", toggleMenu);
 //closeIcon.addEventListener("click", toggleMenu);
-
-
 
 // function toggleMenu() {
 //   if (profile.classList.contains("showMenu")) {

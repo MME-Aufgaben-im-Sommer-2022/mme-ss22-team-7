@@ -1,5 +1,9 @@
 import { Observable, Event } from "../utils/Observable.js";
 
+/**
+ * ChallengeView repräsentiert einzelne Challenges und erstellt diese passend zu der jeweiligen Art
+ */
+
 class ChallengeView extends Observable {
   constructor(bool) {
     super();
@@ -41,20 +45,17 @@ class ChallengeView extends Observable {
 
   static elementFromTemplate(bool) {
     const element = document.createElement("div");
-    console.log(ChallengeView.templateActive);
     if (bool) {
       element.innerHTML = ChallengeView.templateActive;
     } else {
       element.innerHTML = ChallengeView.templateOpen;
     }
-    console.log(element);
 
     return element.querySelector("li");
   }
 
   // for active challenges
   set challenge(value) {
-    console.log(value);
     this._challenge = value;
 
     this.nameLabel.innerHTML = `${value.name}`;
@@ -70,7 +71,6 @@ class ChallengeView extends Observable {
 
   // for open challenges
   set challengeOpen(value) {
-    console.log(value);
     this._challenge = value;
 
     this.nameLabel.innerHTML = `${value.name}`;
@@ -83,7 +83,7 @@ class ChallengeView extends Observable {
     return this._challenge;
   }
 
-  // differentiating active and open challenges prob. n here
+  // differentiating active and open challenges prob. in here
   initListeners() {
     console.log("in initListeners");
   }

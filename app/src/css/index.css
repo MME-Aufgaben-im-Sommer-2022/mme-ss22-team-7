@@ -1,3 +1,20 @@
+/**
+
+  GENERAL CSS
+
+  ToDo: unnötigen Scheiss raus hausen 
+
+  Inhalt: 
+  - Profile View
+  - main application
+  - new Entry
+  - Login
+  - register
+  - history
+
+
+*/
+
 /*
 ----------------------  Profile View  -------------------------------------------------------------------------------------
 */
@@ -15,8 +32,8 @@
 }
 
 #burger-menu-open {
-	align-items: center;
-	justify-content: center;
+  align-items: center;
+  justify-content: center;
   margin-top: 4vh;
 }
 
@@ -172,7 +189,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color:black;
+  color: black;
 }
 
 .score-title {
@@ -222,14 +239,15 @@ hr {
   flex-grow: 1;
   background-color: #a77e55;
   border-color: antiquewhite;
-  color:black;
+  color: black;
 }
 
 /*
-* new Entry
+----------------------  new Entry  -------------------------------------------------------------------------------------
 */
 
-.overlay-entries, .overlay-login {
+.overlay-entries,
+.overlay-login {
   position: absolute;
   display: none;
   top: 0;
@@ -271,67 +289,14 @@ hr {
   width: 50vw;
 }
 
-.active-challenges-container {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 10vh;
-}
-
-.active-challenge-label {
- font-size: medium;
-}
-
-.challenge-1-container,
-.challenge-2-container,
-.challenge-3-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.challenge-1-description,
-.challenge-2-description,
-.challenge-3-description {
-  width: 10vw;
-}
-
-.challenge-1-score,
-.challenge-2-score,
-.challenge-3-score {
-  width: 2vw;
-}
-
-.challenge-1-interact-container,
-.challenge-2-interact-container,
-.challenge-3-interact-container {
-  width: 2vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 1vw;
-}
-
-.new-challenge-label {
-  background-color: #83944C;
-  color:black;
-  text-align: center;
-  height: 3vh;
-}
-
-.new-challenge-container {
-  display: flex;
-  justify-content: space-evenly;
-}
-
 .website-hidden {
   opacity: 0.1;
   z-index: 9999;
 }
 
-
 /*
-LogIn
+----------------------  Login  -------------------------------------------------------------------------------------
+
 */
 
 .login-popUp {
@@ -355,7 +320,7 @@ LogIn
 
 /* grüne Box */
 .login-popUp > #login {
-  background-color: #83944C;
+  background-color: #83944c;
   width: 35%;
   text-align: center;
   margin: 30px auto;
@@ -363,7 +328,6 @@ LogIn
   border-radius: 7px;
   box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.3);
 }
-
 
 .login-popUp > input {
   display: block;
@@ -377,12 +341,12 @@ LogIn
 
 .login-popUp > input[type="text"],
 .login-popUp > input[type="password"] {
-width: 50%;
-padding: 0 0 0 10px;
-margin: auto;
-font-style: normal;
-font-size: 16px;
-background-color: #FEFAE0;
+  width: 50%;
+  padding: 0 0 0 10px;
+  margin: auto;
+  font-style: normal;
+  font-size: 16px;
+  background-color: #fefae0;
 }
 
 .login-popUp > input[type="submit"]:hover {
@@ -396,16 +360,17 @@ background-color: #FEFAE0;
 }
 
 .login-popUp > #register-here {
-background-color: #eeedf1;
-color: #87888a;
-font-size: 14px;
-width: 100%;
-padding: 8px 0;
-border-radius: 0 0 7px 7px;
+  background-color: #eeedf1;
+  color: #87888a;
+  font-size: 14px;
+  width: 100%;
+  padding: 8px 0;
+  border-radius: 0 0 7px 7px;
 }
 
 /*
-register
+----------------------  register  -------------------------------------------------------------------------------------
+
 */
 
 .register-popUp {
@@ -429,7 +394,7 @@ register
 
 /* grüne Box */
 .register-popUp > #register {
-  background-color: #83944C;
+  background-color: #83944c;
   width: 35%;
   text-align: center;
   margin: 30px auto;
@@ -456,7 +421,7 @@ register
   margin: auto;
   font-style: normal;
   font-size: 16px;
-  background-color: #FEFAE0;
+  background-color: #fefae0;
 }
 
 /*button*/
@@ -473,36 +438,36 @@ register
 
 .register-popUp > #back-to-login {
   background-color: #eeedf1;
-    color: #87888a;
-    font-size: 14px;
-    width: 100%;
-    padding: 8px 0;
-    border-radius: 0 0 7px 7px;
-  }
+  color: #87888a;
+  font-size: 14px;
+  width: 100%;
+  padding: 8px 0;
+  border-radius: 0 0 7px 7px;
+}
 
-  /*
-  history-template
+/*
+----------------------  history  -------------------------------------------------------------------------------------
   */
 
-  .history-element-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 3px;
-  }
+.history-element-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px;
+}
 
-  .negative {
-    background-color: red;
-  }
+.negative {
+  background-color: red;
+}
 
-  .positive {
-    background-color: green;
-  }
+.positive {
+  background-color: green;
+}
 
-  .history-element-description {
-    flex-grow: 4;
-  }
+.history-element-description {
+  flex-grow: 4;
+}
 
-  .history-element-score {
-    flex-grow: 1;
-  }
+.history-element-score {
+  flex-grow: 1;
+}

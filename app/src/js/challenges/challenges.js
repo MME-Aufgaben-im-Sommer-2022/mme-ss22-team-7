@@ -1,6 +1,10 @@
 import Challenge from "./challenge.js";
 import ChallengeView from "./challengeView.js";
 
+/**
+ * challenges.js erstellt für alle challenges eine card und kümmert sich um alles generelle
+ */
+
 let activeChallenges = [
     {
       tid: "aaa",
@@ -95,8 +99,6 @@ class Challenges {
 
   addChallenge(challenge) {
     const ChallengeViews = this.ChallengeViews;
-    console.log("in add challenge: ");
-    console.log(challenge);
     const challengeView = new ChallengeView(challenge.active);
     challengeView.addEventListener("decline", (event) =>
       this.declineChallenge(challenge)
@@ -111,9 +113,14 @@ class Challenges {
     this.listA.appendChild(challengeView.element);
   }
 
+  /**
+   *
+   * alles abwärts vermutlich irgendwann in challengeView
+   */
+
   declineChallenge(challenge) {
     // sort challenge back into open challenges
-    console.log(challenge);
+    console.log("got to decline: " + challenge);
   }
 
   finishChallenge(challenge) {

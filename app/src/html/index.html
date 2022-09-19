@@ -11,138 +11,188 @@
 
   <body>
     <div id="website" class="website-hidden">
-    <div class="main-container">
-      <div class="left-main-container">
-        <div class="header-container">
-          <div class="burger-menu-container">
-            <i
-              id="burger-menu-open"
-              class="fa-solid fa-align-justify fa-xl"
-            ></i>
-          </div>
-          <div class="title-container">
-            <h1 class="title">Greenbook</h1>
-          </div>
-          <div class="score-container">
-            <div class="score-title">My score</div>
-            <div class="score">0</div>
-          </div>
-        </div>
-        <!-- profile View - own .html?!  -->
-        <div class="profile-container">
-          <div class="menu-close-container">
-            <i id="burger-menu-close" class="fa-solid fa-xl fa-xmark"></i>
-          </div>
-          <div id="img-outer-container">
-            <div id="profile-img-container">
-              <div id="dummy-profile-img"></div>
-              <div id="profile-img"></div>
+      <div class="main-container">
+        <div class="left-main-container">
+          <div class="header-container">
+            <div class="burger-menu-container">
+              <i
+                id="burger-menu-open"
+                class="fa-solid fa-align-justify fa-xl"
+              ></i>
+            </div>
+            <div class="title-container">
+              <h1 class="title">Greenbook</h1>
+            </div>
+            <div class="score-container">
+              <div class="score-title">My score</div>
+              <div class="score">0</div>
             </div>
           </div>
-        </div>
-        <!-- popup Entries -->
-        <div class="overlay-entries">
-          <iframe class="popUp" src="./entry.html"></iframe>
-        </div>
-        <div class="content-container">
-          <div class="stats-container">
-            <div class="upper-stats-container">
-              <div class="co2-score-label">
-                CO2 <br />
-                Score
-              </div>
-              <table class="score-category-table">
-                <tr>
-                  <th class="transport-score-label">Transport</th>
-                  <th class="food-score-label">Food</th>
-                  <th class="others-score-label">Others</th>
-                </tr>
-                <tr>
-                  <td class="transport-score">0</td>
-                  <td class="food-score">0</td>
-                  <td class="others-score">0</td>
-                </tr>
-              </table>
-              <div class="entry-description">
-                Add a new entry <br />
-                to track your sustainability
-              </div>
-              <button class="new-entry-button">New Entry</button>
+          <!-- profile View - own .html?! einbindug vermutlich wie challenges oder straight heir, da iframe kacke ist  -->
+          <div class="profile-container">
+            <div class="menu-close-container">
+              <i id="burger-menu-close" class="fa-solid fa-xl fa-xmark"></i>
             </div>
-            <canvas class="diagram-canvas"></canvas>
+            <div id="img-outer-container">
+              <div id="profile-img-container">
+                <div id="dummy-profile-img"></div>
+                <div id="profile-img"></div>
+              </div>
+            </div>
           </div>
-          <!-- challenges View 
+          <!-- popup Entries -->
+          <div class="overlay-entries">
+            <iframe class="popUp" src="./entry.html"></iframe>
+          </div>
+          <div class="content-container">
+            <div class="stats-container">
+              <div class="upper-stats-container">
+                <div class="co2-score-label">
+                  CO2 <br />
+                  Score
+                </div>
+                <table class="score-category-table">
+                  <tr>
+                    <th class="transport-score-label">Transport</th>
+                    <th class="food-score-label">Food</th>
+                    <th class="others-score-label">Others</th>
+                  </tr>
+                  <tr>
+                    <td class="transport-score">0</td>
+                    <td class="food-score">0</td>
+                    <td class="others-score">0</td>
+                  </tr>
+                </table>
+                <div class="entry-description">
+                  Add a new entry <br />
+                  to track your sustainability
+                </div>
+                <button class="new-entry-button">New Entry</button>
+              </div>
+              <canvas class="diagram-canvas"></canvas>
+            </div>
+            <!-- challenges View 
                 maybe only temporarely here
            -->
-          <div class="challenge-container">
-            <div class="active-challenges-container">
-              <div class="active-challenge-label">
-                Active <br />
-                Challenges
+            <div class="challenge-container">
+              <div class="active-challenges-container">
+                <div class="active-challenge-label">
+                  Active <br />
+                  Challenges
+                </div>
+                <!-- list with active challenges  -->
+                <div class="active_container" id="active-challenges"></div>
               </div>
-              <!-- list with active challenges  -->
-              <div class="active_container" id="active-challenges"></div>
-            </div>
-            <div class="open-challenges-container">
-              <div class="open-challenge-label">
-                Open <br />
-                Challenges
+              <div class="open-challenges-container">
+                <div class="open-challenge-label">
+                  Open <br />
+                  Challenges
+                </div>
+                <!-- list with open challenges  -->
+                <div class="open_container" id="open-challenges"></div>
               </div>
-              <!-- list with open challenges  -->
-              <p>this is a test</p>
-              <div class="open_container" id="open-challenges"></div>
+              <div class="new-challenge-label">Add a new challenge</div>
+              <div class="new-challenge-container"></div>
             </div>
-            <div class="new-challenge-label">Add a new challenge</div>
-            <div class="new-challenge-container"></div>
+            <!-- end challenges-->
           </div>
-          <!-- until here challenges-->
         </div>
-      </div>
-      <div class="right-main-container">
-        <div class="leaderboard-container">
-          <div class="leaderboard-header">Leaderboard</div>
-          <hr />
-          <div class="leaderboard-content-container"></div>
-        </div>
-        <div class="history-container">
-          <div class="history-header">History</div>
-          <hr />
-          <div class="history-content-container"></div>
+        <div class="right-main-container">
+          <div class="leaderboard-container">
+            <div class="leaderboard-header">Leaderboard</div>
+            <hr />
+            <div class="leaderboard-content-container"></div>
+          </div>
+          <div class="history-container">
+            <div class="history-header">History</div>
+            <hr />
+            <div class="history-content-container"></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+    <!--  evtl. einbindung ähnlich wie bei challenges -->
     <div class="login-popUp">
       <div id="login">
         <h2>Login</h2>
         <form id="login-field">
-            <p><input type="text" id="username" name="username" placeholder="Username" required></p>
-            <p><input type="password" id="password" name="password" placeholder="Password" required></p>
-            <p><input type="submit" id="sign-in" value="Sign in"></p>
+          <p>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Username"
+              required
+            />
+          </p>
+          <p>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+          </p>
+          <p><input type="submit" id="sign-in" value="Sign in" /></p>
         </form>
         <div id="register-here">
-            <p>No account yet? <a id="login-button" href="#">Register now</a></p>
+          <p>No account yet? <a id="login-button" href="#">Register now</a></p>
         </div>
-    </div>
+      </div>
     </div>
     <div class="register-popUp">
       <div id="register">
         <h2>Register</h2>
         <form id="register-field">
-            <p><input type="text" id="username" name="username" placeholder="Username" required></p>
-            <p><input type="email" id="email" name="email" placeholder="E-Mail Address" required></p>
-            <p><input type="password" id="password" name="password" placeholder="Password" required></p>
-            <p><input type="submit" id="create-account" name="create-account" value="Create Account" required></p>
+          <p>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Username"
+              required
+            />
+          </p>
+          <p>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="E-Mail Address"
+              required
+            />
+          </p>
+          <p>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+          </p>
+          <p>
+            <input
+              type="submit"
+              id="create-account"
+              name="create-account"
+              value="Create Account"
+              required
+            />
+          </p>
         </form>
-    <div id="back-to-login">
-            <p>Back to Login? <a id="register-button" href="#">Login</a></p>
-    </div>
-    </div>
+        <div id="back-to-login">
+          <p>Back to Login? <a id="register-button" href="#">Login</a></p>
+        </div>
+      </div>
     </div>
     <template id="leaderboard-element-template"> </template>
     <template id="history-element-template">
       <div class="history-element-container">
-        <div class="history-element-description negative">slept for 13 hours</div>
+        <div class="history-element-description negative">
+          slept for 13 hours
+        </div>
         <div class="history-element-score">-132</div>
       </div>
     </template>
@@ -155,11 +205,11 @@
     <script type="module" src="../js/index.js"></script>
   </body>
 
-  <!--  Template für die einzelnen widgets / cards der Challenges  -->
+  <!--  Template für die einzelnen widgets / cards der Challenges 
+    mit template für offene Challenges kombinierbar? -->
   <template id="challenge-widget-template">
     <li class="card">
       <div class="card-container">
-        <!--classen geändert!! kann Auswirkungen auf den code haben-->
         <div class="card-content-container">
           <h1 class="card-content" name="name" style="font-size: 18px"></h1>
           <p class="card-content" name="length"></p>
@@ -188,7 +238,6 @@
   <template id="challenge-widget-template-open">
     <li class="card">
       <div class="card-container">
-        <!--classen geändert!! kann Auswirkungen auf den code haben-->
         <div class="card-content-container">
           <h1 class="card-content" name="name" style="font-size: 18px"></h1>
           <p class="card-content" name="length"></p>

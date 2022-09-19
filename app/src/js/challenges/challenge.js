@@ -1,3 +1,7 @@
+/**
+ * challenge.js bastelt aus dem datenobjekt eine verwendbare Instanz einer Challenge (wird dann in ChallengeView weiterverwendet)
+ */
+
 class Challenge {
   constructor(
     tid,

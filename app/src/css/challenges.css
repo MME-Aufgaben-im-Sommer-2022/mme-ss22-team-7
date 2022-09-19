@@ -10,53 +10,9 @@
   border-style: solid;
 }
 
-.challenge-1-container,
-.challenge-2-container,
-.challenge-3-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.challenge-1-description,
-.challenge-2-description,
-.challenge-3-description {
-  width: 10vw;
-}
-
-.challenge-1-score,
-.challenge-2-score,
-.challenge-3-score {
-  width: 2vw;
-}
-
-.challenge-1-interact-container,
-.challenge-2-interact-container,
-.challenge-3-interact-container {
-  width: 2vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 1vw;
-}
-
 .new-challenge-container {
   display: flex;
   justify-content: space-evenly;
-}
-
-.challenge-list-column {
-  justify-content: space-evenly;
-  align-items: center;
-  height: 10vh;
-  box-sizing: border-box;
-}
-
-.challenge-list-container {
-  float: left;
-  width: 15%;
-  padding: 0 10px;
-  height: 10vh;
 }
 
 .active_container {
@@ -113,6 +69,10 @@
   font-weight: 50%;
   margin: auto;
 }
+
+/**
+* wird alles abwärts irgendwo verwendet?
+*/
 
 .btn {
   border-bottom-right-radius: 15px;
