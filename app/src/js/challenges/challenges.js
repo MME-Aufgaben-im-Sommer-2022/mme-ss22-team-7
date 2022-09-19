@@ -1,5 +1,3 @@
-// diese hier
-
 import Challenge from "./challenge.js";
 import ChallengeView from "./challengeView.js";
 
