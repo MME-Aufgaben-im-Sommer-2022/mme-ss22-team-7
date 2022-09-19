@@ -8,11 +8,11 @@ class ChallengeView extends Observable {
       const element = ChallengeView.elementFromTemplate(true);
       this.element = element;
 
-      this.nameLabel = element.querySelector(".name");
-      this.lengthLabel = element.querySelector(".length");
-      this.pointsLabel = element.querySelector(".scoreValue");
-      this.approveButtonLabel = element.querySelector(".approve");
-      this.declineButtonLabel = element.querySelector(".decline");
+      this.nameLabel = element.querySelector('[name="name"]');
+      this.lengthLabel = element.querySelector('[name="length"]');
+      this.pointsLabel = element.querySelector('[name="points"]');
+      this.approveButtonLabel = element.querySelector('[name="approve"]');
+      this.declineButtonLabel = element.querySelector('[name="decline"]');
     } else {
       const element = ChallengeView.elementFromTemplate(false);
       this.element = element;
