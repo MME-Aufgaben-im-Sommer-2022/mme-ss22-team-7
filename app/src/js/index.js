@@ -11,7 +11,7 @@ const client = new Appwrite.Client();
 
 client
   .setEndpoint("https://appwrite.software-engineering.education/v1") // Your API Endpoint
-  .setProject("62ed22f3b5f7f7c609a8"); // Your project ID
+  .setProject("6311ed55783449414806"); // Your project ID
 
 const databases = new Appwrite.Databases(client);
 
