@@ -3,11 +3,12 @@
  */
 
 class Challenge {
-  constructor(tid, name, length, scoreValue) {
+  constructor(tid, name, scoreValue, length) {
     this.tid = tid;
     this.name = name;
-    this.length = length;
     this.scoreValue = scoreValue;
+
+    this.length = length;
 
     Object.freeze(this);
   }
@@ -16,8 +17,8 @@ class Challenge {
     return new Challenge(
       object.tid,
       object.name,
-      object.length,
-      object.scoreValue
+      object.scoreValue,
+      object.length
     );
   }
 }
