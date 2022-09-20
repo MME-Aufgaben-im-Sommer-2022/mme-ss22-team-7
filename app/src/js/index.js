@@ -1,11 +1,20 @@
-import {initInputs} from "./entries/entryData.js";
+import { initInputs } from "./entries/entryData.js";
 import api from "./database/database.js";
+import { Server } from "./utils/config.js";
 
 
 console.log("start");
-var score = 0;
-const entryButton = document.querySelector(".new-entry-button"),
+var score = 0,
+  transportScore = 60,
+  foodScore = 10,
+  otherScore = 40,
+  userData = null;
+const
+  entryButton = document.querySelector(".new-entry-button"),
   scoreEl = document.querySelector(".score"),
+  transportScoreEl = document.querySelector(".transport-score"),
+  foodScoreEl = document.querySelector(".food-score"),
+  otherScoreEl = document.querySelector(".others-score"),
   entriesPopUp = document.querySelector(".overlay-entries"),
   hamburger = document.querySelector("#burger-menu-open"),
   closeIcon = document.querySelector("#burger-menu-close"),
@@ -16,13 +25,19 @@ const entryButton = document.querySelector(".new-entry-button"),
   loginCloseEl = document.querySelector("#sign-in"),
   registerCloseEl = document.querySelector("#create-account"),
   websiteEl = document.querySelector("#website"),
-  profile = document.querySelector(".profile-container");
+  profile = document.querySelector(".profile-container"),
+  emailR = document.getElementById('emailR'),
+  passwordR = document.getElementById('passwordR'),
+  usernameR = document.getElementById('usernameR'),
+  email = document.getElementById('email'),
+  password = document.getElementById('password');
 
 entryButton.addEventListener("click", toggleEntries);
 hamburger.addEventListener("click", toggleMenu);
 closeIcon.addEventListener("click", toggleMenu);
 
 let login = "none";
+checkForSession();
 handleLoginPopup();
 
 
@@ -37,25 +52,56 @@ function toggleEntries() {
   }
 }
 
-function onEntrySave(){
+function onEntrySave() {
   entriesPopUp.classList.remove("showMenu");
   updateScore();
 }
 
-function onPopUp(){
+function onPopUp() {
   let iframe = document.querySelector(".popUp").contentWindow,
-  saveButtonEl = iframe.document.querySelector("#save-button"),
-  inputs = initInputs(iframe);
+    saveButtonEl = iframe.document.querySelector("#save-button"),
+    inputs = initInputs(iframe);
   saveButtonEl.addEventListener("click", onEntrySave);
 }
+//function to get current time
 
-function updateScore(){
-  //ab hier Datanbank nötig
- //TODO implement score-calculation / fetch and update database
+function updateScore() {
+  score += 10;
+  api.createEntry({ Name: "car", CO2: score, UserID: userData.$id }, "", "")
+    .then(response => {
+      console.log(response);
+      updateDBScore();
+    }, error => {
+      console.log(error);
+    });
+  //TODO: implement score-calculation 
   scoreEl.innerHTML = score;
+  transportScoreEl.innerHTML = transportScore;
+  foodScoreEl.innerHTML = foodScore;
+  otherScoreEl.innerHTML = otherScore;
   console.log(score);
 }
 
+function updateDBScore() {
+  api.updateUserCl(userData.$id, { Score: score, TransportScore: transportScore,
+    FoodScore: foodScore, OtherScore: otherScore }, "", "");
+}
+function initData(){
+  console.log(userData.$id +" init data");
+  api.myDocument(userData.$id).then(response => {
+    console.log(response);
+    score = response.Score;
+    transportScore = response.TransportScore;
+    foodScore = response.FoodScore;
+    otherScore = response.OtherScore;
+    scoreEl.innerHTML = score;
+    transportScoreEl.innerHTML = transportScore;
+    foodScoreEl.innerHTML = foodScore;
+    otherScoreEl.innerHTML = otherScore;
+  }, error => {
+    console.log(error);
+  });
+}
 
 //popUp lieber über html/css? iframe noch mit bugs
 function toggleMenu() {
@@ -67,11 +113,19 @@ function toggleMenu() {
     closeIcon.style.display = "block";
   }
 }
+//closes the login pop up if there is a active user session
+function checkForSession() {
+  api.getAccount().then(response => {
+    console.log(response);
+    userData = response;
+    onLoginClose();
+  }, error => {});
+}
 
 
 
 
-function handleLoginPopup(){
+function handleLoginPopup() {
   loginPopUp.style.display = "block";
   registerPopUp.style.display = "none";
   login = "login";
@@ -81,64 +135,89 @@ function handleLoginPopup(){
   registerCloseEl.addEventListener("click", createAccount);
 }
 
-function onLoginSwitch(){
-  if(login === "login"){
+function onLoginSwitch() {
+  if (login === "login") {
     loginPopUp.style.display = "none";
     registerPopUp.style.display = "block";
     login = "register";
-  }else if(login === "register"){
+  } else if (login === "register") {
     loginPopUp.style.display = "block";
     registerPopUp.style.display = "none";
     login = "login";
   }
 }
-function createUserSession(){
-  console.log("login close");
-  api.createSession(document.getElementById('email').value,
-  document.getElementById('password').value)
-  /* .then(function (response) {
-     console.log(response);
-     alert("Login successful");
-     onLoginClose();
-  }, function (error) {
-    alert("Invalid input!");
+//creates a new user session
+function createUserSession() {
+  let el = email.value,
+    pw = password.value;
+  email.value = "";
+  password.value = "";
+  api.createSession(el,
+    pw).then(response => {
+    userData = response;
+    console.log(response);
+    onLoginClose();
+  }, error => {
     console.log(error);
-  }) */; 
-}
-function onLoginClose(){
-  console.log("login close");
-  login = "none";
-  loginPopUp.style.display = "none";
-  registerPopUp.style.display = "none";
-  websiteEl.classList.remove("website-hidden");
-}
-function createAccount(){
-   api.createAccount(document.getElementById('emailR').value,
-  document.getElementById('passwordR').value, 
-  document.getElementById('usernameR').value)
-  .then(function (response) {
-     console.log(response);
-     alert("Account created");
-     onRegisterClose();
-  }, function (error) {
-    alert("Invalid input!");
-    console.log(error);
-  }); 
-} 
-function onRegisterClose(){
-  console.log("register close");
-  login = "none";
-  loginPopUp.style.display = "none";
-  registerPopUp.style.display = "none";
-  websiteEl.classList.remove("website-hidden");
+  });
+  console.log("no response");
 }
 
-// Register User
-/*api.createAccount("test@tes23t.com", "test123334", "peteaar").then(function (response) {
-  console.log(response);
-}, function (error) {
-  console.log(error);
-});*/
+function onLoginClose() {
+  login = "none";
+  loginPopUp.style.display = "none";
+  registerPopUp.style.display = "none";
+  websiteEl.classList.remove("website-hidden");
+  initData();
+}
+//creates a new user account
+function createAccount() {
+  console.log("create account");
+  let el = emailR.value,
+    pw = passwordR.value,
+    un = usernameR.value;
+  emailR.value = "";
+  passwordR.value = "";
+  usernameR.value = "";
+  api.createAccount(el, pw, un)
+    .then(function(response) {
+      console.log(response);
+      userData = response;
+      onRegisterClose(el, pw, );
+    }, function(error) {
+      console.log(error);
+    });
+}
+//closes register popUp and creates session
+function onRegisterClose(el, pw) {
+  login = "none";
+  loginPopUp.style.display = "none";
+  registerPopUp.style.display = "none";
+  websiteEl.classList.remove("website-hidden");
+  api.createSession(el,
+    pw).then(response => {
+    console.log(response);
+    createUserDocument();
+  }, error => {
+    console.log(error);
+  });
+  initData();
+}
+//creates a user document in the user collection
+function createUserDocument() {
+  console.log(userData.$id);
+  api.createUserDocument(userData.$id, {
+      UserName: userData.name,
+      email: userData.email
+    }, "", "")
+    .then(response => {
+      console.log(response);
+    }, error => {
+      console.log(error);
+    });
+}
+
+
 
 // const hamburger = document.querySelector("#burger-menu"),
 //   closeIcon = document.querySelector("#x-burger-menu"),
