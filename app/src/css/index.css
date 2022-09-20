@@ -20,6 +20,7 @@
 */
 .profile-container {
   position: fixed;
+  top: 8px;
   width: 35rem;
   z-index: 20;
   background-color: rgb(215, 248, 248);
@@ -80,24 +81,46 @@ html {
 }
 
 .main-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 8% 88% 4%;
+  grid-template-areas:
+    "header header header sidebar"
+    "main main main sidebar"
+    "footer footer footer footer";
+  grid-gap: 0.5em;
+}
+
+header {
+  grid-area: header;
   display: flex;
   justify-content: space-evenly;
   align-items: stretch;
 }
 
-.left-main-container {
+.sidebar {
+  grid-area: sidebar;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: stretch;
+}
+
+main {
+  grid-area: main;
   flex-grow: 3;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: stretch;
+  background-color: antiquewhite;
+  border-radius: 0.5em;
 }
 
-.header-container {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: stretch;
-  height: 10vh;
+footer {
+  grid-area: footer;
+  background-color: #faedcd;
 }
 
 .burger-menu-container {
@@ -131,48 +154,11 @@ html {
   flex-direction: column;
 }
 
-.content-container {
-  display: flex;
-  justify-content: start;
-  align-items: stretch;
-  flex-direction: column;
-  height: 105vh;
-  overflow: auto;
-}
-
-.stats-container {
-  text-align: center;
-  flex-grow: 2;
-  background-color: #faedcd;
-  border-color: black;
-  border-width: 1px;
-  border-style: solid;
-  height: 10vh;
-}
-
-.challenges-view {
-  text-align: center;
-  flex-grow: 1;
-  background-color: #faedcd;
-  border-color: black;
-  border-width: 1px;
-  border-style: solid;
-}
-
-.right-main-container {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: stretch;
-}
-
 .leaderboard-container {
   text-align: center;
   flex-grow: 1;
   height: 47vh;
   background-color: #83944c;
-  border-color: black;
   border-width: 1px;
   border-style: solid;
 }
@@ -182,7 +168,6 @@ html {
   flex-grow: 1;
   height: 48vh;
   background-color: #83944c;
-  border-color: black;
   border-width: 1px;
   border-style: solid;
 }
@@ -217,8 +202,15 @@ html {
 }
 
 hr {
-  border-color: black;
   border-bottom: 1px;
+}
+
+.stats-container {
+  text-align: center;
+  flex-grow: 2;
+  border-width: 1px;
+  border-style: solid;
+  height: 10vh;
 }
 
 .upper-stats-container {

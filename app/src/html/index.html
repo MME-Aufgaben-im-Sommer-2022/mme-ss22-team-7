@@ -12,92 +12,73 @@
   <body>
     <div id="website" class="website-hidden">
       <div class="main-container">
-        <div class="left-main-container">
-          <div class="header-container">
-            <div class="burger-menu-container">
-              <i
-                id="burger-menu-open"
-                class="fa-solid fa-align-justify fa-xl"
-              ></i>
-            </div>
-            <div class="title-container">
-              <h1 class="title">Greenbook</h1>
-            </div>
-            <div class="score-container">
-              <div class="score-title">My score</div>
-              <div class="score">0</div>
-            </div>
+        <header>
+          <div class="burger-menu-container">
+            <i
+              id="burger-menu-open"
+              class="fa-solid fa-align-justify fa-xl"
+            ></i>
           </div>
-          <!-- profile View - own .html?! einbindug vermutlich wie challenges oder straight heir, da iframe kacke ist  -->
-          <div class="profile-container">
-            <div class="menu-close-container">
-              <i id="burger-menu-close" class="fa-solid fa-xl fa-xmark"></i>
-            </div>
-            <div id="img-outer-container">
-              <div id="profile-img-container">
-                <div id="dummy-profile-img"></div>
-                <div id="profile-img"></div>
+          <div class="title-container">
+            <h1 class="title">Greenbook</h1>
+          </div>
+          <div class="score-container">
+            <div class="score-title">My score</div>
+            <div class="score">0</div>
+          </div>
+        </header>
+        <main>
+          <div class="stats-container">
+            <div class="upper-stats-container">
+              <div class="co2-score-label">
+                CO2 <br />
+                Score
               </div>
-            </div>
-          </div>
-          <!-- popup Entries -->
-          <div class="overlay-entries">
-            <iframe class="popUp" src="./entry.html"></iframe>
-          </div>
-          <div class="content-container">
-            <div class="stats-container">
-              <div class="upper-stats-container">
-                <div class="co2-score-label">
-                  CO2 <br />
-                  Score
-                </div>
-                <table class="score-category-table">
-                  <tr>
-                    <th class="transport-score-label">Transport</th>
-                    <th class="food-score-label">Food</th>
-                    <th class="others-score-label">Others</th>
-                  </tr>
-                  <tr>
-                    <td class="transport-score">0</td>
-                    <td class="food-score">0</td>
-                    <td class="others-score">0</td>
-                  </tr>
-                </table>
-                <div class="entry-description">
-                  Add a new entry <br />
-                  to track your sustainability
-                </div>
-                <button class="new-entry-button">New Entry</button>
+              <table class="score-category-table">
+                <tr>
+                  <th class="transport-score-label">Transport</th>
+                  <th class="food-score-label">Food</th>
+                  <th class="others-score-label">Others</th>
+                </tr>
+                <tr>
+                  <td class="transport-score">0</td>
+                  <td class="food-score">0</td>
+                  <td class="others-score">0</td>
+                </tr>
+              </table>
+              <div class="entry-description">
+                Add a new entry <br />
+                to track your sustainability
               </div>
-              <canvas class="diagram-canvas"></canvas>
+              <button class="new-entry-button">New Entry</button>
             </div>
-            <!-- challenges View 
+            <canvas class="diagram-canvas"></canvas>
+          </div>
+          <!-- challenges View 
                 maybe only temporarely here
-           -->
-            <div class="challenge-container">
-              <div class="active-challenges-container">
-                <div class="active-challenge-label">
-                  Active <br />
-                  Challenges
-                </div>
-                <!-- list with active challenges  -->
-                <div class="active_container" id="active-challenges"></div>
+            -->
+          <div class="challenge-container">
+            <div class="active-challenges-container">
+              <div class="active-challenge-label">
+                Active <br />
+                Challenges
               </div>
-              <div class="open-challenges-container">
-                <div class="active-challenge-label">
-                  Open <br />
-                  Challenges
-                </div>
-                <!-- list with open challenges  -->
-                <div class="open_container" id="open-challenges"></div>
-              </div>
-              <div class="new-challenge-label">Add a new challenge</div>
-              <div class="new-challenge-container"></div>
+              <!-- list with active challenges  -->
+              <div class="active_container" id="active-challenges"></div>
             </div>
-            <!-- end challenges-->
+            <div class="open-challenges-container">
+              <div class="active-challenge-label">
+                Open <br />
+                Challenges
+              </div>
+              <!-- list with open challenges  -->
+              <div class="open_container" id="open-challenges"></div>
+            </div>
+            <div class="new-challenge-label">Add a new challenge</div>
           </div>
-        </div>
-        <div class="right-main-container">
+          <!-- end challenges-->
+        </main>
+        <sidebar class="sidebar">
           <div class="leaderboard-container">
             <div class="leaderboard-header">Leaderboard</div>
             <hr />
@@ -108,7 +89,26 @@
             <hr />
             <div class="history-content-container"></div>
           </div>
+        </sidebar>
+        <footer>
+          something in here ( Impressum, Datenschutzerklärung etc. )
+        </footer>
+      </div>
+      <!-- profile View - own .html?! einbindug vermutlich wie challenges oder straight heir, da iframe kacke ist  -->
+      <div class="profile-container">
+        <div class="menu-close-container">
+          <i id="burger-menu-close" class="fa-solid fa-xl fa-xmark"></i>
         </div>
+        <div id="img-outer-container">
+          <div id="profile-img-container">
+            <div id="dummy-profile-img"></div>
+            <div id="profile-img"></div>
+          </div>
+        </div>
+      </div>
+      <!-- popup Entries -->
+      <div class="overlay-entries">
+        <iframe class="popUp" src="./entry.html"></iframe>
       </div>
     </div>
     <!--  evtl. einbindung ähnlich wie bei challenges -->

@@ -8,7 +8,7 @@ import ChallengeView from "./challengeView.js";
 let activeChallenges = [
     {
       tid: "aaa",
-      name: "aone",
+      name: "aone ja und so soll die challenge gemacht werden ( zusätzliche Erklärung) mehr text mehr text mehr text ",
       length: 4,
       completed: false,
       Uid: "u273942947329",
@@ -214,15 +214,15 @@ class Challenges {
     this.ChallengeViews = [];
 
     if (bool) {
+      // backend aktive Challenges holen
       this.populateChallenges(activeChallenges);
     } else {
+      // offene Challenges holen
       this.populateChallenges(openChallenges);
     }
   }
 
   populateChallenges(challenges) {
-    //load data from backend
-
     // creating a challengeItem
     challenges.forEach((challenge) =>
       this.addChallenge(Challenge.fromObject(challenge))
