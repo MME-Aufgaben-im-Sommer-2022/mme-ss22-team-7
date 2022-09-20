@@ -1,3 +1,11 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
 /**
 
   GENERAL CSS
@@ -76,8 +84,11 @@
 html {
   display: grid;
   grid-template-columns: minmax(200px, 1600px);
-  background-color: rgb(20, 20, 20);
   justify-content: center;
+  color: black;
+  background: url("../images/blaetter.jpg") no-repeat center center fixed;
+  /* Bildquelle: https://unsplash.com */
+  background-size: cover;
 }
 
 .main-container {
@@ -93,9 +104,11 @@ html {
 
 header {
   grid-area: header;
+  background-color: #83944c;
   display: flex;
   justify-content: space-evenly;
   align-items: stretch;
+  border-radius: 0.5em;
 }
 
 .sidebar {
@@ -121,84 +134,40 @@ main {
 footer {
   grid-area: footer;
   background-color: #faedcd;
+  border-radius: 0.5em;
 }
 
 .burger-menu-container {
   flex-grow: 1;
   text-align: center;
-  background-color: #83944c;
-  border-color: black;
-  border-width: 1px;
-  border-style: solid;
 }
 
 .title-container {
   flex-grow: 10;
-  text-align: center;
-  background-color: #83944c;
-  border-color: black;
-  border-width: 1px;
-  border-style: solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.title {
+  height: 3vh;
+  display: flex;
+  justify-content: center;
 }
 
 .score-container {
   flex-grow: 2;
   text-align: center;
-  background-color: #83944c;
-  border-color: black;
-  border-width: 1px;
-  border-style: solid;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 
-.leaderboard-container {
-  text-align: center;
-  flex-grow: 1;
-  height: 47vh;
-  background-color: #83944c;
-  border-width: 1px;
-  border-style: solid;
-}
-
-.history-container {
-  text-align: center;
-  flex-grow: 1;
-  height: 48vh;
-  background-color: #83944c;
-  border-width: 1px;
-  border-style: solid;
-}
-
-.title {
-  height: 3vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: black;
-}
-
 .score-title {
-  color: black;
 }
 
 .score {
   font-size: 2em;
-  color: black;
-}
-
-.leaderboard-header {
-  color: black;
-  font-size: large;
-  margin-top: 5px;
-}
-
-.history-header {
-  color: black;
-  font-size: large;
-  margin-top: 5px;
 }
 
 hr {
@@ -208,8 +177,6 @@ hr {
 .stats-container {
   text-align: center;
   flex-grow: 2;
-  border-width: 1px;
-  border-style: solid;
   height: 10vh;
 }
 
@@ -234,7 +201,9 @@ hr {
   flex-grow: 1;
   background-color: #a77e55;
   border-color: antiquewhite;
-  color: black;
+  border-radius: 0.5em;
+  margin-top: 0.2em;
+  margin-right: 0.4em;
 }
 
 /*
@@ -441,8 +410,39 @@ hr {
 }
 
 /*
+----------------------  leaderboard  -------------------------------------------------------------------------------------
+  */
+
+.leaderboard-container {
+  text-align: center;
+  flex-grow: 1;
+  height: 47vh;
+  background-color: #83944c;
+  border-radius: 0.5em;
+}
+
+.leaderboard-header {
+  font-size: x-large;
+  margin-top: 5px;
+}
+
+/*
 ----------------------  history  -------------------------------------------------------------------------------------
   */
+
+.history-container {
+  text-align: center;
+  flex-grow: 1;
+  height: 48vh;
+  background-color: #83944c;
+  border-radius: 0.5em;
+  margin-top: 0.5em;
+}
+
+.history-header {
+  font-size: x-large;
+  margin-top: 5px;
+}
 
 .history-element-container {
   display: flex;

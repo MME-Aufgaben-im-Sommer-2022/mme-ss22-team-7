@@ -212,6 +212,7 @@ class Challenges {
   constructor(listA, bool) {
     this.listA = listA;
     this.ChallengeViews = [];
+    console.log(bool);
 
     if (bool) {
       // backend aktive Challenges holen
@@ -231,11 +232,16 @@ class Challenges {
 
   addChallenge(challenge) {
     const ChallengeViews = this.ChallengeViews;
-    const challengeView = new ChallengeView(challenge.active);
+    /**
+     *  WICHTIG!!
+     *   need to compute weather the Challenge is active or inactive ( list active challenges vs all challenges )
+     *  */
+    let challengeActtive = false;
+    const challengeView = new ChallengeView(challengeActtive);
     challengeView.addEventListener("decline", (event) =>
       this.declineChallenge(challenge)
     );
-    if (challenge.active) {
+    if (challengeActtive) {
       challengeView.challenge = challenge;
     } else {
       challengeView.challengeOpen = challenge;

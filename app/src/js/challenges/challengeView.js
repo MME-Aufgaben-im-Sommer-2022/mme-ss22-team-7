@@ -9,6 +9,7 @@ class ChallengeView extends Observable {
     super();
 
     if (bool) {
+      console.log("challenges should be active ");
       const element = ChallengeView.elementFromTemplate(true);
       this.element = element;
 
@@ -18,6 +19,8 @@ class ChallengeView extends Observable {
       this.approveButtonLabel = element.querySelector('[name="approve"]');
       this.declineButtonLabel = element.querySelector('[name="decline"]');
     } else {
+      console.log("challenges are inactive ");
+      console.log(bool);
       const element = ChallengeView.elementFromTemplate(false);
       this.element = element;
 
