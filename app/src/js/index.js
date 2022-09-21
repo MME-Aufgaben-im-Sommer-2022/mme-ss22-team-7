@@ -1,5 +1,6 @@
 import { initInputs } from "./entries/entryData.js";
 import Challenges from "./challenges/challenges.js";
+import {getEntryData} from "./entries/entry.js";
 import api from "./database/database.js";
 
 // challenges.js wird angesprochen
@@ -50,11 +51,14 @@ hamburger.addEventListener("click", toggleMenu);
 closeIcon.addEventListener("click", toggleMenu);
 
 entryPopUp.style.display="none";
+const inputs = initInputs();
 
 let login = "none";
 handleLoginPopup();
 
 function onEntrySave() {
+  let entryData = getEntryData();
+  handleEntryData(entryData);
   entryPopUp.style.display="none";
   websiteEl.classList.remove("website-hidden");
   updateScore();
@@ -63,8 +67,7 @@ function onEntrySave() {
 function onPopUp() {
   entryPopUp.style.display="block";
   websiteEl.classList.add("website-hidden");
-  let saveButtonEl = document.querySelector("#save-button"),
-  inputs = initInputs();
+  let saveButtonEl = document.querySelector("#save-button");
   saveButtonEl.addEventListener("click", onEntrySave);
 }
 
@@ -119,6 +122,11 @@ function onRegisterClose() {
   loginPopUp.style.display = "none";
   registerPopUp.style.display = "none";
   websiteEl.classList.remove("website-hidden");
+}
+
+function handleEntryData(entryData){
+  //TODO: Eingabe "0" bei Fahrzeugen blockieren!
+  console.log(entryData);
 }
 
 // Register User
