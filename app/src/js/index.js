@@ -37,6 +37,7 @@ const entryButton = document.querySelector(".new-entry-button"),
   closeIcon = document.querySelector("#burger-menu-close"),
   loginPopUp = document.querySelector(".login-popUp"),
   registerPopUp = document.querySelector(".register-popUp"),
+  entryPopUp = document.querySelector(".entry-popUp"),
   loginButtonEl = document.querySelector("#login-button"),
   registerButtonEl = document.querySelector("#register-button"),
   loginCloseEl = document.querySelector("#sign-in"),
@@ -44,33 +45,26 @@ const entryButton = document.querySelector(".new-entry-button"),
   websiteEl = document.querySelector("#website"),
   profile = document.querySelector(".profile-container");
 
-entryButton.addEventListener("click", toggleEntries);
+entryButton.addEventListener("click", onPopUp);
 hamburger.addEventListener("click", toggleMenu);
 closeIcon.addEventListener("click", toggleMenu);
+
+entryPopUp.style.display="none";
 
 let login = "none";
 handleLoginPopup();
 
-function toggleEntries() {
-  if (entriesPopUp.classList.contains("showMenu")) {
-    entriesPopUp.classList.remove("showMenu");
-    entriesPopUp.style.display = "none";
-  } else {
-    entriesPopUp.classList.add("showMenu");
-    entriesPopUp.style.display = "block";
-    onPopUp();
-  }
-}
-
 function onEntrySave() {
-  entriesPopUp.classList.remove("showMenu");
+  entryPopUp.style.display="none";
+  websiteEl.classList.remove("website-hidden");
   updateScore();
 }
 
 function onPopUp() {
-  let iframe = document.querySelector(".popUp").contentWindow,
-    saveButtonEl = iframe.document.querySelector("#save-button"),
-    inputs = initInputs(iframe);
+  entryPopUp.style.display="block";
+  websiteEl.classList.add("website-hidden");
+  let saveButtonEl = document.querySelector("#save-button"),
+  inputs = initInputs();
   saveButtonEl.addEventListener("click", onEntrySave);
 }
 
@@ -81,7 +75,6 @@ function updateScore() {
   console.log(score);
 }
 
-//popUp lieber über html/css? iframe noch mit bugs
 function toggleMenu() {
   if (profile.classList.contains("showMenu")) {
     profile.classList.remove("showMenu");

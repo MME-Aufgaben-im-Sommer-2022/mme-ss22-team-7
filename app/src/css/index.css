@@ -246,6 +246,20 @@ hr {
   background: white;
 }
 
+.entry-popUp {
+  background-color: #fff;
+  font-size: 1.6rem;
+  font-family: arial, "lucida console", "Open Sans", sans-serif;
+  color: #2b3e51;
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  top: 10%;
+  left: 10%;
+  text-align: center;
+  background: white;
+}
+
 .diagram-canvas {
   background-color: #b99776;
   margin-top: 2em;
@@ -254,8 +268,76 @@ hr {
 }
 
 .website-hidden {
-  opacity: 0.1;
+  opacity: 0;
   z-index: 9999;
+}
+
+.entry-popUp {
+  background-color:#83944c;
+  font-size: 1.6rem;
+  font-family: arial, "lucida console", "Open Sans", sans-serif;
+  color: #2b3e51
+}
+
+#food {
+  background-color: #7b4171;
+  font-weight: bold;
+  width: 10%;
+
+}
+
+#other {
+  background-color: #985046 ;
+  font-weight: bold;
+  width: 10%;
+}
+
+#transport {
+  background-color: #4c7494;
+  font-weight: bold;
+  width: 10%;
+}
+
+/*die einzelnen Felder*/
+.fieldset {
+  background-color:#faedcd;
+
+}
+
+/*die Beschreibungen zu den Angaben*/
+.text {
+  padding-bottom: 15px;
+  font-weight: bold;
+}
+
+.means-of-transport {
+  padding-bottom: 15px;
+}
+
+.checkboxes {
+  padding: 5px;
+}
+
+
+#text-thrift-shopping {
+  padding-top: 20px;
+  padding-bottom: 15px;
+}
+
+/*button*/
+#save-button {
+  background: #faedcd;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 4px;
+  border-color: #2b3e51;
+  cursor: pointer;
+  width: 160px;
+
+}
+
+#save-button:hover {
+  background-color:#c3cdca;
 }
 
 /*
@@ -424,6 +506,26 @@ hr {
 .leaderboard-header {
   font-size: x-large;
   margin-top: 5px;
+}
+
+.leaderboard-element-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px;
+  background-color: antiquewhite;
+}
+
+.leaderboard-element-place {
+  flex-grow: 1;
+}
+
+.leaderboard-element-name {
+  flex-grow: 3;
+}
+
+.leaderboard-element-score {
+  flex-grow: 1;
 }
 
 /*
