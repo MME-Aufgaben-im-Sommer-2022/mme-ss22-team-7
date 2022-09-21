@@ -37,9 +37,8 @@ let api = {
       write)
   },
 
-  createEntry: (data, read, write) => {
-    return database.createDocument(Server.entriesCol, 'unique()', data,
-      read, write)
+  createEntry: (data) => {
+    return database.createDocument(Server.entriesCol, 'unique()', data)
   },
 
   createUserDocument: (userId, data, read, write) => {
@@ -47,7 +46,7 @@ let api = {
       write)
   },
 
-  myDocument2: (myID) => {
+  /* myDocument2: (myID) => {
     return database.listDocuments(
       Server.databaseID,
       Server.userCol,
@@ -55,21 +54,20 @@ let api = {
         Appwrite.Query.equal("email", "john@b.com")
       ]
     );
-  },
+  }, */
   myDocument: (myID) => {
     return database.getDocument(
-      //Server.databaseID,
       Server.userCol,
       myID
     );
   },
-  myDocument1: (myID) => {
-    return database.listDocuments(Server.userCol);
-  },
-  
+ 
  
   listDocuments: (collectionId) => {
     return database.listDocuments(collectionId);
+  },
+  getEntryDocuments: () => {
+    return database.listDocuments(Server.entriesCol);
   },
 
   updateDocument: (collectionId, documentId, data, read, write) => {
