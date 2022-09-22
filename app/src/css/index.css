@@ -263,8 +263,8 @@ hr {
 .diagram-canvas {
   background-color: #b99776;
   margin-top: 2em;
-  height: 40vh;
-  width: 50vw;
+  height: 80%;
+  width: 90%;
 }
 
 .website-hidden {
@@ -273,21 +273,20 @@ hr {
 }
 
 .entry-popUp {
-  background-color:#83944c;
+  background-color: #83944c;
   font-size: 1.6rem;
   font-family: arial, "lucida console", "Open Sans", sans-serif;
-  color: #2b3e51
+  color: #2b3e51;
 }
 
 #food {
   background-color: #7b4171;
   font-weight: bold;
   width: 10%;
-
 }
 
 #other {
-  background-color: #985046 ;
+  background-color: #985046;
   font-weight: bold;
   width: 10%;
 }
@@ -300,8 +299,7 @@ hr {
 
 /*die einzelnen Felder*/
 .fieldset {
-  background-color:#faedcd;
-
+  background-color: #faedcd;
 }
 
 /*die Beschreibungen zu den Angaben*/
@@ -318,7 +316,6 @@ hr {
   padding: 5px;
 }
 
-
 #text-thrift-shopping {
   padding-top: 20px;
   padding-bottom: 15px;
@@ -333,11 +330,10 @@ hr {
   border-color: #2b3e51;
   cursor: pointer;
   width: 160px;
-
 }
 
 #save-button:hover {
-  background-color:#c3cdca;
+  background-color: #c3cdca;
 }
 
 /*
