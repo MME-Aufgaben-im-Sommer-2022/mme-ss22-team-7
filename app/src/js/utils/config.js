@@ -5,4 +5,5 @@ export const Server = {
     userCol:'6311ed55783449414806',//Users
     challengesCol:'6311ed940fc46037cbac',//Challenges
     entriesCol:'63149d16cfc64429e974', //Entries
+
 };

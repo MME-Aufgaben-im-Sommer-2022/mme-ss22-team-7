@@ -1,9 +1,29 @@
 import Challenge from "./challenge.js";
 import ChallengeView from "./challengeView.js";
+import api from "../database/database.js";
 
 /**
  * challenges.js erstellt für alle challenges eine card und kümmert sich um alles generelle
  */
+
+//hollt liste aller challenges aus der datenbank
+function getChallenges (){
+ api.getChallengeDocuments().then(response => {
+  console.log(response);
+  //vllt hier befehl für populate oder so
+}, error => {
+  console.log(error);
+});
+}
+//erneuert die openChallenge und activeChallenge array DB Einträge
+function changeChallengeState (activeChallenges, completedChallenges){
+  api.updateChallenges(activeChallenges, completedChallenges).then(response => {
+   console.log(response);
+ }, error => {
+   console.log(error);
+ });
+ }
+ 
 
 let activeChallenges = [
     {
@@ -213,6 +233,8 @@ class Challenges {
     this.listA = listA;
     this.ChallengeViews = [];
     console.log(bool);
+    
+    
 
     if (bool) {
       // backend aktive Challenges holen

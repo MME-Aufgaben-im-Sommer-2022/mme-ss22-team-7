@@ -10,6 +10,7 @@ const listOpenChallenges = document.querySelector(".open_container");
 const challenges = new Challenges(listChallenges, true);
 const challengesOpen = new Challenges(listOpenChallenges, false);
 
+
 var score = 0,
 transportScore = 60,
 foodScore = 10,
@@ -58,6 +59,7 @@ function onEntrySave() {
   handleEntryData(entryData);
   entryPopUp.style.display="none";
   websiteEl.classList.remove("website-hidden");
+  
 }
 
 function onPopUp() {
@@ -75,6 +77,7 @@ function updateScore(val) {
   otherScoreEl.innerHTML = otherScore;
   scoreEl.innerHTML = score;
   console.log(score);
+  updateDBScore();
 }
 
 function updateDBScore() {
@@ -99,14 +102,25 @@ function initData(){
   api.getEntryDocuments().then(response => {
     console.log(response);
     initEntries(response);
-  }, error => {});
+  }, error => {
+    console.log(error);
+  });
 }
 
+
+//array with all entry documents of user
 function initEntries(entries){
+
     console.log(entries);//TODO: show entries in history
 
 }
-function deleteEntry(){
+function deleteEntry(id, score){
+  api.deleteEntry(id).then(response => {
+    console.log(response);
+    updateScore(-score);
+  }, error => {
+    console.log(error);
+  });
 }
 
 function toggleMenu() {
@@ -269,3 +283,4 @@ function onLogout() {
 //     closeIcon.style.display = "block";
 //   }
 // }
+export {userID};

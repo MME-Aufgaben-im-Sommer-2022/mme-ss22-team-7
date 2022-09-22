@@ -1,4 +1,5 @@
 import { Server } from "../utils/config.js";
+import { userID } from "../index.js";
 
 const client = new Appwrite.Client();
 client
@@ -46,16 +47,17 @@ let api = {
       write)
   },
 
-  /* myDocument2: (myID) => {
+   myDocument2: () => {
     return database.listDocuments(
       Server.databaseID,
       Server.userCol,
       [
-        Appwrite.Query.equal("email", "john@b.com")
+        Appwrite.Query.equal("CompletedChallenges", "6329cee38b04af2b4290")
       ]
     );
-  }, */
+  }, 
   myDocument: (myID) => {
+    console.log(userID);
     return database.getDocument(
       Server.userCol,
       myID
@@ -68,6 +70,15 @@ let api = {
   },
   getEntryDocuments: () => {
     return database.listDocuments(Server.entriesCol);
+  },
+  deleteEntryDocument: (id) => {
+    return database.deleteDocument(Server.entriesCol, id);
+  },
+  getChallengeDocuments: () => {
+    return database.listDocuments(Server.challengesCol);
+  },
+  updateChallenges: (active, completed) => {
+    return database.updateDocument(Server.userCol, userID,{CompletedChallenges: completed, ActiveChallenges: active});
   },
 
   updateDocument: (collectionId, documentId, data, read, write) => {
