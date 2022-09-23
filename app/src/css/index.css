@@ -1,11 +1,13 @@
 html {
   box-sizing: border-box;
+  font-family: "Source Sans Pro", sans-serif;
 }
 *,
 *:before,
 *:after {
   box-sizing: inherit;
 }
+
 /**
 
   GENERAL CSS
@@ -29,10 +31,12 @@ html {
 .profile-container {
   position: fixed;
   top: 8px;
-  width: 35rem;
+  width: 18rem;
+  height: 80%;
   z-index: 20;
   background-color: rgb(215, 248, 248);
   transform: translateY(-110%);
+  border-radius: 12px;
 }
 
 .menu-close-container {
@@ -55,27 +59,133 @@ html {
   flex-direction: row;
   justify-content: center;
 }
-
-#profile-img-container {
-  margin-top: 2em;
-  display: inline-block;
-  position: relative;
-  width: 40%;
+.pf-name {
+  display: grid;
+  justify-content: center;
 }
-
-#dummy-profile-img {
-  margin-top: 100%;
+#profil-name{
+  font-weight: 600;
+  font-size: 20px;
+  margin: 10px;
 }
-
-#profile-img {
+.logout-button{
+  padding: 5px;
+  justify-content: center;
+  background-color: #357960;
+  border-radius: 3px;
+  color: white;
+  border-color: #357960;
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: silver;
-  border-radius: 50%;
+  right: 5%;
 }
+#add-friend-input {
+  margin: 10px;
+  margin-right: 0;
+  width: 70%;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+  background-color: white;
+  padding: 12px 20px 12px 40px;
+  font-size: 14px;
+}
+#add-friend-button{
+  margin-left: 0;
+  width: 28px;
+  height: 28px;
+  background-color: #357960;
+  border-color: #357960;
+  color: white;
+  border-radius: 5px;
+}
+
+.friend-list {
+  padding: 0;
+  margin:0;
+  display: grid;
+}
+
+/* Style the list items */
+ .friend {
+  cursor: pointer;
+  position: relative;
+  padding: 6px 8px 6px 40px;
+  background: #eee;
+  font-size: 18px;
+  height: 35px;
+  margin: 5px;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  align-items: center;
+  padding: 10px 30px 10px 10px;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
+  background-color: #fff;
+}
+.friend-name {
+  align-content: center;
+  margin: 0;
+  margin-left: 12px;
+  padding: 0;
+  font-size: 14px;
+}
+.friend-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 5px;
+  border-color: #357960;
+  background-color: #357960;
+  color: white;
+}
+.profile-pic {
+  color: transparent;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.profile-pic input {
+  display: none;
+}
+.profile-pic img {
+  position: absolute;
+  object-fit: cover;
+  width: 165px;
+  height: 165px;
+  box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.35);
+  border-radius: 100px;
+  z-index: 0;
+}
+.profile-pic .-label {
+  cursor: pointer;
+  height: 165px;
+  width: 165px;
+}
+.profile-pic:hover .-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10000;
+  color: #fafafa;
+  transition: background-color 0.2s ease-in-out;
+  border-radius: 100px;
+  margin-bottom: 0;
+}
+.profile-pic span {
+  display: inline-flex;
+  padding: 0.2em;
+  height: 2em;
+}
+
+
 
 /*
 ----------------------  main application  -------------------------------------------------------------------------------------
@@ -495,13 +605,21 @@ hr {
   text-align: center;
   flex-grow: 1;
   height: 47vh;
-  background-color: #83944c;
+  background-color: #fff;
   border-radius: 0.5em;
 }
 
 .leaderboard-header {
+  --start: 15%;
+  color: #fff;
+  position: relative;
+  background-color: #357960;
+  padding:10px;
+  border-radius: 0.3em 0.3em 0 0;
+  overflow: hidden;
   font-size: x-large;
-  margin-top: 5px;
+  margin-bottom: 5px;
+  
 }
 
 .leaderboard-element-container {
@@ -510,19 +628,82 @@ hr {
   justify-content: center;
   border: 3px;
   background-color: antiquewhite;
+  border-radius: 0 0 12px 12px;
+  padding: 15px 15px 20px;
+  
 }
 
-.leaderboard-element-place {
-  flex-grow: 1;
+
+.leaderboard-list {
+  padding: 0;
+  margin:0;
+  display: grid;
+  row-gap: 8px;
 }
 
-.leaderboard-element-name {
-  flex-grow: 3;
+
+
+
+.leaderboard-profile {
+  margin-left: 5px;
+  margin-right: 5px;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  align-items: center;
+  padding: 5px 10px 5px 5px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
+  cursor: pointer;
+  background-color: #fff;
 }
 
-.leaderboard-element-score {
-  flex-grow: 1;
+.leaderboard-profile:first-child {
+  background-color:  #AF9500;
+  
 }
+  .leaderboard-profile:nth-child(2) {
+  background-color: #D7D7D7;
+}
+.leaderboard-profile:nth-child(3) {
+  background-color: #AD8A56;
+}  
+.leaderboard-picture {
+  max-width: 100%;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.leaderboard-name {
+  color: #000;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.64px;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 12px;
+}
+.leaderboard-value {
+  color: #357960;
+  font-weight: 700;
+  font-size: 20px;
+  text-align: right;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.leaderboard-container {
+  box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.4);
+}
+
+
+
+
+
+
+
+
+
 
 /*
 ----------------------  history  -------------------------------------------------------------------------------------

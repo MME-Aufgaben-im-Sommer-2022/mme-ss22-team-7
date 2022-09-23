@@ -68,6 +68,10 @@ let api = {
   listDocuments: (collectionId) => {
     return database.listDocuments(collectionId);
   },
+  getUserListDocuments: () => {
+    return database.listDocuments(Server.userCol);
+  },
+  
   getEntryDocuments: () => {
     return database.listDocuments(Server.entriesCol);
   },

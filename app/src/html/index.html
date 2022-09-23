@@ -82,6 +82,9 @@
           <div class="leaderboard-container">
             <div class="leaderboard-header">Leaderboard</div>
             <div class="leaderboard-content-container"></div>
+            <ol class="leaderboard-list">
+    
+            </ol>
           </div>
           <div class="history-container">
             <div class="history-header">History</div>
@@ -99,12 +102,37 @@
         </div>
         <div id="img-outer-container">
           <div id="profile-img-container">
-            <div id="dummy-profile-img"></div>
-            <div id="profile-img"></div>
+            <div class="profile-pic">
+              <label class="-label" for="file">
+                <span class="glyphicon glyphicon-camera"></span>
+                <span>Change Image</span>
+              </label>
+              <input id="file" type="file" onchange="loadFile(event)"/>
+              <img src="../images/default_profile.png" id="profile-img" width="200" />
+            </div>
+            <script>var loadFile = function (event) {
+              var image = document.getElementById("profile-img");
+              image.src = URL.createObjectURL(event.target.files[0]);
+            };</script> 
           </div>
         </div>
+        <div class="pf-name">
+          <p><span id="profile-name">johnny</span>
+          <button class="logout-button">Logout</button></p>
+      </div>
+      <hr>
+
+      <!-- search-field-->
+      <div id="search-field" >
+          <p>
+              <input type="search" name="q" id="add-friend-input" placeholder="Add friend by E-Mail" />
+              <input type="submit" id="add-friend-button" value="+" />
+          </p>
+        </div>
+      <ul class="friend-list">
+        </ul>
         <!-- needs styling -->
-        <button class="logout-button">Logout</button>
+        
       </div>
     </div>
     <!--entry popup-->
@@ -456,6 +484,21 @@
         <div class="history-element-score">-132</div>
       </div>
     </template>
+    <template id="friend-template">
+      <li class="friend" data-id="">
+          <p class="friend-name" name="friend-name"></p>
+          <input type="button" class="friend-button" name="friend-button"value="x">
+      </li>
+    </template>
+    <template id="leaderboard-template">
+       <article class="leaderboard-profile" data-id=""> 
+         <img src="../images/default_profile.png" class="leaderboard-picture"> 
+        <p class="leaderboard-name"></p>
+        <p class="leaderboard-value"></p>
+      </article> 
+    </template>
+   
+    
     <script src="https://cdn.jsdelivr.net/npm/appwrite@9.0.1/dist/iife/sdk.min.js"></script>
     <script
       src="https://kit.fontawesome.com/300d45943a.js"
@@ -520,3 +563,4 @@
     </li>
   </template>
 </html>
+

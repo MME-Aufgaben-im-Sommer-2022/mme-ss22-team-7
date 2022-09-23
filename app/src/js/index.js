@@ -1,8 +1,14 @@
 import { initInputs } from "./entries/entryData.js";
 import Challenges from "./challenges/challenges.js";
-import {getEntryData} from "./entries/entry.js";
+import { getEntryData } from "./entries/entry.js";
 import api from "./database/database.js";
 import { Server } from "./utils/config.js";
+import Friend from "./friends/Friend.js";
+import FriendView from "./friends/FriendView.js";
+import Leaderboard from "./friends/Leaderboard.js";
+import { updateLeaderboardList,
+  addToLeaderboard } from "./friends/Leaderboard.js";
+
 
 // challenges.js wird angesprochen
 const listChallenges = document.querySelector(".active_container");
@@ -12,13 +18,18 @@ const challengesOpen = new Challenges(listOpenChallenges, false);
 
 
 var score = 0,
-transportScore = 60,
-foodScore = 10,
-otherScore = 40,
-userID = "",
-userData = null;
-const  logoutButton = document.querySelector(".logout-button"),
- entryButton = document.querySelector(".new-entry-button"),
+  transportScore = 60,
+  foodScore = 10,
+  otherScore = 40,
+  userID = "",
+  userData = null,
+  userDocument = null,
+  userListDocument = null;
+const logoutButton = document.querySelector(".logout-button"),
+  entryButton = document.querySelector(".new-entry-button"),
+  addFriendButton = document.getElementById("add-friend-button"),
+  friendInput = document.getElementById("add-friend-input"),
+  friendList = document.querySelector(".friend-list"),
   scoreEl = document.querySelector(".score"),
   transportScoreEl = document.querySelector(".transport-score"),
   foodScoreEl = document.querySelector(".food-score"),
@@ -39,14 +50,21 @@ const  logoutButton = document.querySelector(".logout-button"),
   passwordR = document.getElementById('passwordR'),
   usernameR = document.getElementById('usernameR'),
   email = document.getElementById('email'),
+  profileNameEl = document.getElementById('profile-name'),
+  profilePic = document.getElementById('profile-img'),
   password = document.getElementById('password');
+
 
 entryButton.addEventListener("click", onPopUp);
 logoutButton.addEventListener("click", onLogout);
+addFriendButton.addEventListener("click", onAddFriend);
 hamburger.addEventListener("click", toggleMenu);
 closeIcon.addEventListener("click", toggleMenu);
 
-entryPopUp.style.display="none";
+
+
+
+entryPopUp.style.display = "none";
 const inputs = initInputs();
 
 let login = "none";
@@ -57,13 +75,13 @@ handleLoginPopup();
 function onEntrySave() {
   let entryData = getEntryData();
   handleEntryData(entryData);
-  entryPopUp.style.display="none";
+  entryPopUp.style.display = "none";
   websiteEl.classList.remove("website-hidden");
-  
+
 }
 
 function onPopUp() {
-  entryPopUp.style.display="block";
+  entryPopUp.style.display = "block";
   websiteEl.classList.add("website-hidden");
   let saveButtonEl = document.querySelector("#save-button");
   saveButtonEl.addEventListener("click", onEntrySave);
@@ -78,16 +96,23 @@ function updateScore(val) {
   scoreEl.innerHTML = score;
   console.log(score);
   updateDBScore();
+  updateLeaderboardList();
 }
 
 function updateDBScore() {
-  api.updateUserCl(userData.$id, { Score: score, TransportScore: transportScore,
-    FoodScore: foodScore, OtherScore: otherScore }, "", "");
+  api.updateUserCl(userData.$id, {
+    Score: score,
+    TransportScore: transportScore,
+    FoodScore: foodScore,
+    OtherScore: otherScore
+  }, "", "");
 }
 
-function initData(){
+function initData() {
   api.myDocument(userID).then(response => {
-    console.log(response);
+    userDocument = response;
+    addToLeaderboard(new Friend(userDocument));
+    profileNameEl.innerHTML = userDocument.UserName;
     score = response.Score;
     transportScore = response.TransportScore;
     foodScore = response.FoodScore;
@@ -105,16 +130,22 @@ function initData(){
   }, error => {
     console.log(error);
   });
+  api.getUserListDocuments().then(response => {
+    console.log(response);
+    userListDocument = response;
+    fillFriendList();
+  }, error => {
+    console.log(error);
+  });
 }
 
 
 //array with all entry documents of user
-function initEntries(entries){
-
-    console.log(entries);//TODO: show entries in history
-
+function initEntries(entries) {
+  console.log(entries); //TODO: show entries in history
 }
-function deleteEntry(id, score){
+
+function deleteEntry(id, score) {
   api.deleteEntry(id).then(response => {
     console.log(response);
     updateScore(-score);
@@ -142,23 +173,23 @@ function checkForSession() {
   }, error => {});
 }
 
-function handleEntryData(entryData){
+function handleEntryData(entryData) {
   let val = 0;
   //TODO: Eingabe "0" bei Fahrzeugen blockieren!
-    entryData.forEach(el => {
-      console.log(el.value, el.name);
-      val+=20;
-      //TODO:el.value ist string, mit score verbinden und zu string machen
-    api.createEntry({ Name: el.el, CO2: 40})
-    .then(response => {
-      console.log(response);
-      //create score entry
-    }, error => {
-      console.log(error);
-    }); 
+  entryData.forEach(el => {
+    console.log(el.value, el.name);
+    val += 20;
+    //TODO:el.value ist string, mit score verbinden und zu string machen
+    api.createEntry({ Name: el.el, CO2: 40 })
+      .then(response => {
+        console.log(response);
+        //create score entry
+      }, error => {
+        console.log(error);
+      });
     updateScore(val);
-  }); 
-  
+  });
+
   console.log(entryData);
 }
 
@@ -183,6 +214,7 @@ function onLoginSwitch() {
     login = "login";
   }
 }
+
 //creates a new user session
 function createUserSession() {
   let el = email.value,
@@ -199,21 +231,23 @@ function createUserSession() {
   });
   console.log("no response");
 }
+
 function onLoginClose() {
   login = "none";
   loginPopUp.style.display = "none";
   registerPopUp.style.display = "none";
   websiteEl.classList.remove("website-hidden");
-  userData=api.getAccount().then(response => {
-    userData=response;
+  userData = api.getAccount().then(response => {
+    userData = response;
     userID = userData.$id;
     console.log(response);
     initData();
   }, error => {
     console.log(error);
   });
-  
+
 }
+
 //creates a new user account
 function createAccount() {
   console.log("create account");
@@ -224,13 +258,15 @@ function createAccount() {
   passwordR.value = "";
   usernameR.value = "";
   api.createAccount(el, pw, un).then(function(response) {
-      console.log(response);
-      userData = response;
-      userID = userData.$id;
-      onRegisterClose(el, pw, );}, function(error) {
-      console.log(error);
-    });
+    console.log(response);
+    userData = response;
+    userID = userData.$id;
+    onRegisterClose(el, pw, );
+  }, function(error) {
+    console.log(error);
+  });
 }
+
 //closes register popUp and creates session
 function onRegisterClose(el, pw) {
   login = "none";
@@ -245,6 +281,7 @@ function onRegisterClose(el, pw) {
     console.log(error);
   });
 }
+
 //creates a user document in the user collection
 function createUserDocument() {
   console.log(userData.$id);
@@ -258,6 +295,7 @@ function createUserDocument() {
       console.log(error);
     });
 }
+
 function onLogout() {
   api.deleteCurrentSession().then(response => {
     console.log(response);
@@ -266,6 +304,56 @@ function onLogout() {
     console.log(error);
   });
 }
+
+function onAddFriend() {
+  let friend = friendInput.value;
+  friendInput.value = "";
+  userListDocument.documents.forEach(element => {
+    if (element.email == friend) {
+      if (!userDocument.Friends.includes(friend)) {
+        userDocument.Friends.push(friend);
+        friend = "";
+        addToFriendList(element);
+        addToLeaderboard(element);
+        api.updateUserCl(userID, { Friends: userDocument.Friends }).then(
+          response => {
+            console.log(response);
+          }, error => {
+            console.log(error);
+          });
+      }
+    }
+  });
+}
+
+
+
+function fillFriendList() {
+  userDocument.Friends.forEach(friend => {
+    userListDocument.documents.forEach(element => {
+      if (element.email == friend) {
+        console.log(friend);
+        addToFriendList(element);
+      }
+    });
+  });
+}
+
+function addToFriendList(data) {
+  let newFriend = new Friend(data),
+    friendView = new FriendView(newFriend);
+  addToLeaderboard(newFriend);
+  friendList.appendChild(friendView.getElement());
+}
+
+
+//doesnt work yet
+/* profilePic.addEventListener("change", function(event) {
+  image.src = URL.createObjectURL(event.target.files[0]);
+  console.log("image loaded"+"image.src");
+}); */
+
+
 
 // const hamburger = document.querySelector("#burger-menu"),
 //   closeIcon = document.querySelector("#x-burger-menu"),
@@ -283,4 +371,4 @@ function onLogout() {
 //     closeIcon.style.display = "block";
 //   }
 // }
-export {userID};
+export { userID, userDocument, userListDocument };
