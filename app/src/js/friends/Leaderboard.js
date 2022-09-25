@@ -5,37 +5,40 @@ import Friend from './Friend.js';
 
 
 
-
-const friendLeaderboardTemplate = document.querySelector(
-    "#leaderboard-template").innerHTML.trim(),
-  leaderboardList = document.querySelector(".leaderboard-list");
+var leaderboard=[];
+const friendLeaderboardTemplate = document.querySelector("#leaderboard-template").innerHTML.trim(),
+  leaderboardListEl = document.querySelector(".leaderboard-list");
 
 
 
 function addToLeaderboard(friend) {
-  let leaderboard = new Leaderboard(friend);
-  leaderboardList.appendChild(leaderboard.getElement());
+  let leaderboardEntry = new Leaderboard(friend);
+  leaderboardListEl.appendChild(leaderboardEntry.getElement());
+  leaderboard.push(leaderboardEntry);
   sortList();
-
 }
 
-function updateLeaderboardList() {
-  leaderboardList.querySelector("[data-id=\"" + userID + "\"]").remove();
-  addToLeaderboard(new Friend(userDocument));
+function updateLeaderboardList(id, score) {
+  let userObj = leaderboard.find(x => x.id === id);
+  userObj.changeScore(score);
   sortList();
 }
 
 function sortList() {
-  [...leaderboardList.children]
-  .sort((a, b) => a.id < b.id ? 1 : -1)
-    .forEach(node => leaderboardList.appendChild(node));
-}
+  [...leaderboardListEl.children]
+  .sort(function compareFn(a,b){
+    if(parseInt(a.id)<parseInt(b.id))return 1;
+    if(parseInt(a.id)>parseInt(b.id))return -1;
+    return 0;}).forEach(node => leaderboardListEl.appendChild(node));
+  }
+ 
 
 class Leaderboard {
 
   constructor(friend) {
     this.friend = friend;
-    this.el = Leaderboard.createFriendElement();
+    this.id=friend.id;
+    this.el = Leaderboard.createLeaderboardElement();
     this.el.setAttribute("data-id", this.friend.id);
     this.el.setAttribute("id", this.friend.score);
     this.el.setAttribute("name", this.friend.id);
@@ -51,13 +54,16 @@ class Leaderboard {
   getElement() {
     return this.el;
   }
-  getScore() {
+  getScore(score) {
     return this.score;
   }
+  changeScore(score) {
+    this.el.setAttribute("id", score);
+    this.score.innerHTML = score;}
   deleteElement() {}
   //sort list
 
-  static createFriendElement() {
+  static createLeaderboardElement() {
     let el = document.createElement("div");
     el.innerHTML = friendLeaderboardTemplate;
     return el.firstChild;

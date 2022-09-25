@@ -32,11 +32,13 @@ html {
   position: fixed;
   top: 8px;
   width: 18rem;
-  height: 80%;
+  height: 100%;
   z-index: 20;
-  background-color: rgb(215, 248, 248);
+ /*  background-color: rgb(215, 248, 248); */
+ background-color: white;
   transform: translateY(-110%);
   border-radius: 12px;
+  box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
 }
 
 .menu-close-container {
@@ -241,6 +243,8 @@ main {
   border-radius: 0.5em;
 }
 
+
+
 footer {
   grid-area: footer;
   background-color: #faedcd;
@@ -288,7 +292,13 @@ hr {
   text-align: center;
   flex-grow: 2;
   height: 10vh;
+  
 }
+/* .stats-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
 
 .upper-stats-container {
   display: flex;
@@ -309,12 +319,29 @@ hr {
 
 .new-entry-button {
   flex-grow: 1;
-  background-color: #a77e55;
+  background-color: #357960;
   border-color: antiquewhite;
   border-radius: 0.5em;
   margin-top: 0.2em;
   margin-right: 0.4em;
 }
+/* #diagram-canvas {
+  background-color: #b99776;
+  margin-top: 2em;
+  height: 80%;
+  width: 90%;
+} */
+.canvas{
+  position: relative;
+  margin: 2em;
+}
+#diagram-canvas {
+/* margin-left: 1em;
+margin-right: 1em;
+margin-top: 4em; */
+margin: 1em;
+}
+
 
 /*
 ----------------------  new Entry  -------------------------------------------------------------------------------------
@@ -370,12 +397,6 @@ hr {
   background: white;
 }
 
-.diagram-canvas {
-  background-color: #b99776;
-  margin-top: 2em;
-  height: 80%;
-  width: 90%;
-}
 
 .website-hidden {
   opacity: 0;
@@ -607,6 +628,7 @@ hr {
   height: 47vh;
   background-color: #fff;
   border-radius: 0.5em;
+  overflow: hidden;
 }
 
 .leaderboard-header {
@@ -639,6 +661,7 @@ hr {
   margin:0;
   display: grid;
   row-gap: 8px;
+  scroll-behavior: auto;
 }
 
 
@@ -662,7 +685,7 @@ hr {
   background-color:  #AF9500;
   
 }
-  .leaderboard-profile:nth-child(2) {
+.leaderboard-profile:nth-child(2) {
   background-color: #D7D7D7;
 }
 .leaderboard-profile:nth-child(3) {

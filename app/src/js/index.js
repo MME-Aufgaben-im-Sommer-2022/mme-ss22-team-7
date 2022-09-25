@@ -3,11 +3,14 @@ import Challenges from "./challenges/challenges.js";
 import { getEntryData } from "./entries/entry.js";
 import api from "./database/database.js";
 import { Server } from "./utils/config.js";
-import Friend from "./friends/Friend.js";
+import Friend, { onAddFriend, fillFriendList } from "./friends/Friend.js";
 import FriendView from "./friends/FriendView.js";
 import Leaderboard from "./friends/Leaderboard.js";
-import { updateLeaderboardList,
-  addToLeaderboard } from "./friends/Leaderboard.js";
+import { onCreateAccount } from "./Login/SignUp.js";
+import {
+  updateLeaderboardList,
+  addToLeaderboard
+} from "./friends/Leaderboard.js";
 
 
 // challenges.js wird angesprochen
@@ -18,18 +21,21 @@ const challengesOpen = new Challenges(listOpenChallenges, false);
 
 
 var score = 0,
+  today = Math.floor(Date.now() / 1000),
   transportScore = 60,
   foodScore = 10,
   otherScore = 40,
   userID = "",
+  scoreHistory = [],
+  friendArray = [],
   userData = null,
   userDocument = null,
   userListDocument = null;
 const logoutButton = document.querySelector(".logout-button"),
+  S_PER_DAY = 86400,
   entryButton = document.querySelector(".new-entry-button"),
   addFriendButton = document.getElementById("add-friend-button"),
   friendInput = document.getElementById("add-friend-input"),
-  friendList = document.querySelector(".friend-list"),
   scoreEl = document.querySelector(".score"),
   transportScoreEl = document.querySelector(".transport-score"),
   foodScoreEl = document.querySelector(".food-score"),
@@ -57,9 +63,10 @@ const logoutButton = document.querySelector(".logout-button"),
 
 entryButton.addEventListener("click", onPopUp);
 logoutButton.addEventListener("click", onLogout);
-addFriendButton.addEventListener("click", onAddFriend);
+addFriendButton.addEventListener("click", addFriend);
 hamburger.addEventListener("click", toggleMenu);
 closeIcon.addEventListener("click", toggleMenu);
+
 
 
 
@@ -77,7 +84,6 @@ function onEntrySave() {
   handleEntryData(entryData);
   entryPopUp.style.display = "none";
   websiteEl.classList.remove("website-hidden");
-
 }
 
 function onPopUp() {
@@ -96,7 +102,7 @@ function updateScore(val) {
   scoreEl.innerHTML = score;
   console.log(score);
   updateDBScore();
-  updateLeaderboardList();
+  updateLeaderboardList(userID, score);
 }
 
 function updateDBScore() {
@@ -104,32 +110,48 @@ function updateDBScore() {
     Score: score,
     TransportScore: transportScore,
     FoodScore: foodScore,
-    OtherScore: otherScore
-  }, "", "");
+    OtherScore: otherScore,
+    LastLogin: today,
+    ScoreHistory: userDocument.ScoreHistory
+  }, "", "").then(response => { console.log(response) }, error => {
+    console.log(error);
+  });
 }
 
 function initData() {
   api.myDocument(userID).then(response => {
     userDocument = response;
-    addToLeaderboard(new Friend(userDocument));
-    profileNameEl.innerHTML = userDocument.UserName;
-    score = response.Score;
-    transportScore = response.TransportScore;
-    foodScore = response.FoodScore;
-    otherScore = response.OtherScore;
-    scoreEl.innerHTML = score;
-    transportScoreEl.innerHTML = transportScore;
-    foodScoreEl.innerHTML = foodScore;
-    otherScoreEl.innerHTML = otherScore;
+    setScoreHistory(userDocument);
+    fillHTML(userDocument);
+    getEntries();
+    getUsers();
   }, error => {
     console.log(error);
   });
+}
+
+function fillHTML(response) {
+  profileNameEl.innerHTML = userDocument.UserName;
+  score = response.Score;
+  transportScore = response.TransportScore;
+  foodScore = response.FoodScore;
+  otherScore = response.OtherScore;
+  scoreEl.innerHTML = score;
+  transportScoreEl.innerHTML = transportScore;
+  foodScoreEl.innerHTML = foodScore;
+  otherScoreEl.innerHTML = otherScore;
+}
+
+function getEntries() {
   api.getEntryDocuments().then(response => {
     console.log(response);
     initEntries(response);
   }, error => {
     console.log(error);
   });
+}
+
+function getUsers() {
   api.getUserListDocuments().then(response => {
     console.log(response);
     userListDocument = response;
@@ -223,13 +245,11 @@ function createUserSession() {
   password.value = "";
   api.createSession(el,
     pw).then(response => {
-    //userID = userData.userId;
     console.log(response);
     onLoginClose();
   }, error => {
     console.log(error);
   });
-  console.log("no response");
 }
 
 function onLoginClose() {
@@ -245,7 +265,6 @@ function onLoginClose() {
   }, error => {
     console.log(error);
   });
-
 }
 
 //creates a new user account
@@ -277,6 +296,7 @@ function onRegisterClose(el, pw) {
     pw).then(response => {
     console.log(response);
     createUserDocument();
+    getUsers();
   }, error => {
     console.log(error);
   });
@@ -305,46 +325,25 @@ function onLogout() {
   });
 }
 
-function onAddFriend() {
+function addFriend() {
   let friend = friendInput.value;
   friendInput.value = "";
-  userListDocument.documents.forEach(element => {
-    if (element.email == friend) {
-      if (!userDocument.Friends.includes(friend)) {
-        userDocument.Friends.push(friend);
-        friend = "";
-        addToFriendList(element);
-        addToLeaderboard(element);
-        api.updateUserCl(userID, { Friends: userDocument.Friends }).then(
-          response => {
-            console.log(response);
-          }, error => {
-            console.log(error);
-          });
-      }
-    }
-  });
+  onAddFriend(friend);
+}
+
+function setScoreHistory() {
+  let dateDif = Math.floor((today - userDocument.LastLogin) / S_PER_DAY);
+  for (let index = 0; index < dateDif; index++) {
+    userDocument.ScoreHistory.push(userDocument.Score - 5 * index);
+    //vllt abbau von punkten über zeit?
+  }
+  console.log(scoreHistory);
+  addToLeaderboard(new Friend(userDocument));
+  updateDBScore();
 }
 
 
 
-function fillFriendList() {
-  userDocument.Friends.forEach(friend => {
-    userListDocument.documents.forEach(element => {
-      if (element.email == friend) {
-        console.log(friend);
-        addToFriendList(element);
-      }
-    });
-  });
-}
-
-function addToFriendList(data) {
-  let newFriend = new Friend(data),
-    friendView = new FriendView(newFriend);
-  addToLeaderboard(newFriend);
-  friendList.appendChild(friendView.getElement());
-}
 
 
 //doesnt work yet

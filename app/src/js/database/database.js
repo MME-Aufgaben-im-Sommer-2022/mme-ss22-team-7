@@ -24,7 +24,7 @@ let api = {
   getAccount: () => {
     return account.get();
   },
-
+  
   createSession: (email, password) => {
     return account.createEmailSession(email, password);
   },
@@ -90,6 +90,10 @@ let api = {
       write);
   },
   updateUserCl: (documentId, data, read, write) => {
+    return database.updateDocument(Server.userCol, documentId, data, read,
+      write);
+  },
+  updateUserLastLogin: (documentId, data, read, write) => {
     return database.updateDocument(Server.userCol, documentId, data, read,
       write);
   },
