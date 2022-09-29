@@ -17,7 +17,7 @@ class ChallengeView extends Observable {
       this.pointsLabel = element.querySelector('[name="points"]');
       this.approveButtonLabel = element.querySelector('[name="approve"]');
       this.declineButtonLabel = element.querySelector('[name="decline"]');
-      //this.initActiveListeners();
+      this.initActiveListeners();
     } else {
       const element = ChallengeView.elementFromTemplate(false);
       this.element = element;
@@ -87,8 +87,21 @@ class ChallengeView extends Observable {
     this.acceptButtonLabel.addEventListener("click", this.onAccept.bind(this));
   }
 
+  initActiveListeners() {
+    console.log("entered initActiveListeners");
+    this.declineButtonLabel.addEventListener(
+      "click",
+      this.onDecline.bind(this)
+    );
+  }
+
   onAccept() {
     const event = new Event("accept", this);
+    this.notifyAll(event);
+  }
+
+  onDecline() {
+    const event = new Event("decline", this);
     this.notifyAll(event);
   }
 

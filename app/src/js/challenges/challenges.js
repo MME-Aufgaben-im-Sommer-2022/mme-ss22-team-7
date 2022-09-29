@@ -44,9 +44,11 @@ class Challenges {
 
   populateChallenges(challenges, bool) {
     // creating a challengeItem
-    console.log(" populate Challenges: " + this.bool + bool);
+    console.log(" populate Challenges: " + bool);
     console.log(challenges);
+    console.log(challenges.length);
     if (challenges.length > 0) {
+      console.log("creating Challenge");
       challenges.forEach((challenge) =>
         this.addChallenge(Challenge.fromObject(challenge), bool)
       );
@@ -108,20 +110,44 @@ class Challenges {
       ChallengeViews.push(challengeView);
       this.listOpen.appendChild(challengeView.element);
     }
-    ChallengeViews.push(challengeView);
-    // is challengeView.element right? the element?
-    // should look like this
-    //this.list.appendChild(challengeView.element);
   }
 
   /**
    *
-   * alles abwärts vermutlich irgendwann in challengeView
+   * alles abwärts vermutlich irgendwann in challengeView??
    */
 
   declineChallenge(challenge) {
     // sort challenge back into open challenges
-    console.log("got to decline: " + challenge);
+    console.log("got to decline: ");
+    console.log(challenge);
+    const ChallengeViews = this.ChallengeViews;
+    const index = ChallengeViews.findIndex(
+      (challengeView) =>
+        challengeView.challenge.challengeName === challenge.challengeName
+    );
+    if (index < 0) return;
+
+    ChallengeViews[index].remove();
+    this.ChallengeViews.splice(index, 1);
+
+    const indexActive = this.listChallengesUiActive.findIndex(
+      (item) => item.challengeName == challenge.challengeName
+    );
+    if (indexActive < 0) return;
+
+    this.listChallengesUiActive.splice(indexActive, 1);
+
+    this.listChallengesUiOpen.push(challenge);
+
+    changeChallengeState(
+      this.computeActiveChallenges(this.listChallengesUiActive),
+      this.listChallengesUiCompleted
+    );
+
+    let tempArrChallenge = [];
+    tempArrChallenge.push(challenge);
+    this.populateChallenges(tempArrChallenge, false);
   }
 
   finishChallenge(challenge) {
@@ -137,19 +163,20 @@ class Challenges {
   acceptChallenge(challenge) {
     const ChallengeViews = this.ChallengeViews;
     const index = ChallengeViews.findIndex(
-      (challengeView) => challengeView.challenge.name === challenge.name
+      (challengeView) =>
+        challengeView.challenge.challengeName === challenge.challengeName
     );
     if (index < 0) return;
 
     ChallengeViews[index].remove();
-    this.ChallengeViews.slice(index, 1);
+    this.ChallengeViews.splice(index, 1);
 
     const indexOpen = this.listChallengesUiOpen.findIndex(
-      (item) => item.name == challenge.name
+      (item) => item.challengeName == challenge.challengeName
     );
     if (indexOpen < 0) return;
 
-    this.listChallengesUiOpen.slice(indexOpen, 1);
+    this.listChallengesUiOpen.splice(indexOpen, 1);
 
     this.listChallengesUiActive.push(challenge);
 
@@ -158,7 +185,9 @@ class Challenges {
       this.listChallengesUiCompleted
     );
 
-    this.populateChallenges(this.listChallengesUiActive, true);
+    let tempArrChallenge = [];
+    tempArrChallenge.push(challenge);
+    this.populateChallenges(tempArrChallenge, true);
   }
 
   deleteChallenge(index, newActive) {

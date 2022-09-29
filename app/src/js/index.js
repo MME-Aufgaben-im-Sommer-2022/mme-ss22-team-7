@@ -136,17 +136,10 @@ function initChallenges(userData) {
         response,
         userData.ActiveChallenges
       );
-      console.log(userData.completedChallenges);
+      console.log(userData.CompletedChallenges);
       //validChallenges = response.documents;
       //this.ValidChallenges = this.cleanChallenges(response);
       const challengesOpen = new Challenges(
-        listOpenChallenges,
-        listChallenges,
-        validOpenChallenges,
-        validActiveChallenges,
-        userData.CompletedChallenges
-      );
-      const challengesActive = new Challenges(
         listOpenChallenges,
         listChallenges,
         validOpenChallenges,
@@ -176,7 +169,7 @@ function computeOpenChallenges(response, listIds) {
   let validArr = response.documents;
   for (let index = 0; index < validArr.length; index++) {
     listIds.forEach((element) => {
-      if (validArr[index].$id == element.$id) {
+      if (validArr[index].$id == element) {
         validArr.splice(index, 1);
       }
     });
