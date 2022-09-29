@@ -90,7 +90,6 @@ function updateDBScore() {
 function initData() {
   api.myDocument(userID).then(
     (response) => {
-      console.log("initData: ");
       console.log(response);
       userDocs = response;
       score = response.Score;
@@ -110,7 +109,6 @@ function initData() {
   );
   api.getEntryDocuments().then(
     (response) => {
-      console.log(response);
       initEntries(response);
     },
     (error) => {
@@ -127,7 +125,6 @@ function initChallenges(userData) {
   const listChallenges = document.querySelector(".active_container");
   api.getChallengeDocuments().then(
     (response) => {
-      console.log(response, userData.ActiveChallenges);
       let validActiveChallenges = computeActiveChallenges(
         response,
         userData.ActiveChallenges
@@ -136,9 +133,7 @@ function initChallenges(userData) {
         response,
         userData.ActiveChallenges
       );
-      console.log(userData.CompletedChallenges);
-      //validChallenges = response.documents;
-      //this.ValidChallenges = this.cleanChallenges(response);
+
       const challengesOpen = new Challenges(
         listOpenChallenges,
         listChallenges,

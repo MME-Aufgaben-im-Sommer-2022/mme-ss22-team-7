@@ -88,10 +88,13 @@ class ChallengeView extends Observable {
   }
 
   initActiveListeners() {
-    console.log("entered initActiveListeners");
     this.declineButtonLabel.addEventListener(
       "click",
       this.onDecline.bind(this)
+    );
+    this.approveButtonLabel.addEventListener(
+      "click",
+      this.onApprove.bind(this)
     );
   }
 
@@ -102,6 +105,11 @@ class ChallengeView extends Observable {
 
   onDecline() {
     const event = new Event("decline", this);
+    this.notifyAll(event);
+  }
+
+  onApprove() {
+    const event = new Event("approve", this);
     this.notifyAll(event);
   }
 

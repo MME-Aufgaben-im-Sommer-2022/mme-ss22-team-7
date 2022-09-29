@@ -1,7 +1,6 @@
 import Challenge from "./challenge.js";
 import ChallengeView from "./challengeView.js";
 import api from "../database/database.js";
-import { userDocs } from "../index.js";
 
 /**
  * challenges.js erstellt für alle challenges eine card und kümmert sich um alles generelle
@@ -34,34 +33,20 @@ class Challenges {
     this.listChallengesUiCompleted = listChallengesUiCompleted;
     this.ChallengeViews = [];
 
-    // this.activeChallenges = [];
-    // this.openChallenges = [];
-
     this.populateChallenges(this.listChallengesUiOpen, false);
 
     this.populateChallenges(this.listChallengesUiActive, true);
   }
 
   populateChallenges(challenges, bool) {
-    // creating a challengeItem
-    console.log(" populate Challenges: " + bool);
-    console.log(challenges);
-    console.log(challenges.length);
     if (challenges.length > 0) {
-      console.log("creating Challenge");
       challenges.forEach((challenge) =>
         this.addChallenge(Challenge.fromObject(challenge), bool)
       );
     }
   }
 
-  /**
-   * hoffentlich nicht mehr nötig
-   */
-
   computeActiveChallenges() {
-    // geting the active user challenges
-    console.log("getting active Chalenges: ");
     let validActiveIds = [];
     this.listChallengesUiActive.forEach((element) => {
       validActiveIds.push(element.$id);
@@ -69,14 +54,9 @@ class Challenges {
     return validActiveIds;
   }
 
-  //hollt liste aller challenges aus der datenbank
-  // hoffentlich nicht mehr nötig
   getOpenChallenges() {
-    console.log("getting open challenges ");
-
     api.getChallengeDocuments().then(
       (response) => {
-        //sortieren nach den relevanten Challenges
         this.openChallenges = this.cleanChallenges(response);
         console.log(this.openChallenges);
         this.populateChallenges(this.openChallenges);
@@ -89,15 +69,15 @@ class Challenges {
 
   addChallenge(challenge, bool) {
     const ChallengeViews = this.ChallengeViews;
-    /**
-     *  WICHTIG!!
-     *   need to compute weather the Challenge is active or inactive ( list active challenges vs all challenges )
-     *  */
+
     const challengeView = new ChallengeView(bool);
 
     if (bool) {
       challengeView.addEventListener("decline", (event) =>
         this.declineChallenge(challenge)
+      );
+      challengeView.addEventListener("approve", (event) =>
+        this.approveChallenge(challenge)
       );
       challengeView.challenge = challenge;
       ChallengeViews.push(challengeView);
@@ -118,9 +98,6 @@ class Challenges {
    */
 
   declineChallenge(challenge) {
-    // sort challenge back into open challenges
-    console.log("got to decline: ");
-    console.log(challenge);
     const ChallengeViews = this.ChallengeViews;
     const index = ChallengeViews.findIndex(
       (challengeView) =>
@@ -148,6 +125,10 @@ class Challenges {
     let tempArrChallenge = [];
     tempArrChallenge.push(challenge);
     this.populateChallenges(tempArrChallenge, false);
+  }
+
+  approveChallenge(challenge) {
+    console.log(challenge);
   }
 
   finishChallenge(challenge) {
@@ -190,30 +171,9 @@ class Challenges {
     this.populateChallenges(tempArrChallenge, true);
   }
 
-  deleteChallenge(index, newActive) {
-    // deleting challenge from database
-    // const ChallengeViews = this.ChallengeViews;
-
-    api.getChallengeDocuments().then(
-      (response) => {
-        const result = response.documents;
-        result.slice(index, 1);
-        console.log("this is the result from getChallengeDocs");
-        console.log(result);
-        // secon parameter should be completed challenges!!
-        changeChallengeState(newActive, result);
-        console.log("should be after updated successfully");
-
-        //is this.list right here?
-        const challengesOpen = new Challenges(this.list, false);
-
-        const challenges = new Challenges(this.list, true);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
+  /**
+   * not really necessary anymore
+   */
 
   deactivateChallenge() {
     this.status = "deactivated";
