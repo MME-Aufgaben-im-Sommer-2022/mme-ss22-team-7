@@ -1,5 +1,13 @@
 function initInputs(){
+
     let inputs = {
+
+        vegEl: {},
+        restEl: {},
+        clothesEl: {},
+        cultureEl: {},
+        houseDeviceEl: {},
+
         //transport
         carEl : document.querySelector("#car-km-field"),
         publicTransEl : document.querySelector("#public-transport-km-field"),
@@ -38,41 +46,18 @@ function initInputs(){
         houseDeviceEl_400 : document.querySelector("#household-devices-400"), 
     };
 
-    //scores
+    //scores for radio-buttons
+    inputs.vegEl.scores = [-10, -20, -30, -40, -50];
+    inputs.restEl.scores = [-15, -30, -45, -60, -80];
+    inputs.clothesEl.scores = [-20, -45, -70, -120, -145];
+    inputs.cultureEl.scores = [-10, -20, -40, -60, -127];
+    inputs.houseDeviceEl.scores = [-20, -35, -160, -225, -316];
+
+    //scores for transport
     inputs.carEl.score = -0.1; //score per km
     inputs.publicTransEl.score = -0.01; //score per km
     inputs.planeEl.score = -36,24; //score per hour
     inputs.cruiseShipEl.score = -119; //score per week
-
-    //TODO
-    inputs.vegEl_20.score = 0; //score per %
-    inputs.vegEl_40.score = 0; //score per %
-    inputs.vegEl_60.score = 0; //score per %
-    inputs.vegEl_80.score = 0; //score per %
-    inputs.vegEl_100.score = 0; //score per %
-    
-    inputs.restaurantEl_20.score = -15; //score per €
-    inputs.restaurantEl_40.score = -30; //score per €
-    inputs.restaurantEl_60.score = -45; //score per €
-    inputs.restaurantEl_80.score = -60; //score per €
-    inputs.restaurantEl_100.score = -80; //score per €
-
-    inputs.clothesEl_50.score = -20; //score per €
-    inputs.clothesEl_100.score = -45; //score per €
-    inputs.clothesEl_200.score = -70; //score per €
-    inputs.clothesEl_300.score = -120; //score per €
-
-    inputs.cultureEl_50.score = -10; //score per €
-    inputs.cultureEl_100.score = -20; //score per €
-    inputs.cultureEl_200.score = -40; //score per €
-    inputs.cultureEl_350.score = -60; //score per €
-    inputs.cultureEl_600.score = -127; //score per €
-
-    inputs.houseDeviceEl_30.score = -20; //score per €
-    inputs.houseDeviceEl_50.score = -35; //score per €
-    inputs.houseDeviceEl_200.score = -160; //score per €
-    inputs.houseDeviceEl_300.score = -225; //score per €
-    inputs.houseDeviceEl_400.score = -316; //score per €
 
     return inputs;
 }

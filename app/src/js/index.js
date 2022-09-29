@@ -201,7 +201,6 @@ function handleEntryData(entryData) {
   entryData.forEach(el => {
     console.log(el.value, el.name);
     val += el.value;
-    //TODO:el.value ist string, mit score verbinden und zu string machen
     api.createEntry({ Name: el.el, CO2: 40 })
       .then(response => {
         console.log(response);

@@ -1,4 +1,4 @@
-import { initInputs } from "./entries/entryData.js";
+import { initInputs } from "./entryData.js";
 
 const inputs = initInputs();
 
@@ -6,7 +6,6 @@ function getEntryData(){
     let entryArray = [];
 
     //question 1
-    
     if(document.querySelector("#car-km-field").value != ""){
         let obj = {
             name : "car",
@@ -66,14 +65,17 @@ function getEntryData(){
             document.querySelector('input[name="veg-seas"]:checked').checked = false;
         }
     }
+
     //question 3
     if(document.querySelector('input[name="restaurant-food"]:checked') != null){
         if(document.querySelector('input[name="restaurant-food"]:checked').value != null){
+            let index = parseInt(document.querySelector('input[name="restaurant-food"]:checked').value);
+            let value = inputs.restEl.scores[index];
             let obj = {
                 name : "restaurant food",
                 question : 3,
                 el : document.querySelector('input[name="restaurant-food"]:checked'),
-                value : document.querySelector('input[name="restaurant-food"]:checked').value
+                value : value
             };
             entryArray.push(obj);
             document.querySelector('input[name="restaurant-food"]:checked').checked = false;
@@ -82,11 +84,13 @@ function getEntryData(){
     //question 4
     if(document.querySelector('input[name="clothes"]:checked') != null){
         if(document.querySelector('input[name="clothes"]:checked').value != null){
+            let index = parseInt(document.querySelector('input[name="clothes"]:checked').value);
+            let value = inputs.clothesEl.scores[index];
             let obj = {
                 name : "clothes",
                 question : 4,
                 el : document.querySelector('input[name="clothes"]:checked'),
-                value : document.querySelector('input[name="clothes"]:checked').value
+                value : value
             };
             entryArray.push(obj);
             document.querySelector('input[name="clothes"]:checked').checked = false;
@@ -95,11 +99,13 @@ function getEntryData(){
     //question 5
     if(document.querySelector('input[name="culture"]:checked') != null){
         if(document.querySelector('input[name="culture"]:checked').value != null){
+            let index = parseInt(document.querySelector('input[name="culture"]:checked').value);
+            let value = inputs.cultureEl.scores[index];
             let obj = {
                 name : "culture",
                 question : 5,
                 el : document.querySelector('input[name="culture"]:checked'),
-                value : document.querySelector('input[name="culture"]:checked').value
+                value : value
             };
             entryArray.push(obj);
             document.querySelector('input[name="culture"]:checked').checked = false;
@@ -108,11 +114,13 @@ function getEntryData(){
     //question 6
     if(document.querySelector('input[name="household-devices"]:checked') != null){
         if(document.querySelector('input[name="household-devices"]:checked').value != null){
+            let index = parseInt(document.querySelector('input[name="household-devices"]:checked').value);
+            let value = inputs.houseDeviceEl.scores[index];
             let obj = {
                 name : "household devices",
                 question : 6,
                 el : document.querySelector('input[name="household-devices"]:checked'),
-                value : document.querySelector('input[name="household-devices"]:checked').value
+                value : value
             };
             entryArray.push(obj);
             document.querySelector('input[name="household-devices"]:checked').checked = false;
