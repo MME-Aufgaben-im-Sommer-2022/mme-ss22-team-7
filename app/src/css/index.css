@@ -73,10 +73,10 @@ html {
 .logout-button{
   padding: 5px;
   justify-content: center;
-  background-color: #357960;
+  background-color: #507325;
   border-radius: 3px;
   color: white;
-  border-color: #357960;
+  border-color: #507325;
   position: absolute;
   right: 5%;
 }
@@ -97,8 +97,8 @@ html {
   margin-left: 0;
   width: 28px;
   height: 28px;
-  background-color: #357960;
-  border-color: #357960;
+  background-color: #507325;
+  border-color: #507325;
   color: white;
   border-radius: 5px;
 }
@@ -140,8 +140,8 @@ html {
   top: 0;
   bottom: 0;
   border-radius: 5px;
-  border-color: #357960;
-  background-color: #357960;
+  border-color: #507325;
+  background-color: #507325;
   color: white;
 }
 .profile-pic {
@@ -216,11 +216,12 @@ html {
 
 header {
   grid-area: header;
-  background-color: #83944c;
+  background-color: #507325;
   display: flex;
   justify-content: space-evenly;
   align-items: stretch;
   border-radius: 0.5em;
+  color: #fff;
 }
 
 .sidebar {
@@ -239,7 +240,7 @@ main {
   flex-direction: column;
   justify-content: start;
   align-items: stretch;
-  background-color: antiquewhite;
+  background-color: #fff;
   border-radius: 0.5em;
 }
 
@@ -247,7 +248,7 @@ main {
 
 footer {
   grid-area: footer;
-  background-color: #faedcd;
+  background-color: #fff;
   border-radius: 0.5em;
 }
 
@@ -266,6 +267,8 @@ footer {
   height: 3vh;
   display: flex;
   justify-content: center;
+  font-style:italic;
+  
 }
 
 .score-container {
@@ -278,6 +281,7 @@ footer {
 }
 
 .score-title {
+  
 }
 
 .score {
@@ -319,11 +323,12 @@ hr {
 
 .new-entry-button {
   flex-grow: 1;
-  background-color: #357960;
+  background-color: #507325;
   border-color: antiquewhite;
   border-radius: 0.5em;
   margin-top: 0.2em;
   margin-right: 0.4em;
+  color: #fff;
 }
 /* #diagram-canvas {
   background-color: #b99776;
@@ -493,7 +498,7 @@ margin: 1em;
 
 /* grüne Box */
 .login-popUp > #login {
-  background-color: #83944c;
+  background-color: #507325;
   width: 35%;
   text-align: center;
   margin: 30px auto;
@@ -567,7 +572,7 @@ margin: 1em;
 
 /* grüne Box */
 .register-popUp > #register {
-  background-color: #83944c;
+  background-color: #507325;
   width: 35%;
   text-align: center;
   margin: 30px auto;
@@ -635,7 +640,7 @@ margin: 1em;
   --start: 15%;
   color: #fff;
   position: relative;
-  background-color: #357960;
+  background-color: #507325;
   padding:10px;
   border-radius: 0.3em 0.3em 0 0;
   overflow: hidden;
@@ -682,15 +687,22 @@ margin: 1em;
 }
 
 .leaderboard-profile:first-child {
-  background-color:  #AF9500;
+  background-color:  #e8b603;
   
 }
 .leaderboard-profile:nth-child(2) {
-  background-color: #D7D7D7;
+  background-color: #9f5e5e;
 }
 .leaderboard-profile:nth-child(3) {
-  background-color: #AD8A56;
+  background-color: #b0742592;
 }  
+.leaderboard-profile:nth-child(4) {
+  background-color: #cd7459e2;
+}  
+.leaderboard-profile:nth-child(5) {
+  background-color: #b33e24e2;
+}  
+
 .leaderboard-picture {
   max-width: 100%;
   width: 40px;
@@ -736,9 +748,10 @@ margin: 1em;
   text-align: center;
   flex-grow: 1;
   height: 48vh;
-  background-color: #83944c;
+  background-color: #507325;
   border-radius: 0.5em;
   margin-top: 0.5em;
+  color: #fff;
 }
 
 .history-header {
