@@ -7,15 +7,22 @@ import api from "../database/database.js";
  */
 
 //erneuert die openChallenge und activeChallenge array DB Einträge
-function changeChallengeState(activeChallenges, completedChallenges) {
-  api.updateChallenges(activeChallenges, completedChallenges).then(
-    (response) => {
-      console.log(response);
-    },
-    (error) => {
-      console.log(error);
-    }
-  );
+function changeChallengeState(
+  activeChallenges,
+  challengesTimes,
+  completedChallenges
+) {
+  console.log(activeChallenges);
+  api
+    .updateChallenges(activeChallenges, challengesTimes, completedChallenges)
+    .then(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
 }
 
 class Challenges {
@@ -24,12 +31,14 @@ class Challenges {
     listActive,
     listChallengesUiOpen,
     listChallengesUiActive,
+    listActiveChallengesTime,
     listChallengesUiCompleted
   ) {
     this.listOpen = listOpen;
     this.listActive = listActive;
     this.listChallengesUiOpen = listChallengesUiOpen;
     this.listChallengesUiActive = listChallengesUiActive;
+    this.listActiveChallengesTime = listActiveChallengesTime;
     this.listChallengesUiCompleted = listChallengesUiCompleted;
     this.ChallengeViews = [];
 
@@ -77,7 +86,7 @@ class Challenges {
         this.declineChallenge(challenge)
       );
       challengeView.addEventListener("approve", (event) =>
-        this.approveChallenge(challenge)
+        this.finishChallenge(challenge)
       );
       challengeView.challenge = challenge;
       ChallengeViews.push(challengeView);
@@ -114,11 +123,13 @@ class Challenges {
     if (indexActive < 0) return;
 
     this.listChallengesUiActive.splice(indexActive, 1);
+    this.listActiveChallengesTime.splice(indexActive, 1);
 
     this.listChallengesUiOpen.push(challenge);
 
     changeChallengeState(
       this.computeActiveChallenges(this.listChallengesUiActive),
+      this.listActiveChallengesTime,
       this.listChallengesUiCompleted
     );
 
@@ -127,18 +138,64 @@ class Challenges {
     this.populateChallenges(tempArrChallenge, false);
   }
 
+  /**
+   * not fully functional yet
+   */
   approveChallenge(challenge) {
-    console.log(challenge);
+    const indexTimeStamp = this.listChallengesUiActive.findIndex(
+      (item) => item.challengeName == challenge.challengeName
+    );
+    if (indexTimeStamp < 0) return;
+
+    const timeDuration = this.listActiveChallengesTime[indexTimeStamp];
+
+    let challengeLengthMil = challenge.Length * 24 * 60 * 1000;
+
+    let goalTime = Math.floor(challengeLengthMil + timeDuration);
+
+    if (Date.now() < goalTime) {
+      return true;
+    } else false;
   }
 
   finishChallenge(challenge) {
-    activeChallenges.forEach((element) => {
-      if (element.id === challenge.id) {
-        // remove challenge from active Challenges in backend
-        activeChallenges.splice(activeChallenges[element - 1], 0);
-      }
-    });
-    // add score related to the challenge to the users score
+    const ChallengeViews = this.ChallengeViews;
+
+    const index = ChallengeViews.findIndex(
+      (challengeView) =>
+        challengeView.challenge.challengeName === challenge.challengeName
+    );
+    if (index < 0) return;
+
+    console.log(this.listChallengesUiCompleted);
+
+    if (this.approveChallenge(challenge)) {
+      console.log("item supposed to be ready to be finished ");
+      //add success animation if possible timewise
+      ChallengeViews[index].remove();
+      this.ChallengeViews.splice(index, 1);
+
+      const indexItem = this.listChallengesUiActive.findIndex(
+        (item) => item.challengeName == challenge.challengeName
+      );
+
+      this.listChallengesUiActive.splice(indexItem, 1);
+      this.listActiveChallengesTime.splice(indexItem, 1);
+
+      this.listChallengesUiCompleted.push(challenge);
+
+      console.log(this.listActiveChallengesTime);
+
+      changeChallengeState(
+        this.computeActiveChallenges(this.listChallengesUiActive),
+        this.listActiveChallengesTime,
+        this.computeActiveChallenges(this.listActiveChallengesTime)
+      );
+    } else {
+      // some anitmation on the item (shaking eg.)
+      console.log("time hase not run out for this challenge ");
+      return;
+    }
   }
 
   acceptChallenge(challenge) {
@@ -159,10 +216,17 @@ class Challenges {
 
     this.listChallengesUiOpen.splice(indexOpen, 1);
 
+    let timeNow = Date.now();
+    console.log(timeNow);
+
+    this.listActiveChallengesTime.push(timeNow);
     this.listChallengesUiActive.push(challenge);
+
+    console.log(this.listActiveChallengesTime);
 
     changeChallengeState(
       this.computeActiveChallenges(this.listChallengesUiActive),
+      this.listActiveChallengesTime,
       this.listChallengesUiCompleted
     );
 

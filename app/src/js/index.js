@@ -134,11 +134,14 @@ function initChallenges(userData) {
         userData.ActiveChallenges
       );
 
+      console.log(userData.ActiveChallengesTime);
+
       const challengesOpen = new Challenges(
         listOpenChallenges,
         listChallenges,
         validOpenChallenges,
         validActiveChallenges,
+        userData.ActiveChallengesTime,
         userData.CompletedChallenges
       );
     },
