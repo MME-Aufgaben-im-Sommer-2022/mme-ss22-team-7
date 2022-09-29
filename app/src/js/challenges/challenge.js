@@ -3,22 +3,20 @@
  */
 
 class Challenge {
-  constructor(tid, name, scoreValue, length) {
-    this.tid = tid;
-    this.name = name;
-    this.scoreValue = scoreValue;
-
-    this.length = length;
-
+  constructor(challengeName, Score, Length, $id) {
+    this.challengeName = challengeName;
+    this.Score = Score;
+    this.Length = Length;
+    this.$id = $id;
     Object.freeze(this);
   }
 
   static fromObject(object) {
     return new Challenge(
-      object.tid,
-      object.name,
-      object.scoreValue,
-      object.length
+      object.challengeName,
+      object.Score,
+      object.Length,
+      object.$id
     );
   }
 }
