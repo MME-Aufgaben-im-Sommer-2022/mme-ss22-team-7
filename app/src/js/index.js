@@ -200,7 +200,7 @@ function handleEntryData(entryData) {
   //TODO: Eingabe "0" bei Fahrzeugen blockieren!
   entryData.forEach(el => {
     console.log(el.value, el.name);
-    val += 20;
+    val += el.value;
     //TODO:el.value ist string, mit score verbinden und zu string machen
     api.createEntry({ Name: el.el, CO2: 40 })
       .then(response => {
