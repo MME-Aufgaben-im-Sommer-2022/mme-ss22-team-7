@@ -257,6 +257,10 @@ footer {
   text-align: center;
 }
 
+#burger-menu-open {
+  cursor: pointer;
+}
+
 .title-container {
   flex-grow: 10;
   display: flex;
@@ -268,7 +272,7 @@ footer {
   display: flex;
   justify-content: center;
   font-style:italic;
-  
+  cursor:default;
 }
 
 .score-container {
@@ -281,11 +285,12 @@ footer {
 }
 
 .score-title {
-  
+  cursor:default;
 }
 
 .score {
   font-size: 2em;
+  cursor:default;
 }
 
 hr {
@@ -328,6 +333,7 @@ hr {
   border-radius: 0.5em;
   margin-top: 0.2em;
   margin-right: 0.4em;
+  cursor: pointer;
   color: #fff;
 }
 /* #diagram-canvas {
@@ -400,6 +406,8 @@ margin: 1em;
   left: 10%;
   text-align: center;
   background: white;
+  border-radius: 0.5em;
+
 }
 
 
@@ -409,33 +417,34 @@ margin: 1em;
 }
 
 .entry-popUp {
-  background-color: #83944c;
+  background-color: #507325;
   font-size: 1.6rem;
   font-family: arial, "lucida console", "Open Sans", sans-serif;
   color: #2b3e51;
 }
 
 #food {
-  background-color: #7b4171;
+  background-color: #cd7459e2;
   font-weight: bold;
   width: 10%;
 }
 
 #other {
-  background-color: #985046;
+  background-color: #b33e24e2;
   font-weight: bold;
   width: 10%;
 }
 
 #transport {
-  background-color: #4c7494;
+  background-color: #b0742592;
   font-weight: bold;
   width: 10%;
+  border-radius: 0.5em 0 0 0;
 }
 
 /*die einzelnen Felder*/
 .fieldset {
-  background-color: #faedcd;
+  background-color: #fff;
 }
 
 /*die Beschreibungen zu den Angaben*/
@@ -537,13 +546,18 @@ margin: 1em;
   text-align: center;
 }
 
-.login-popUp > #register-here {
+#register-here {
   background-color: #eeedf1;
   color: #87888a;
   font-size: 14px;
   width: 100%;
   padding: 8px 0;
   border-radius: 0 0 7px 7px;
+}
+
+#login-button{
+  font-size:medium;
+  color: blue;
 }
 
 /*
@@ -614,13 +628,18 @@ margin: 1em;
   margin: auto;
 }
 
-.register-popUp > #back-to-login {
+#back-to-login {
   background-color: #eeedf1;
   color: #87888a;
   font-size: 14px;
   width: 100%;
   padding: 8px 0;
   border-radius: 0 0 7px 7px;
+}
+
+#register-button{
+  font-size:medium;
+  color: blue;
 }
 
 /*
@@ -646,7 +665,7 @@ margin: 1em;
   overflow: hidden;
   font-size: x-large;
   margin-bottom: 5px;
-  
+  cursor:default;
 }
 
 .leaderboard-element-container {
@@ -682,7 +701,6 @@ margin: 1em;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
-  cursor: pointer;
   background-color: #fff;
 }
 
@@ -757,6 +775,7 @@ margin: 1em;
 .history-header {
   font-size: x-large;
   margin-top: 5px;
+  cursor:default;
 }
 
 .history-element-container {
