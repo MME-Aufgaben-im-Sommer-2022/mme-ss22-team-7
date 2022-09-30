@@ -49,7 +49,8 @@
 }
 
 .card {
-  background-color: rgb(187, 203, 164);
+  background-color: #507325;
+  color: #fff;
   margin: 0.3em;
   text-align: center;
   float: left;
@@ -58,6 +59,7 @@
   border-radius: 0.2em;
   padding: 0.5em;
   box-shadow: 0 3px 6px 0 rgb(0, 0, 0, 0.2);
+  list-style-type:none;
 }
 
 .card-content-btn-container {

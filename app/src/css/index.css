@@ -705,20 +705,20 @@ margin: 1em;
 }
 
 .leaderboard-profile:first-child {
-  background-color:  #e8b603;
+  background-color:  #e8b60386;
   
 }
 .leaderboard-profile:nth-child(2) {
-  background-color: #9f5e5e;
+  background-color: #9f5e5ec3;
 }
 .leaderboard-profile:nth-child(3) {
-  background-color: #b0742592;
+  background-color: #cd7459c4;
 }  
 .leaderboard-profile:nth-child(4) {
-  background-color: #cd7459e2;
+  background-color: #b0742592;
 }  
 .leaderboard-profile:nth-child(5) {
-  background-color: #b33e24e2;
+  background-color: #b33e24be;
 }  
 
 .leaderboard-picture {
