@@ -12,8 +12,6 @@ html {
 
   GENERAL CSS
 
-  ToDo: unnötigen Scheiss raus hausen 
-
   Inhalt: 
   - Profile View
   - main application
@@ -361,7 +359,7 @@ hr {
   margin: 2em;
   overflow-y: scroll;
   -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox not working?? */
+  scrollbar-width: none; /* Firefox not working */
 }
 /* Hide scrollbar for Chrome, Safari and Opera */
 .canvas::-webkit-scrollbar {
