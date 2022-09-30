@@ -49,7 +49,7 @@ _Listen Sie tabelarisch alle Teammitglieder mit Name, E-Mail-Adresse und Foto au
 
 Name | E-Mail-Adresse | Github-Nutzer | Foto | Komponenten der Anwendung
 --- | --- | --- | --- | ---
-Benedikt Boehlke | benedikt.boehlke@stud.uni-regensburg.de | Beneboehlke | ![Profilbild Benedikt B](https://user-images.githubusercontent.com/69862866/193319121-75b981dd-8045-4902-a33b-91fa0bd1f579.JPG) | Challenges, Popup, Profil, Layout
+Benedikt Boehlke | benedikt.boehlke@stud.uni-regensburg.de | Beneboehlke | ![Profilbild Benedikt B](https://user-images.githubusercontent.com/69862866/193319121-75b981dd-8045-4902-a33b-91fa0bd1f579.JPG) | Challenges, Popup, Profil, finales Layout
 Natalie Röhrle | natalie.roehrle@stud.uni-regensburg.de | NaCesca | ![Profilbild Natalie R](https://user-images.githubusercontent.com/69862866/193300953-9921a989-57e6-46c8-b7e1-40bf7ab8b859.jpeg) | Layouts, Entries, Score, Repository
 Florian Feist | florian.feist@stud.uni-regensburg.de | FeistFlo | ![Profilbild Florian F](https://user-images.githubusercontent.com/69862866/193308492-fbfad382-d304-484f-a33d-7c8cdb7cbd1d.jpeg) | Haupt-Layout, Entries, Popup, Impressum
-Johannes Klein | johannes.klein@stud.uni-regensburg.de | johnnyklein | ![Profilbild Johannes K] | Datenbank, Challenges, History
+Johannes Klein | johannes.klein@stud.uni-regensburg.de | johnnyklein | ![Profilbild Johannes K](https://user-images.githubusercontent.com/69862866/193325973-419a2a55-16eb-404b-80e7-2d8064b7fcdc.jpg) | Datenbank, Challenges, History
