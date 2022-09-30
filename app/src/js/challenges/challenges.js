@@ -168,7 +168,6 @@ class Challenges {
         this.computeActiveChallenges(this.listActiveChallengesTime)
       );
 
-      console.log(challenge.Score);
       updateScore(challenge.Score);
     } else {
       console.log("time hase not run out for this challenge ");

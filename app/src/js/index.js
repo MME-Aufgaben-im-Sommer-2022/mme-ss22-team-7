@@ -11,7 +11,7 @@ import {
   updateLeaderboardList,
   addToLeaderboard,
 } from "./friends/Leaderboard.js";
-import { addChallengeToHistory,addEntryToHistory } from "./history/history.js";
+import { addChallengeToHistory, addEntryToHistory } from "./history/history.js";
 
 var score = null,
   today = Math.floor(Date.now() / 1000),
@@ -102,13 +102,13 @@ function initData() {
       console.log(error);
     }
   );
-   api.getEntryDocuments().then(
+  api.getEntryDocuments().then(
     (response) => {
-     // initEntries(response);
+      // initEntries(response);
     },
     (error) => {
       console.log(error);
-    } 
+    }
   );
   api.getChallengeDocuments().then((response) => {
     console.log(response);
@@ -220,10 +220,10 @@ function getUsers() {
 
 //array with all entry documents of user
 function initEntries(entries) {
-console.log("test")
-entries.documents.forEach((entry) => {
-  addEntryToHistory(entry);
-});
+  console.log("test");
+  entries.documents.forEach((entry) => {
+    addEntryToHistory(entry);
+  });
 }
 
 function deleteEntry(id, score) {
@@ -268,7 +268,7 @@ function handleEntryData(entryData) {
   entryData.forEach((el) => {
     console.log(el.value, el.name);
     val += el.value;
-    
+
     api.createEntry({ Name: el.name, CO2: el.value }).then(
       (response) => {
         console.log(response);
