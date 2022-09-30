@@ -15,19 +15,9 @@ Die wichtigsten Features bilden zum Einen, die erstellbaren CO2-Einträge und de
 Die stetig steigende CO2-Emission und deren schlechte Auswirkungen auf die Umwelt, sind ein weitreichendes Problem dieser Gesellschaft. Durch sie wird der Klimawandel beschleunigt und stellt so eine Gefahr für Mensch und Natur dar.
 Die Anwendung richtet sich an Menschen allen Alters, denen eine Verbesserung oder auch lediglich das Bewusstsein, des eigenen CO2-Verbrauchs, wichtig ist. Sie sollten durch das Leaderboard und die Challenges motiviert werden, sich stetig neu herauszufordern und zu verbessern. Somit können die Nutzer nicht nur über sich hinaus wachsen, sondern auch dazu beitragen die CO2-Bilanz zu senken.
 
-Implementierte Funktionen:
-- Das Anmelden: _Verlinkung des aktuellsten Release_
-- Das Registrieren: _Verlinkung des aktuellsten Release_
-- Das Erstellen eines Eintrags: _Verlinkung des aktuellsten Release_
-- Das Bearbeiten von getätigten Einträgen: _Verlinkung des aktuellsten Release_
-- Das Anzeigen des Verbrauchs, anhand eines Grafen: _Verlinkung des aktuellsten Release_
-- Das Annehmen von Challenges: _Verlinkung des aktuellsten Release_
-- Das Bearbeiten von aktiven Challenges: _Verlinkung des aktuellsten Release_
-- Das Suchen und Hinzufügen von Freunden: _Verlinkung des aktuellsten Release_
-- Die Darstellung der History: _Verlinkung des aktuellsten Release_
-- Die Darstellung des Leaderboards: _Verlinkung des aktuellsten Release_
-
-
+## Implementierte Funktionen:
+- Anmeldung, Registrierung, Erstellen eines Eintrags, Das Anzeigen des CO2-Verbrauchs, anhand eines Grafen, Annehmen von Challenges, Das Bearbeiten von aktiven Challenges, Hinzufügen von Freunden, Die Darstellung der History, Die Darstellung des Leaderboards
+Aktueller Release: https://github.com/MME-Aufgaben-im-Sommer-2022/mme-ss22-team-7/releases/tag/v0.1.0
 
 ## Beschreibung & Anleitung
 
@@ -59,7 +49,7 @@ _Listen Sie tabelarisch alle Teammitglieder mit Name, E-Mail-Adresse und Foto au
 
 Name | E-Mail-Adresse | Github-Nutzer | Foto | Komponenten der Anwendung
 --- | --- | --- | --- | ---
-Benedikt Boehlke | benedikt.boehlke@stud.uni-regensburg.de | Beneboehlke | ![Profilbild Benedikt B] | Challenges, Popup, Profil
+Benedikt Boehlke | benedikt.boehlke@stud.uni-regensburg.de | Beneboehlke | ![Profilbild Benedikt B] | Challenges, Popup, Profil, Layout
 Natalie Röhrle | natalie.roehrle@stud.uni-regensburg.de | NaCesca | ![Profilbild Natalie R](https://user-images.githubusercontent.com/69862866/193300953-9921a989-57e6-46c8-b7e1-40bf7ab8b859.jpeg) | Layouts, Entries, Score, Repository
-Florian Feist | florian.feist@stud.uni-regensburg.de | FeistFlo | ![Profilbild Florian F] | Haupt-Layout, Entries, Popup, Impressum
+Florian Feist | florian.feist@stud.uni-regensburg.de | FeistFlo | ![Profilbild Florian F](https://user-images.githubusercontent.com/69862866/193308492-fbfad382-d304-484f-a33d-7c8cdb7cbd1d.jpeg) | Haupt-Layout, Entries, Popup, Impressum
 Johannes Klein | johannes.klein@stud.uni-regensburg.de | johnnyklein | ![Profilbild Johannes K] | Datenbank, Challenges, History
