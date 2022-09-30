@@ -287,7 +287,6 @@ function checkForSession() {
 
 function handleEntryData(entryData) {
   let val = 0;
-  //TODO: Eingabe "0" bei Fahrzeugen blockieren!
   entryData.forEach((el) => {
     console.log(el.value, el.name);
     val += el.value;
@@ -448,7 +447,6 @@ function setScoreHistory() {
   let dateDif = Math.floor((today - userDocument.LastLogin) / MS_PER_DAY);
   for (let index = 0; index < dateDif; index++) {
     userDocument.ScoreHistory.push(userDocument.Score - 5 * index);
-    //vllt abbau von punkten über zeit?
   }
   console.log(scoreHistory);
   addToLeaderboard(new Friend(userDocument));
