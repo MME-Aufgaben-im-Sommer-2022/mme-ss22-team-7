@@ -1,7 +1,7 @@
 /* eslint-env browser */
 import api from "../database/database.js";
-import { userDocument, userID } from "../index.js";
-import { updateScore } from "../index.js";
+import { userDocument, userID } from "../../index.js";
+import { updateScore } from "../../index.js";
 
 var history = [];
 const entryHistoryTemplate = document
