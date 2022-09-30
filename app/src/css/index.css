@@ -797,3 +797,12 @@ hr {
 .history-element-score {
   flex-grow: 1;
 }
+
+/*
+----------------------  impressum  -------------------------------------------------------------------------------------
+  */
+
+.impressum-link {
+  color: rgba(247, 247, 247, 0.9);
+  text-decoration: none;
+}
