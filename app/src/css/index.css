@@ -777,8 +777,7 @@ hr {
   flex-grow: 1;
   height: 43vh;
   border-radius: 0.5em;
-  margin-top: 0.5em;
-  color: #fff;
+  overflow: hidden;
 }
 
 .history-header {
@@ -787,27 +786,54 @@ hr {
   cursor: default;
 }
 
+
 .history-element-container {
   display: flex;
   align-items: center;
   justify-content: center;
   border: 3px;
+  background-color: antiquewhite;
+  border-radius: 0 0 12px 12px;
+  padding: 15px 15px 20px;
 }
 
-.negative {
-  background-color: red;
+.history-list {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  row-gap: 8px;
+  scroll-behavior: auto;
 }
 
-.positive {
-  background-color: green;
+.history-profile {
+  margin-left: 5px;
+  margin-right: 5px;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  align-items: center;
+  padding: 5px 10px 5px 5px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
+  background-color: #fff;
 }
 
-.history-element-description {
-  flex-grow: 4;
+.history-name {
+  color: #000;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.64px;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 12px;
 }
-
-.history-element-score {
-  flex-grow: 1;
+.history-value {
+  color: #357960;
+  font-weight: 700;
+  font-size: 20px;
+  text-align: right;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /*
@@ -817,4 +843,19 @@ hr {
 .impressum-link {
   color: rgba(247, 247, 247, 0.9);
   text-decoration: none;
+}
+.history-button{
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 6px;
+  margin-left: 6px;
+  width: fit-content;
+  padding: 7px;
+  border-radius: 7px;
+  background-color: #d3d3d3;
+  border-color: #d3d3d3;
+}
+
+.history-container {
+  box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.4);
 }

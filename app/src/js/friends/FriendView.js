@@ -29,13 +29,10 @@ class FriendView {
     leaderboardList.querySelector("[data-id=\"" + this.friend.id + "\"]")
       .remove();
     console.log(this.friend.id);
-    //var event = new CustomEvent("user-deleted", { "detail": this.el });
-    //document.dispatchEvent(event);
     let index = userDocument.Friends.indexOf(this.friend.email);
     userDocument.Friends.splice(index, 1);
     api.updateUserCl(userID, userDocument).then(response => {
       console.log(response);
-      //TODO:delete leaderboard entry
     }, error => {
       console.log(error);
     });
