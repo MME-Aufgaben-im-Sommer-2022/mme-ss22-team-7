@@ -427,4 +427,4 @@ function setScoreHistory() {
   updateDBScore();
 }
 
-export { userID, userDocument, userListDocument };
+export { userID, userDocument, userListDocument, updateScore };
