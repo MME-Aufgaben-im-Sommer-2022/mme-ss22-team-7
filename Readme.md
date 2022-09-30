@@ -23,18 +23,25 @@ _Beschreiben Sie die zentralen Funktionen Ihrer Anwendung und deren Verwendung. 
 _--> Screenshots, Video und Audioaufnahme fehlen!!_
 
 Die Anwendung startet mit der Möglichkeit, dass der Nutzer sich anmelden kann, oder sich über eine Verlinkung registrieren kann. Hierfür werden Username und Passwort oder Username, Passwort und eine E-Mail Adresse benötigt. Anschließend wird der Nutzer auf die Hauptseite der Greenbook Anwendung geleitet. Diese bietet einen Überblick über die meisten Funktionen, wie der Anzeige des aktuellen Scores, des Leaderboards, des Grafen, der Challenges oder der History.
+![grafik](https://user-images.githubusercontent.com/69862866/193357688-4bd2534e-2980-4adb-874e-cd70f3e733fe.png)
 
 Von der Hauptseite aus kann der User mithilfe eines Burgermenüs sein Profil öffnen, woduch sein Username und seine Freundesliste angezeigt werden. Im Burgermenü besteht außerdem die Möglichkeit neue Freunde per E-Mail Adresse zu adden und der Freundesliste hinzuzufügen.
+![grafik](https://user-images.githubusercontent.com/69862866/193357714-8fc08187-344f-403d-9f92-4049a1ec846a.png)
 
 Zurück auf der Hauptseite kann der Nutzer mithilfe des "new Entry"-Buttons ein Popup öffnen. In diesem können verschiedene Angaben zum individuellen CO2-Verbrauch angegeben werden. Mit dem save-Button werden diese mit einem Score verrechnet und aktualisiert.
+![grafik](https://user-images.githubusercontent.com/69862866/193357154-96ced80a-9a6e-4ca3-980a-f724981233f9.png)
 
 Der Score wird auf der Hauptseite als Zahl aber auch als grafische Abbildung dargestellt. Sowohl der Graf des Nutzers, als auch die Grafen der Freunde vom Leaderboards werden hier angezeigt.
+![grafik](https://user-images.githubusercontent.com/69862866/193357291-b39d19b0-f32b-4b38-9b83-0cc4b3e04d0e.png)
 
 Das Leaderboard wird auf der rechten Seite des Hauptbildschirms angezeigt und listet die Freunde mit dem höchsten Score nacheinander auf. 
+![grafik](https://user-images.githubusercontent.com/69862866/193357611-aca84850-2bbe-45e8-a44b-b3c2e7a4c81f.png)
 
 Im unteren Teil der Hauptseite werden auswählbare Challenges angezeigt. Diese können mithilfe eines Buttons aktiviert und somit in ein Feld darüber verschoben werden. Die aktivierten Challenges zeigen den Fortschritt an, können aber auch abgebrochen oder abgeschlossen werden.
+![grafik](https://user-images.githubusercontent.com/69862866/193357757-9b7927a8-e8ee-4f4f-90e5-112b2afcbcdc.png)
 
 So kann der Score mithilfe von neuen Einträgen mit negativen Werten und durch das erfolgreiche Abschließen von Challenges mit positiven Werten verrechnet werden. Ein Verlauf von erstellten Einträgen wird in der History angezeigt. Auch hier hat der Nutzer die Möglichkeit diese zu löschen. 
+![grafik](https://user-images.githubusercontent.com/69862866/193357934-fe1764f4-80eb-42b9-9cba-f37462833881.png)
 
 ## Anmerkungen zum Projekt
 Über Google Chrome und Safari wird die Anwendung richtig skaliert angezeigt. Bei Firefox können diesbezüglich Probleme auftreten.
