@@ -2,8 +2,6 @@
 
 ## Projekt
 
-_Fassen Sie kurz die wichtigsten Features, die intendierte Zielgruppe und die grundlegende Motivation des Projekts zusammen. Nennen Sie die aktuell bereits implementierten Funktionen und verlinken Sie den aktuellsten Release._
-
 Mithilfe der Anwendung können Nutzer ihren CO2-Verbrauch berechnen und sich so besser einschätzen. Zudem soll die Anwendung spielerisch motivieren den eigenen Verbrauch zu verringern.
 
 Die wichtigsten Features sind zum Einen, die erstellbaren CO2-Einträge und deren visuelle Darstellung auf der Hauptseite, zum Anderen aber auch das Vergleichen von Scores zwischen Freunden. Der Score entsteht durch eine Verrechnung zwischen erstellten Einträgen und erfolgreich absolvierten Challenges.
@@ -19,8 +17,6 @@ Aktueller Release: (https://github.com/MME-Aufgaben-im-Sommer-2022/mme-ss22-team
 ## Beschreibung & Anleitung
 
 _Beschreiben Sie die zentralen Funktionen Ihrer Anwendung und deren Verwendung. Nutzen Sie dazu Screenshots und/oder Videos. Verlinken Sie ein min. 60-sekündiges Demo-Video, das die Verwendung aller wichtigen Funktionen zeigt und in Form eines Audio-Kommentars beschreibt._
-
-_--> Screenshots, Video und Audioaufnahme fehlen!!_
 
 Die Anwendung startet mit der Möglichkeit, dass der Nutzer sich anmelden kann, oder sich über eine Verlinkung registrieren kann. Hierfür werden Username und Passwort oder Username, Passwort und eine E-Mail Adresse benötigt. Anschließend wird der Nutzer auf die Hauptseite der Greenbook Anwendung geleitet. Diese bietet einen Überblick über die meisten Funktionen, wie der Anzeige des aktuellen Scores, des Leaderboards, des Grafen, der Challenges oder der History.
 
