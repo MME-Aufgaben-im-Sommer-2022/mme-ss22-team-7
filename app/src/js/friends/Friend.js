@@ -1,5 +1,5 @@
 import { addDataset } from "../Charts.js";
-import { userListDocument, userDocument,userID } from "../index.js";
+import { userListDocument, userDocument,userID } from "../../index.js";
 import api from '../database/database.js';
 import FriendView from "./FriendView.js";
 import Leaderboard,{addToLeaderboard} from "./Leaderboard.js";

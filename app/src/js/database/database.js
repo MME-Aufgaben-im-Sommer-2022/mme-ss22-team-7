@@ -1,5 +1,5 @@
 import { Server } from "../utils/config.js";
-import { userID } from "../index.js";
+import { userID } from "../../index.js";
 
 const client = new Appwrite.Client();
 client

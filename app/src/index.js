@@ -1,16 +1,16 @@
-import { initInputs } from "./entries/entryData.js";
-import Challenges from "./challenges/challenges.js";
-import { getEntryData } from "./entries/entry.js";
-import api from "./database/database.js";
-import { Server } from "./utils/config.js";
-import Friend, { onAddFriend, fillFriendList } from "./friends/Friend.js";
-import FriendView from "./friends/FriendView.js";
-import Leaderboard from "./friends/Leaderboard.js";
-import { onCreateAccount } from "./Login/SignUp.js";
+import { initInputs } from "./js/entries/entryData.js";
+import Challenges from "./js/challenges/challenges.js";
+import { getEntryData } from "./js/entries/entry.js";
+import api from "./js/database/database.js";
+import { Server } from "./js/utils/config.js";
+import Friend, { onAddFriend, fillFriendList } from "./js/friends/Friend.js";
+import FriendView from "./js/friends/FriendView.js";
+import Leaderboard from "./js/friends/Leaderboard.js";
+import { onCreateAccount } from "./js/Login/SignUp.js";
 import {
   updateLeaderboardList,
   addToLeaderboard,
-} from "./friends/Leaderboard.js";
+} from "./js/friends/Leaderboard.js";
 
 var score = 0,
   today = Math.floor(Date.now() / 1000),

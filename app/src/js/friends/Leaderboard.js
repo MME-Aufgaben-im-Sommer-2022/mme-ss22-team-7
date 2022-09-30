@@ -1,6 +1,6 @@
 /* eslint-env browser */
 import api from '../database/database.js';
-import { userDocument, userID } from '../index.js';
+//import { userDocument, userID } from '../index.js';
 import Friend from './Friend.js';
 
 
