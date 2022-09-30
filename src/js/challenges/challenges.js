@@ -1,6 +1,7 @@
 import Challenge from "./challenge.js";
 import ChallengeView from "./challengeView.js";
 import api from "../database/database.js";
+import { updateScore } from "../index.js";
 
 /**
  * challenges.js erstellt für alle challenges eine card und kümmert sich um alles generelle
@@ -126,8 +127,7 @@ class Challenges {
 
     const timeDuration = this.listActiveChallengesTime[indexTimeStamp];
 
-    // evtl ein *24 zu viel!
-    let challengeLengthMil = challenge.Length * 24 * 60 * 1000;
+    let challengeLengthMil = challenge.Length * 24 * 24 * 60 * 1000;
 
     let goalTime = Math.floor(challengeLengthMil + timeDuration);
 
@@ -148,8 +148,6 @@ class Challenges {
     console.log(this.listChallengesUiCompleted);
 
     if (this.approveChallenge(challenge)) {
-      //add success animation if possible; also check at the beginning
-      //(when created) and change the color of the button?
       ChallengeViews[index].remove();
       this.ChallengeViews.splice(index, 1);
 
@@ -169,8 +167,9 @@ class Challenges {
         this.listActiveChallengesTime,
         this.computeActiveChallenges(this.listActiveChallengesTime)
       );
+
+      updateScore(challenge.Score);
     } else {
-      // some anitmation on the item (shaking eg.)
       console.log("time hase not run out for this challenge ");
       return;
     }
