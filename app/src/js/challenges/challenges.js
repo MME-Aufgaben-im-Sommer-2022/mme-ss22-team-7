@@ -63,6 +63,10 @@ class Challenges {
     const challengeView = new ChallengeView(bool);
 
     if (bool) {
+      if (this.approveChallenge(challenge)) {
+        challengeView.giveChallengeGreenButton();
+      }
+
       challengeView.addEventListener("decline", (event) =>
         this.declineChallenge(challenge)
       );
@@ -122,6 +126,7 @@ class Challenges {
 
     const timeDuration = this.listActiveChallengesTime[indexTimeStamp];
 
+    // evtl ein *24 zu viel!
     let challengeLengthMil = challenge.Length * 24 * 60 * 1000;
 
     let goalTime = Math.floor(challengeLengthMil + timeDuration);

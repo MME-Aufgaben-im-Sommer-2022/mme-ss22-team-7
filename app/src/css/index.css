@@ -34,8 +34,8 @@ html {
   width: 18rem;
   height: 100%;
   z-index: 20;
- /*  background-color: rgb(215, 248, 248); */
- background-color: white;
+  /*  background-color: rgb(215, 248, 248); */
+  background-color: white;
   transform: translateY(-110%);
   border-radius: 12px;
   box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
@@ -65,12 +65,12 @@ html {
   display: grid;
   justify-content: center;
 }
-#profil-name{
+#profil-name {
   font-weight: 600;
   font-size: 20px;
   margin: 10px;
 }
-.logout-button{
+.logout-button {
   padding: 5px;
   justify-content: center;
   background-color: #507325;
@@ -93,7 +93,7 @@ html {
   padding: 12px 20px 12px 40px;
   font-size: 14px;
 }
-#add-friend-button{
+#add-friend-button {
   margin-left: 0;
   width: 28px;
   height: 28px;
@@ -105,12 +105,12 @@ html {
 
 .friend-list {
   padding: 0;
-  margin:0;
+  margin: 0;
   display: grid;
 }
 
 /* Style the list items */
- .friend {
+.friend {
   cursor: pointer;
   position: relative;
   padding: 6px 8px 6px 40px;
@@ -187,8 +187,6 @@ html {
   height: 2em;
 }
 
-
-
 /*
 ----------------------  main application  -------------------------------------------------------------------------------------
 */
@@ -198,7 +196,7 @@ html {
   grid-template-columns: minmax(200px, 1600px);
   justify-content: center;
   color: black;
-  background: url("../images/blaetter.jpg") no-repeat center center fixed;
+  background: url("../images/big_leafes.jpg") no-repeat center center fixed;
   /* Bildquelle: https://unsplash.com */
   background-size: cover;
 }
@@ -244,8 +242,6 @@ main {
   border-radius: 0.5em;
 }
 
-
-
 footer {
   grid-area: footer;
   background-color: #fff;
@@ -271,8 +267,8 @@ footer {
   height: 3vh;
   display: flex;
   justify-content: center;
-  font-style:italic;
-  cursor:default;
+  font-style: italic;
+  cursor: default;
 }
 
 .score-container {
@@ -285,12 +281,12 @@ footer {
 }
 
 .score-title {
-  cursor:default;
+  cursor: default;
 }
 
 .score {
   font-size: 2em;
-  cursor:default;
+  cursor: default;
 }
 
 hr {
@@ -301,7 +297,6 @@ hr {
   text-align: center;
   flex-grow: 2;
   height: 10vh;
-  
 }
 /* .stats-container{
   display: flex;
@@ -336,23 +331,35 @@ hr {
   cursor: pointer;
   color: #fff;
 }
-/* #diagram-canvas {
-  background-color: #b99776;
-  margin-top: 2em;
-  height: 80%;
-  width: 90%;
-} */
-.canvas{
-  position: relative;
-  margin: 2em;
-}
-#diagram-canvas {
-/* margin-left: 1em;
-margin-right: 1em;
-margin-top: 4em; */
-margin: 1em;
+
+.new-entry-button:hover {
+  box-shadow: 0px 5px 10px 0px rgb(0, 0, 0, 0.2);
+  opacity: 0.8;
 }
 
+.canvas {
+  height: 80%;
+  width: 95%;
+  position: relative;
+  margin: 2em;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.canvas::-webkit-scrollbar {
+  display: none;
+}
+
+#diagram-canvas {
+  margin: 1em;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/*
+----------------------  footer  -------------------------------------------------------------------------------------
+*/
 
 /*
 ----------------------  new Entry  -------------------------------------------------------------------------------------
@@ -407,9 +414,7 @@ margin: 1em;
   text-align: center;
   background: white;
   border-radius: 0.5em;
-
 }
-
 
 .website-hidden {
   opacity: 0;
@@ -555,8 +560,8 @@ margin: 1em;
   border-radius: 0 0 7px 7px;
 }
 
-#login-button{
-  font-size:medium;
+#login-button {
+  font-size: medium;
   color: blue;
 }
 
@@ -637,8 +642,8 @@ margin: 1em;
   border-radius: 0 0 7px 7px;
 }
 
-#register-button{
-  font-size:medium;
+#register-button {
+  font-size: medium;
   color: blue;
 }
 
@@ -660,12 +665,12 @@ margin: 1em;
   color: #fff;
   position: relative;
   background-color: #507325;
-  padding:10px;
+  padding: 10px;
   border-radius: 0.3em 0.3em 0 0;
   overflow: hidden;
   font-size: x-large;
   margin-bottom: 5px;
-  cursor:default;
+  cursor: default;
 }
 
 .leaderboard-element-container {
@@ -676,20 +681,15 @@ margin: 1em;
   background-color: antiquewhite;
   border-radius: 0 0 12px 12px;
   padding: 15px 15px 20px;
-  
 }
-
 
 .leaderboard-list {
   padding: 0;
-  margin:0;
+  margin: 0;
   display: grid;
   row-gap: 8px;
   scroll-behavior: auto;
 }
-
-
-
 
 .leaderboard-profile {
   margin-left: 5px;
@@ -705,21 +705,20 @@ margin: 1em;
 }
 
 .leaderboard-profile:first-child {
-  background-color:  #e8b60386;
-  
+  background-color: #e8b603;
 }
 .leaderboard-profile:nth-child(2) {
-  background-color: #9f5e5ec3;
+  background-color: #9f5e5e;
 }
 .leaderboard-profile:nth-child(3) {
-  background-color: #cd7459c4;
-}  
-.leaderboard-profile:nth-child(4) {
   background-color: #b0742592;
-}  
+}
+.leaderboard-profile:nth-child(4) {
+  background-color: #cd7459e2;
+}
 .leaderboard-profile:nth-child(5) {
-  background-color: #b33e24be;
-}  
+  background-color: #b33e24e2;
+}
 
 .leaderboard-picture {
   max-width: 100%;
@@ -749,15 +748,6 @@ margin: 1em;
   box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.4);
 }
 
-
-
-
-
-
-
-
-
-
 /*
 ----------------------  history  -------------------------------------------------------------------------------------
   */
@@ -775,7 +765,7 @@ margin: 1em;
 .history-header {
   font-size: x-large;
   margin-top: 5px;
-  cursor:default;
+  cursor: default;
 }
 
 .history-element-container {
