@@ -48,6 +48,8 @@ Im unteren Teil der Hauptseite werden auswählbare Challenges angezeigt. Diese k
 
 So kann der Score mithilfe von neuen Einträgen mit negativen Werten und durch das erfolgreiche abschließen von Challenges mit positiven Wertem verrechnet werden. Ein Verlauf von absolvierten Challenges und erstellten Einträgen wird in der History angezeigt. Auch hier hat der Nutzer die Möglichkeit diese zu löschen. 
 
+## Anmerkungen zum Projekt
+Über Google Chrome und Safari wird die Anwendung richtig skaliert angezeigt. Bei Firefox können diesbezüglich Probleme auftreten.
 
 ## Team
 
