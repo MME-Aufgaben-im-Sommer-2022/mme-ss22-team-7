@@ -12,11 +12,8 @@ import {
   addToLeaderboard,
 } from "./friends/Leaderboard.js";
 
-var score = 0,
+var score = null,
   today = Math.floor(Date.now() / 1000),
-  transportScore = 60,
-  foodScore = 10,
-  otherScore = 40,
   userID = "",
   scoreHistory = [],
   friendArray = [],
@@ -29,9 +26,6 @@ const logoutButton = document.querySelector(".logout-button"),
   addFriendButton = document.getElementById("add-friend-button"),
   friendInput = document.getElementById("add-friend-input"),
   scoreEl = document.querySelector(".score"),
-  transportScoreEl = document.querySelector(".transport-score"),
-  foodScoreEl = document.querySelector(".food-score"),
-  otherScoreEl = document.querySelector(".others-score"),
   entriesPopUp = document.querySelector(".overlay-entries"),
   hamburger = document.querySelector("#burger-menu-open"),
   closeIcon = document.querySelector("#burger-menu-close"),
@@ -83,29 +77,23 @@ function onPopUp() {
 function updateScore(val) {
   score += val;
   scoreEl.innerHTML = score;
-  transportScoreEl.innerHTML = transportScore;
-  foodScoreEl.innerHTML = foodScore;
-  otherScoreEl.innerHTML = otherScore;
-  scoreEl.innerHTML = score;
   console.log(score);
   updateDBScore();
   updateLeaderboardList(userID, score);
 }
 
 function initData() {
+  console.log("now in int Data");
   api.myDocument(userID).then(
     (response) => {
       console.log(response);
       userDocument = response;
+      score = response.Score;
+      scoreEl.innerHTML = score;
       setScoreHistory(userDocument);
       fillHTML(userDocument);
       getEntries();
       getUsers();
-      score = response.Score;
-      transportScore = response.TransportScore;
-      foodScore = response.FoodScore;
-      otherScore = response.OtherScore;
-      scoreEl.innerHTML = score;
 
       initChallenges(response);
     },
@@ -183,19 +171,11 @@ function computeOpenChallenges(response, listIds) {
 
 function updateDBScore() {
   api
-    .updateUserCl(
-      userData.$id,
-      {
-        Score: score,
-        TransportScore: transportScore,
-        FoodScore: foodScore,
-        OtherScore: otherScore,
-        LastLogin: today,
-        ScoreHistory: userDocument.ScoreHistory,
-      },
-      "",
-      ""
-    )
+    .updateUserCl(userData.$id, {
+      Score: score,
+      LastLogin: today,
+      ScoreHistory: userDocument.ScoreHistory,
+    })
     .then(
       (response) => {
         console.log(response);
@@ -209,9 +189,6 @@ function updateDBScore() {
 function fillHTML(response) {
   profileNameEl.innerHTML = userDocument.UserName;
   score = response.Score;
-  transportScore = response.TransportScore;
-  foodScore = response.FoodScore;
-  otherScore = response.OtherScore;
   scoreEl.innerHTML = score;
 }
 
@@ -273,9 +250,12 @@ function checkForSession() {
       console.log(response);
       userData = response;
       userID = response.$id;
+      console.log(userID);
       onLoginClose();
     },
-    (error) => {}
+    (error) => {
+      console.log(error);
+    }
   );
 }
 
@@ -284,7 +264,7 @@ function handleEntryData(entryData) {
   entryData.forEach((el) => {
     console.log(el.value, el.name);
     val += el.value;
-    api.createEntry({ Name: el.el, CO2: 40 }).then(
+    api.createEntry({ Name: el.name, CO2: 40 }).then(
       (response) => {
         console.log(response);
         //create score entry
