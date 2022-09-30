@@ -9,9 +9,8 @@ import Leaderboard from "./friends/Leaderboard.js";
 import { onCreateAccount } from "./Login/SignUp.js";
 import {
   updateLeaderboardList,
-  addToLeaderboard
+  addToLeaderboard,
 } from "./friends/Leaderboard.js";
-
 
 var score = 0,
   today = Math.floor(Date.now() / 1000),
@@ -45,24 +44,19 @@ const logoutButton = document.querySelector(".logout-button"),
   registerCloseEl = document.querySelector("#create-account"),
   websiteEl = document.querySelector("#website"),
   profile = document.querySelector(".profile-container"),
-  emailR = document.getElementById('emailR'),
-  passwordR = document.getElementById('passwordR'),
-  usernameR = document.getElementById('usernameR'),
-  email = document.getElementById('email'),
-  profileNameEl = document.getElementById('profile-name'),
-  profilePic = document.getElementById('profile-img'),
-  password = document.getElementById('password');
-
+  emailR = document.getElementById("emailR"),
+  passwordR = document.getElementById("passwordR"),
+  usernameR = document.getElementById("usernameR"),
+  email = document.getElementById("email"),
+  profileNameEl = document.getElementById("profile-name"),
+  profilePic = document.getElementById("profile-img"),
+  password = document.getElementById("password");
 
 entryButton.addEventListener("click", onPopUp);
 logoutButton.addEventListener("click", onLogout);
 addFriendButton.addEventListener("click", addFriend);
 hamburger.addEventListener("click", toggleMenu);
 closeIcon.addEventListener("click", toggleMenu);
-
-
-
-
 
 entryPopUp.style.display = "none";
 const inputs = initInputs();
@@ -98,12 +92,10 @@ function updateScore(val) {
   updateLeaderboardList(userID, score);
 }
 
-
 function initData() {
   api.myDocument(userID).then(
     (response) => {
       console.log(response);
-      userDocs = response;
       userDocument = response;
       setScoreHistory(userDocument);
       fillHTML(userDocument);
@@ -193,18 +185,29 @@ function computeOpenChallenges(response, listIds) {
 }
 
 function updateDBScore() {
-  api.updateUserCl(userData.$id, {
-    Score: score,
-    TransportScore: transportScore,
-    FoodScore: foodScore,
-    OtherScore: otherScore,
-    LastLogin: today,
-    ScoreHistory: userDocument.ScoreHistory
-  }, "", "").then(response => { console.log(response) }, error => {
-    console.log(error);
-  });
+  api
+    .updateUserCl(
+      userData.$id,
+      {
+        Score: score,
+        TransportScore: transportScore,
+        FoodScore: foodScore,
+        OtherScore: otherScore,
+        LastLogin: today,
+        ScoreHistory: userDocument.ScoreHistory,
+      },
+      "",
+      ""
+    )
+    .then(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
 }
-
 
 function fillHTML(response) {
   profileNameEl.innerHTML = userDocument.UserName;
@@ -219,24 +222,29 @@ function fillHTML(response) {
 }
 
 function getEntries() {
-  api.getEntryDocuments().then(response => {
-    console.log(response);
-    initEntries(response);
-  }, error => {
-    console.log(error);
-  });
+  api.getEntryDocuments().then(
+    (response) => {
+      console.log(response);
+      initEntries(response);
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
 }
 
 function getUsers() {
-  api.getUserListDocuments().then(response => {
-    console.log(response);
-    userListDocument = response;
-    fillFriendList();
-  }, error => {
-    console.log(error);
-  });
+  api.getUserListDocuments().then(
+    (response) => {
+      console.log(response);
+      userListDocument = response;
+      fillFriendList();
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
 }
-
 
 //array with all entry documents of user
 function initEntries(entries) {
@@ -244,12 +252,15 @@ function initEntries(entries) {
 }
 
 function deleteEntry(id, score) {
-  api.deleteEntry(id).then(response => {
-    console.log(response);
-    updateScore(-score);
-  }, error => {
-    console.log(error);
-  });
+  api.deleteEntry(id).then(
+    (response) => {
+      console.log(response);
+      updateScore(-score);
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
 }
 
 function toggleMenu() {
@@ -277,16 +288,18 @@ function checkForSession() {
 function handleEntryData(entryData) {
   let val = 0;
   //TODO: Eingabe "0" bei Fahrzeugen blockieren!
-  entryData.forEach(el => {
+  entryData.forEach((el) => {
     console.log(el.value, el.name);
     val += el.value;
-    api.createEntry({ Name: el.el, CO2: 40 })
-      .then(response => {
+    api.createEntry({ Name: el.el, CO2: 40 }).then(
+      (response) => {
         console.log(response);
         //create score entry
-      }, error => {
+      },
+      (error) => {
         console.log(error);
-      });
+      }
+    );
     updateScore(val);
   });
 
@@ -321,13 +334,15 @@ function createUserSession() {
     pw = password.value;
   email.value = "";
   password.value = "";
-  api.createSession(el,
-    pw).then(response => {
-    console.log(response);
-    onLoginClose();
-  }, error => {
-    console.log(error);
-  });
+  api.createSession(el, pw).then(
+    (response) => {
+      console.log(response);
+      onLoginClose();
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
 }
 
 function onLoginClose() {
@@ -335,14 +350,17 @@ function onLoginClose() {
   loginPopUp.style.display = "none";
   registerPopUp.style.display = "none";
   websiteEl.classList.remove("website-hidden");
-  userData = api.getAccount().then(response => {
-    userData = response;
-    userID = userData.$id;
-    console.log(response);
-    initData();
-  }, error => {
-    console.log(error);
-  });
+  userData = api.getAccount().then(
+    (response) => {
+      userData = response;
+      userID = userData.$id;
+      console.log(response);
+      initData();
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
 }
 
 //creates a new user account
@@ -354,14 +372,17 @@ function createAccount() {
   emailR.value = "";
   passwordR.value = "";
   usernameR.value = "";
-  api.createAccount(el, pw, un).then(function(response) {
-    console.log(response);
-    userData = response;
-    userID = userData.$id;
-    onRegisterClose(el, pw, );
-  }, function(error) {
-    console.log(error);
-  });
+  api.createAccount(el, pw, un).then(
+    function (response) {
+      console.log(response);
+      userData = response;
+      userID = userData.$id;
+      onRegisterClose(el, pw);
+    },
+    function (error) {
+      console.log(error);
+    }
+  );
 }
 
 //closes register popUp and creates session
@@ -370,14 +391,16 @@ function onRegisterClose(el, pw) {
   loginPopUp.style.display = "none";
   registerPopUp.style.display = "none";
   websiteEl.classList.remove("website-hidden");
-  api.createSession(el,
-    pw).then(response => {
-    console.log(response);
-    createUserDocument();
-    getUsers();
-  }, error => {
-    console.log(error);
-  });
+  api.createSession(el, pw).then(
+    (response) => {
+      console.log(response);
+      createUserDocument();
+      getUsers();
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
 }
 
 //creates a user document in the user collection
@@ -432,17 +455,11 @@ function setScoreHistory() {
   updateDBScore();
 }
 
-
-
-
-
 //doesnt work yet
 /* profilePic.addEventListener("change", function(event) {
   image.src = URL.createObjectURL(event.target.files[0]);
   console.log("image loaded"+"image.src");
 }); */
-
-
 
 // const hamburger = document.querySelector("#burger-menu"),
 //   closeIcon = document.querySelector("#x-burger-menu"),
