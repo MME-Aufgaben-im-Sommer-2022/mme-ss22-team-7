@@ -13,13 +13,6 @@ import {
 } from "./friends/Leaderboard.js";
 
 
-// challenges.js wird angesprochen
-const listChallenges = document.querySelector(".active_container");
-const listOpenChallenges = document.querySelector(".open_container");
-const challenges = new Challenges(listChallenges, true);
-const challengesOpen = new Challenges(listOpenChallenges, false);
-
-
 var score = 0,
   today = Math.floor(Date.now() / 1000),
   transportScore = 60,
@@ -105,6 +98,100 @@ function updateScore(val) {
   updateLeaderboardList(userID, score);
 }
 
+
+function initData() {
+  api.myDocument(userID).then(
+    (response) => {
+      console.log(response);
+      userDocs = response;
+      userDocument = response;
+      setScoreHistory(userDocument);
+      fillHTML(userDocument);
+      getEntries();
+      getUsers();
+      score = response.Score;
+      transportScore = response.TransportScore;
+      foodScore = response.FoodScore;
+      otherScore = response.OtherScore;
+      scoreEl.innerHTML = score;
+      transportScoreEl.innerHTML = transportScore;
+      foodScoreEl.innerHTML = foodScore;
+      otherScoreEl.innerHTML = otherScore;
+
+      initChallenges(response);
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
+  api.getEntryDocuments().then(
+    (response) => {
+      initEntries(response);
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
+  api.getChallengeDocuments().then((response) => {
+    console.log(response);
+  });
+}
+
+function initChallenges(userData) {
+  const listOpenChallenges = document.querySelector(".open_container");
+  const listChallenges = document.querySelector(".active_container");
+  api.getChallengeDocuments().then(
+    (response) => {
+      let validActiveChallenges = computeActiveChallenges(
+        response,
+        userData.ActiveChallenges
+      );
+      let validOpenChallenges = computeOpenChallenges(
+        response,
+        userData.ActiveChallenges
+      );
+
+      console.log(userData.ActiveChallengesTime);
+
+      const challengesOpen = new Challenges(
+        listOpenChallenges,
+        listChallenges,
+        validOpenChallenges,
+        validActiveChallenges,
+        userData.ActiveChallengesTime,
+        userData.CompletedChallenges
+      );
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
+}
+
+function computeActiveChallenges(response, listIds) {
+  let validArr = [];
+  response.documents.forEach((all) => {
+    listIds.forEach((id) => {
+      if (all.$id == id) {
+        validArr.push(all);
+      }
+    });
+  });
+  return validArr;
+}
+
+function computeOpenChallenges(response, listIds) {
+  let validArr = response.documents;
+  for (let index = 0; index < validArr.length; index++) {
+    listIds.forEach((element) => {
+      if (validArr[index].$id == element) {
+        validArr.splice(index, 1);
+      }
+    });
+  }
+  return validArr;
+}
+
 function updateDBScore() {
   api.updateUserCl(userData.$id, {
     Score: score,
@@ -118,17 +205,6 @@ function updateDBScore() {
   });
 }
 
-function initData() {
-  api.myDocument(userID).then(response => {
-    userDocument = response;
-    setScoreHistory(userDocument);
-    fillHTML(userDocument);
-    getEntries();
-    getUsers();
-  }, error => {
-    console.log(error);
-  });
-}
 
 function fillHTML(response) {
   profileNameEl.innerHTML = userDocument.UserName;
@@ -187,12 +263,15 @@ function toggleMenu() {
 }
 
 function checkForSession() {
-  api.getAccount().then(response => {
-    console.log(response);
-    userData = response;
-    userID = response.$id;
-    onLoginClose();
-  }, error => {});
+  api.getAccount().then(
+    (response) => {
+      console.log(response);
+      userData = response;
+      userID = response.$id;
+      onLoginClose();
+    },
+    (error) => {}
+  );
 }
 
 function handleEntryData(entryData) {
@@ -304,24 +383,36 @@ function onRegisterClose(el, pw) {
 //creates a user document in the user collection
 function createUserDocument() {
   console.log(userData.$id);
-  api.createUserDocument(userData.$id, {
-      UserName: userData.name,
-      email: userData.email
-    }, "", "")
-    .then(response => {
-      console.log(response);
-    }, error => {
-      console.log(error);
-    });
+  api
+    .createUserDocument(
+      userData.$id,
+      {
+        UserName: userData.name,
+        email: userData.email,
+      },
+      "",
+      ""
+    )
+    .then(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
 }
 
 function onLogout() {
-  api.deleteCurrentSession().then(response => {
-    console.log(response);
-    window.location.reload();
-  }, error => {
-    console.log(error);
-  });
+  api.deleteCurrentSession().then(
+    (response) => {
+      console.log(response);
+      window.location.reload();
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
 }
 
 function addFriend() {

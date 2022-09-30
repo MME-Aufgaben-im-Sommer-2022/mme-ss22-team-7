@@ -9,7 +9,6 @@ class ChallengeView extends Observable {
     super();
 
     if (bool) {
-      console.log("challenges should be active ");
       const element = ChallengeView.elementFromTemplate(true);
       this.element = element;
 
@@ -18,20 +17,17 @@ class ChallengeView extends Observable {
       this.pointsLabel = element.querySelector('[name="points"]');
       this.approveButtonLabel = element.querySelector('[name="approve"]');
       this.declineButtonLabel = element.querySelector('[name="decline"]');
+      this.initActiveListeners();
     } else {
-      console.log("challenges are inactive ");
-      console.log(bool);
       const element = ChallengeView.elementFromTemplate(false);
       this.element = element;
 
       this.nameLabel = element.querySelector('[name="name"]');
       this.lengthLabel = element.querySelector('[name="length"]');
       this.pointsLabel = element.querySelector('[name="points"]');
-      this.approveButtonLabel = element.querySelector('[name="accept"]');
+      this.acceptButtonLabel = element.querySelector('[name="accept"]');
+      this.initOpenListeners();
     }
-
-    // listeners also devided into active nad open?
-    this.initListeners();
   }
 
   static get templateActive() {
@@ -61,9 +57,9 @@ class ChallengeView extends Observable {
   set challenge(value) {
     this._challenge = value;
 
-    this.nameLabel.innerHTML = `${value.name}`;
-    this.lengthLabel.innerHTML = `${value.length}`;
-    this.pointsLabel.innerHTML = `${value.scoreValue}`;
+    this.nameLabel.innerHTML = `${value.challengeName}`;
+    this.lengthLabel.innerHTML = `${value.Length}`;
+    this.pointsLabel.innerHTML = `${value.Score}`;
     this.approveButtonLabel.innerHTML = `Abschließen`;
     this.declineButtonLabel.innerHTML = `Abbrechen`;
   }
@@ -76,10 +72,10 @@ class ChallengeView extends Observable {
   set challengeOpen(value) {
     this._challenge = value;
 
-    this.nameLabel.innerHTML = `${value.name}`;
-    this.lengthLabel.innerHTML = `${value.length}`;
-    this.pointsLabel.innerHTML = `${value.scoreValue}`;
-    this.approveButtonLabel.innerHTML = `Akzeptieren`;
+    this.nameLabel.innerHTML = `${value.challengeName}`;
+    this.lengthLabel.innerHTML = `${value.Length}`;
+    this.pointsLabel.innerHTML = `${value.Score}`;
+    this.acceptButtonLabel.innerHTML = `Akzeptieren`;
   }
 
   get challengeOpen() {
@@ -87,8 +83,38 @@ class ChallengeView extends Observable {
   }
 
   // differentiating active and open challenges prob. in here
-  initListeners() {
-    console.log("in initListeners");
+  initOpenListeners() {
+    this.acceptButtonLabel.addEventListener("click", this.onAccept.bind(this));
+  }
+
+  initActiveListeners() {
+    this.declineButtonLabel.addEventListener(
+      "click",
+      this.onDecline.bind(this)
+    );
+    this.approveButtonLabel.addEventListener(
+      "click",
+      this.onApprove.bind(this)
+    );
+  }
+
+  onAccept() {
+    const event = new Event("accept", this);
+    this.notifyAll(event);
+  }
+
+  onDecline() {
+    const event = new Event("decline", this);
+    this.notifyAll(event);
+  }
+
+  onApprove() {
+    const event = new Event("approve", this);
+    this.notifyAll(event);
+  }
+
+  remove() {
+    this.element.remove();
   }
 }
 
