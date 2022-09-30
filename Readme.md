@@ -36,7 +36,7 @@ Zurück auf der Hauptseite kann der Nutzer mithilfe des "new Entry"-Buttons ein 
 
 Der Score wird auf der Hauptseite als Zahl aber auch als grafische Abbildung dargestellt. Sowohl der Graf des Nutzers, als auch die Grafen der Freunde vom Leaderboards werden hier angezeigt.
 
-![grafik](https://user-images.githubusercontent.com/69862866/193357291-b39d19b0-f32b-4b38-9b83-0cc4b3e04d0e.png)
+![grafik](https://user-images.githubusercontent.com/69862866/193358323-751ceb5d-9b28-46e3-a883-18b1157e0f0e.png)
 
 Das Leaderboard wird auf der rechten Seite des Hauptbildschirms angezeigt und listet die Freunde mit dem höchsten Score nacheinander auf. 
 
