@@ -11,6 +11,7 @@ import {
   updateLeaderboardList,
   addToLeaderboard,
 } from "./js/friends/Leaderboard.js";
+import { addEntryToHistory } from "./js/history/history.js";
 
 var score = null,
   today = Math.floor(Date.now() / 1000),

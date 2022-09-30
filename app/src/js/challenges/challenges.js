@@ -1,7 +1,7 @@
 import Challenge from "./challenge.js";
 import ChallengeView from "./challengeView.js";
 import api from "../database/database.js";
-import { updateScore } from "../index.js";
+import { updateScore } from "../../index.js";
 
 /**
  * challenges.js erstellt für alle challenges eine card und kümmert sich um alles generelle
