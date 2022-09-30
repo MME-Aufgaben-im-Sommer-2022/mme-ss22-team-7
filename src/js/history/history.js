@@ -61,7 +61,7 @@ class History {
   onDelete() {
     this.el.remove();
     let scoreTemp = parseInt(this.score.innerHTML);
-    updateScore(scoreTemp);
+    updateScore(-scoreTemp);
     if (this.isEntry) {
       deleteEntry(this.id);
     } else {
