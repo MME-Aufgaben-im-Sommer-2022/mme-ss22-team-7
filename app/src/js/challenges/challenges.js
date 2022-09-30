@@ -126,8 +126,7 @@ class Challenges {
 
     const timeDuration = this.listActiveChallengesTime[indexTimeStamp];
 
-    // evtl ein *24 zu viel!
-    let challengeLengthMil = challenge.Length * 24 * 60 * 1000;
+    let challengeLengthMil = challenge.Length * 24 * 24 * 60 * 1000;
 
     let goalTime = Math.floor(challengeLengthMil + timeDuration);
 

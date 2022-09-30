@@ -106,9 +106,6 @@ function initData() {
       foodScore = response.FoodScore;
       otherScore = response.OtherScore;
       scoreEl.innerHTML = score;
-      transportScoreEl.innerHTML = transportScore;
-      foodScoreEl.innerHTML = foodScore;
-      otherScoreEl.innerHTML = otherScore;
 
       initChallenges(response);
     },
@@ -216,9 +213,6 @@ function fillHTML(response) {
   foodScore = response.FoodScore;
   otherScore = response.OtherScore;
   scoreEl.innerHTML = score;
-  transportScoreEl.innerHTML = transportScore;
-  foodScoreEl.innerHTML = foodScore;
-  otherScoreEl.innerHTML = otherScore;
 }
 
 function getEntries() {
