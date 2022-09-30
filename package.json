@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "A template for your MME Projects",
   "type": "module",
-  "main": "./js/index.js",
+  "main": "index.js",
   "watch": {
     "runDevelopementServer": {
       "patterns": [
