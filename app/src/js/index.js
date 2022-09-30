@@ -444,37 +444,15 @@ function addFriend() {
   onAddFriend(friend);
 }
 
-function setScoreHistory() {
-  let dateDif = Math.floor((today - userDocument.LastLogin) / S_PER_DAY);
-  for (let index = 0; index < dateDif; index++) {
-    userDocument.ScoreHistory.push(userDocument.Score - 5 * index);
-    //vllt abbau von punkten über zeit?
-  }
-  console.log(scoreHistory);
-  addToLeaderboard(new Friend(userDocument));
-  updateDBScore();
-}
-
-//doesnt work yet
-/* profilePic.addEventListener("change", function(event) {
-  image.src = URL.createObjectURL(event.target.files[0]);
-  console.log("image loaded"+"image.src");
-}); */
-
-// const hamburger = document.querySelector("#burger-menu"),
-//   closeIcon = document.querySelector("#x-burger-menu"),
-//   profile = document.querySelector(".profile-container"),
-
-//hamburger.addEventListener("click", toggleMenu);
-//closeIcon.addEventListener("click", toggleMenu);
-
-// function toggleMenu() {
-//   if (profile.classList.contains("showMenu")) {
-//     profile.classList.remove("showMenu");
-//     closeIcon.style.display = "none";
-//   } else {
-//     profile.classList.add("showMenu");
-//     closeIcon.style.display = "block";
+// function setScoreHistory() {
+//   let dateDif = Math.floor((today - userDocument.LastLogin) / S_PER_DAY);
+//   for (let index = 0; index < dateDif; index++) {
+//     userDocument.ScoreHistory.push(userDocument.Score - 5 * index);
+//     //vllt abbau von punkten über zeit?
 //   }
+//   console.log(scoreHistory);
+//   addToLeaderboard(new Friend(userDocument));
+//   updateDBScore();
 // }
+
 export { userID, userDocument, userListDocument };
