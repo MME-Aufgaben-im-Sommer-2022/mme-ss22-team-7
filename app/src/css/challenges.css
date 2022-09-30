@@ -36,16 +36,6 @@
   justify-content: left;
 }
 
-.new-challenge-label {
-  background-color: #a77e55;
-  color: black;
-  text-align: center;
-  height: 3vh;
-  padding: 0.5em;
-  border-bottom-right-radius: 0.5em;
-  border-bottom-left-radius: 0.5em;
-}
-
 .card {
   background-color: rgb(187, 203, 164);
   margin: 0.3em;

@@ -97,7 +97,7 @@ function initData() {
     (response) => {
       console.log(response);
       userDocument = response;
-      setScoreHistory(userDocument);
+      //setScoreHistory(userDocument);
       fillHTML(userDocument);
       getEntries();
       getUsers();
