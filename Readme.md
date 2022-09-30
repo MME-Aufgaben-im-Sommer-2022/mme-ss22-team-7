@@ -12,14 +12,15 @@ Die stetig steigende CO2-Emission und deren schlechte Auswirkungen auf die Umwel
 Die Anwendung richtet sich an Menschen allen Alters, denen eine Verbesserung oder auch lediglich das Bewusstsein, des eigenen CO2-Verbrauchs, wichtig ist. Sie sollten durch das Leaderboard und die Challenges motiviert werden, sich stetig neu herauszufordern und zu verbessern. Somit können die Nutzer nicht nur über sich hinaus wachsen, sondern auch dazu beitragen die CO2-Bilanz zu senken.
 
 ## Implementierte Funktionen:
-Anmeldung, Registrierung, Erstellen eines Eintrags, Das Anzeigen des CO2-Verbrauchs, anhand eines Grafen, Annehmen von Challenges, Das Bearbeiten von aktiven Challenges, Hinzufügen von Freunden, Die Darstellung der History, Die Darstellung des Leaderboards
+Anmeldung, Registrierung, Das Erstellen eines Eintrags, Das Anzeigen des CO2-Verbrauchs, anhand eines Grafen, Annehmen von Challenges, Das Bearbeiten von aktiven Challenges, Hinzufügen von Freunden, Die Darstellung der History, Die Darstellung des Leaderboards
+
 Aktueller Release: https://github.com/MME-Aufgaben-im-Sommer-2022/mme-ss22-team-7/releases/tag/v0.1.0
 
 ## Beschreibung & Anleitung
 
 _Beschreiben Sie die zentralen Funktionen Ihrer Anwendung und deren Verwendung. Nutzen Sie dazu Screenshots und/oder Videos. Verlinken Sie ein min. 60-sekündiges Demo-Video, das die Verwendung aller wichtigen Funktionen zeigt und in Form eines Audio-Kommentars beschreibt._
 
---> Screenshots, Video und Audioaufnahme fehlen!!
+_--> Screenshots, Video und Audioaufnahme fehlen!!_
 
 Die Anwendung startet mit der Möglichkeit, dass der Nutzer sich anmelden kann oder über eine Verlinkung registrieren kann. Hierfür werden Username und Passwort oder Username, Passwort und eine E-Mail Adresse benötigt. Anschließend wird der Nutzer auf die Hauptseite der Greenbook Anwendung geleitet. Diese bietet einen Überblick über die meisten Funktionen, wie der Anzeige des aktuellen Scores, des Leaderboards, des Grafen, der Challenges oder der History.
 
