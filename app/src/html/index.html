@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Greenbook</title>
@@ -9,429 +8,585 @@
     <link rel="stylesheet" href="../css/challenges.css" />
     <script src="https://kit.fontawesome.com/300d45943a.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="website" class="website-hidden">
-        <div class="main-container">
-            <header>
-                <div class="burger-menu-container">
-                    <i id="burger-menu-open" class="fa-solid fa-align-justify fa-xl"></i>
-                </div>
-                <div class="title-container">
-                    <h1 class="title">Greenbook</h1>
-                </div>
-                <div class="score-container">
-                    <div class="score-title">My score</div>
-                    <div class="score">0</div>
-                </div>
-            </header>
-            <main>
-                <div class="stats-container">
-                    <div class="upper-stats-container">
-                        <div class="co2-score-label">
-                            CO2 <br />
-                            Score
-                        </div>
-                        <table class="score-category-table">
-                            <tr>
-                                <th class="transport-score-label">Transport</th>
-                                <th class="food-score-label">Food</th>
-                                <th class="others-score-label">Others</th>
-                            </tr>
-                            <tr>
-                                <td class="transport-score">0</td>
-                                <td class="food-score">0</td>
-                                <td class="others-score">0</td>
-                            </tr>
-                        </table>
-                        <div class="entry-description">
-                            Add a new entry <br />
-                            to track your sustainability
-                        </div>
-                        <button class="new-entry-button">New Entry</button>
-                    </div>
-                    <div class="canvas">
-                        <canvas id="diagram-canvas"></canvas>
-                    </div>
-
-                </div>
-                <!-- challenges View 
+      <div class="main-container">
+        <header>
+          <div class="burger-menu-container">
+            <i
+              id="burger-menu-open"
+              class="fa-solid fa-align-justify fa-xl"
+            ></i>
+          </div>
+          <div class="title-container">
+            <h1 class="title">Greenbook</h1>
+          </div>
+          <div class="score-container">
+            <div class="score-title">My score</div>
+            <div class="score">0</div>
+          </div>
+        </header>
+        <main>
+          <div class="stats-container">
+            <div class="upper-stats-container">
+              <div class="co2-score-label">
+                CO2 <br />
+                Score
+              </div>
+              <table class="score-category-table">
+                <tr>
+                  <th class="transport-score-label">Transport</th>
+                  <th class="food-score-label">Food</th>
+                  <th class="others-score-label">Others</th>
+                </tr>
+                <tr>
+                  <td class="transport-score">0</td>
+                  <td class="food-score">0</td>
+                  <td class="others-score">0</td>
+                </tr>
+              </table>
+              <div class="entry-description">
+                Add a new entry <br />
+                to track your sustainability
+              </div>
+              <button class="new-entry-button">New Entry</button>
+            </div>
+            <div class="canvas">
+              <canvas id="diagram-canvas"></canvas>
+            </div>
+          </div>
+          <!-- challenges View 
                 maybe only temporarely here
             -->
-                <div class="challenge-container">
-                    <div class="active-challenges-container">
-                        <div class="active-challenge-label">
-                            Active <br />
-                            Challenges
-                        </div>
-                        <!-- list with active challenges  -->
-                        <div class="active_container" id="active-challenges"></div>
-                    </div>
-                    <div class="open-challenges-container">
-                        <div class="active-challenge-label">
-                            Open <br />
-                            Challenges
-                        </div>
-                        <!-- list with open challenges  -->
-                        <div class="open_container" id="open-challenges"></div>
-                    </div>
-                    <div class="new-challenge-label">Add a new challenge</div>
-                </div>
-                <!-- end challenges-->
-            </main>
-            <sidebar class="sidebar">
-                <div class="leaderboard-container">
-                    <div class="leaderboard-header">Leaderboard</div>
-                    <div class="leaderboard-content-container"></div>
-                    <ol class="leaderboard-list">
-
-                    </ol>
-                </div>
-                <div class="history-container">
-                    <div class="history-header">History</div>
-                    <div class="history-content-container"></div>
-                </div>
-            </sidebar>
-            <footer>
-                something in here ( Impressum, Datenschutzerklärung etc. )
-            </footer>
+          <div class="challenge-container">
+            <div class="active-challenges-container">
+              <div class="active-challenge-label">
+                Active <br />
+                Challenges
+              </div>
+              <!-- list with active challenges  -->
+              <div class="active_container" id="active-challenges"></div>
+            </div>
+            <div class="open-challenges-container">
+              <div class="active-challenge-label">
+                Open <br />
+                Challenges
+              </div>
+              <!-- list with open challenges  -->
+              <div class="open_container" id="open-challenges"></div>
+            </div>
+            <div class="new-challenge-label">Add a new challenge</div>
+          </div>
+          <!-- end challenges-->
+        </main>
+        <sidebar class="sidebar">
+          <div class="leaderboard-container">
+            <div class="leaderboard-header">Leaderboard</div>
+            <div class="leaderboard-content-container"></div>
+            <ol class="leaderboard-list"></ol>
+          </div>
+          <div class="history-container">
+            <div class="history-header">History</div>
+            <div class="history-content-container"></div>
+          </div>
+        </sidebar>
+        <footer>
+          something in here ( Impressum, Datenschutzerklärung etc. )
+        </footer>
+      </div>
+      <!-- profile View - own .html?! einbindug vermutlich wie challenges oder straight heir, da iframe kacke ist  -->
+      <div class="profile-container">
+        <div class="menu-close-container">
+          <i id="burger-menu-close" class="fa-solid fa-xl fa-xmark"></i>
         </div>
-        <!-- profile View - own .html?! einbindug vermutlich wie challenges oder straight heir, da iframe kacke ist  -->
-        <div class="profile-container">
-            <div class="menu-close-container">
-                <i id="burger-menu-close" class="fa-solid fa-xl fa-xmark"></i>
+        <div id="img-outer-container">
+          <div id="profile-img-container">
+            <div class="profile-pic">
+              <label class="-label" for="file">
+                <span class="glyphicon glyphicon-camera"></span>
+                <span>Change Image</span>
+              </label>
+              <input id="file" type="file" onchange="loadFile(event)" />
+              <img
+                src="../images/default_profile.png"
+                id="profile-img"
+                width="200"
+              />
             </div>
-            <div id="img-outer-container">
-                <div id="profile-img-container">
-                    <div class="profile-pic">
-                        <label class="-label" for="file">
-                            <span class="glyphicon glyphicon-camera"></span>
-                            <span>Change Image</span>
-                        </label>
-                        <input id="file" type="file" onchange="loadFile(event)" />
-                        <img src="../images/default_profile.png" id="profile-img" width="200" />
-                    </div>
-                    <script>
-                        var loadFile = function(event) {
-                            var image = document.getElementById("profile-img");
-                            image.src = URL.createObjectURL(event.target.files[0]);
-                        };
-                    </script>
-                </div>
-            </div>
-            <div class="pf-name">
-                <p><span id="profile-name">johnny</span>
-                    <button class="logout-button">Logout</button></p>
-            </div>
-            <hr>
-
-            <!-- search-field-->
-            <div id="search-field">
-                <p>
-                    <input type="search" name="q" id="add-friend-input" placeholder="Add friend by E-Mail" />
-                    <input type="submit" id="add-friend-button" value="+" />
-                </p>
-            </div>
-            <ul class="friend-list">
-            </ul>
-            <!-- needs styling -->
-
+            <script>
+              var loadFile = function (event) {
+                var image = document.getElementById("profile-img");
+                image.src = URL.createObjectURL(event.target.files[0]);
+              };
+            </script>
+          </div>
         </div>
+        <div class="pf-name">
+          <p>
+            <span id="profile-name">johnny</span>
+            <button class="logout-button">Logout</button>
+          </p>
+        </div>
+        <hr />
+
+        <!-- search-field-->
+        <div id="search-field">
+          <p>
+            <input
+              type="search"
+              name="q"
+              id="add-friend-input"
+              placeholder="Add friend by E-Mail"
+            />
+            <input type="submit" id="add-friend-button" value="+" />
+          </p>
+        </div>
+        <ul class="friend-list"></ul>
+        <!-- needs styling -->
+      </div>
     </div>
     <!--entry popup-->
     <div class="entry-popUp">
-        <details open>
-            <summary id="transport">Transport</summary>
-            <fieldset class="fieldset">
-                <div class="text">
-                    <label>How much did you use the following means of transport recently?
-                    </label>
-                </div>
-                <div class="means-of-transport">
-                    <label>Car:</label>
-                    <input type="number" id="car-km-field" min="0" max="500000" step="100" checked />
-                    <label>km.</label>
-                </div>
+      <details open>
+        <summary id="transport">Transport</summary>
+        <fieldset class="fieldset">
+          <div class="text">
+            <label
+              >How much did you use the following means of transport recently?
+            </label>
+          </div>
+          <div class="means-of-transport">
+            <label>Car:</label>
+            <input
+              type="number"
+              id="car-km-field"
+              min="0"
+              max="500000"
+              step="100"
+              checked
+            />
+            <label>km.</label>
+          </div>
 
-                <div class="means-of-transport">
-                    <label>Public transport:</label>
-                    <input type="number" id="public-transport-km-field" min="0" max="500000" step="100" checked />
-                    <label>km.</label>
-                </div>
+          <div class="means-of-transport">
+            <label>Public transport:</label>
+            <input
+              type="number"
+              id="public-transport-km-field"
+              min="0"
+              max="500000"
+              step="100"
+              checked
+            />
+            <label>km.</label>
+          </div>
 
-                <div class="means-of-transport">
-                    <label>Plane:</label>
-                    <input type="number" id="plane-hours-field" min="0" max="500000" step="0.5" checked />
-                    <label>hours.</label>
-                </div>
+          <div class="means-of-transport">
+            <label>Plane:</label>
+            <input
+              type="number"
+              id="plane-hours-field"
+              min="0"
+              max="500000"
+              step="0.5"
+              checked
+            />
+            <label>hours.</label>
+          </div>
 
-                <div class="means-of-transport">
-                    <label>Cruise ship:</label>
-                    <input type="number" id="cruise-ship-weeks-field" min="0" max="500000" step="0.5" checked />
-                    <label>weeks.</label>
-                </div>
-            </fieldset>
-        </details>
+          <div class="means-of-transport">
+            <label>Cruise ship:</label>
+            <input
+              type="number"
+              id="cruise-ship-weeks-field"
+              min="0"
+              max="500000"
+              step="0.5"
+              checked
+            />
+            <label>weeks.</label>
+          </div>
+        </fieldset>
+      </details>
 
-        <details>
-            <summary id="food">Food</summary>
+      <details>
+        <summary id="food">Food</summary>
 
-            <fieldset class="fieldset">
-                <div class="text">
-                    <label>What percentage of seasonal vegetables/fruits did you consume
-                        today?
-                    </label>
-                </div>
-                <div class="checkboxes">
-                    <input type="radio" id="veg-seas-20" name="veg-seas" value="0" />
-                    <label for="veg-seas-20">0 - 20%</label>
-                </div>
-                <div class="checkboxes">
-                    <input type="radio" id="veg-seas-40" name="veg-seas" value="1" />
-                    <label for="veg-seas-40">21 - 40%</label>
-                </div>
-                <div class="checkboxes">
-                    <input type="radio" id="veg-seas-60" name="veg-seas" value="2" />
-                    <label for="veg-seas-60">41 - 60%</label>
-                </div>
-                <div class="checkboxes">
-                    <input type="radio" id="veg-seas-80" name="veg-seas" value="3" />
-                    <label for="veg-seas-80">61 - 80%</label>
-                </div>
-                <div class="checkboxes">
-                    <input type="radio" id="veg-seas-100" name="veg-seas" value="4" />
-                    <label for="veg-seas-100">81 - 100%</label>
-                </div>
-            </fieldset>
+        <fieldset class="fieldset">
+          <div class="text">
+            <label
+              >What percentage of seasonal vegetables/fruits did you consume
+              today?
+            </label>
+          </div>
+          <div class="checkboxes">
+            <input type="radio" id="veg-seas-20" name="veg-seas" value="0" />
+            <label for="veg-seas-20">0 - 20%</label>
+          </div>
+          <div class="checkboxes">
+            <input type="radio" id="veg-seas-40" name="veg-seas" value="1" />
+            <label for="veg-seas-40">21 - 40%</label>
+          </div>
+          <div class="checkboxes">
+            <input type="radio" id="veg-seas-60" name="veg-seas" value="2" />
+            <label for="veg-seas-60">41 - 60%</label>
+          </div>
+          <div class="checkboxes">
+            <input type="radio" id="veg-seas-80" name="veg-seas" value="3" />
+            <label for="veg-seas-80">61 - 80%</label>
+          </div>
+          <div class="checkboxes">
+            <input type="radio" id="veg-seas-100" name="veg-seas" value="4" />
+            <label for="veg-seas-100">81 - 100%</label>
+          </div>
+        </fieldset>
 
-            <fieldset class="fieldset">
-                <div class="text">
-                    <label>How much money did you spend on food from restaurants?
-                    </label>
-                </div>
-                <div class="checkboxes">
-                    <input type="radio" id="restaurant-food-20" name="restaurant-food" value="0" />
-                    <label for="restaurant-food-20">10 - 20€</label>
-                </div>
-                <div class="checkboxes">
-                    <input type="radio" id="restaurant-food-40" name="restaurant-food" value="1" />
-                    <label for="restaurant-food-40">21 - 40€</label>
-                </div>
-                <div class="checkboxes">
-                    <input type="radio" id="restaurant-food-60" name="restaurant-food" value="2" />
-                    <label for="restaurant-food-60">41 - 60€</label>
-                </div>
-                <div class="checkboxes">
-                    <input type="radio" id="restaurant-food-80" name="restaurant-food" value="3" />
-                    <label for="restaurant-food-80">61 - 80€</label>
-                </div>
-                <div class="checkboxes">
-                    <input type="radio" id="restaurant-food-100" name="restaurant-food" value="4" />
-                    <label for="restaurant-food-100">81 - 100€</label>
-                </div>
-            </fieldset>
-        </details>
+        <fieldset class="fieldset">
+          <div class="text">
+            <label
+              >How much money did you spend on food from restaurants?
+            </label>
+          </div>
+          <div class="checkboxes">
+            <input
+              type="radio"
+              id="restaurant-food-20"
+              name="restaurant-food"
+              value="0"
+            />
+            <label for="restaurant-food-20">10 - 20€</label>
+          </div>
+          <div class="checkboxes">
+            <input
+              type="radio"
+              id="restaurant-food-40"
+              name="restaurant-food"
+              value="1"
+            />
+            <label for="restaurant-food-40">21 - 40€</label>
+          </div>
+          <div class="checkboxes">
+            <input
+              type="radio"
+              id="restaurant-food-60"
+              name="restaurant-food"
+              value="2"
+            />
+            <label for="restaurant-food-60">41 - 60€</label>
+          </div>
+          <div class="checkboxes">
+            <input
+              type="radio"
+              id="restaurant-food-80"
+              name="restaurant-food"
+              value="3"
+            />
+            <label for="restaurant-food-80">61 - 80€</label>
+          </div>
+          <div class="checkboxes">
+            <input
+              type="radio"
+              id="restaurant-food-100"
+              name="restaurant-food"
+              value="4"
+            />
+            <label for="restaurant-food-100">81 - 100€</label>
+          </div>
+        </fieldset>
+      </details>
 
-        <details>
-            <summary id="other">Other</summary>
-            <fieldset class="fieldset">
-                <div class="text">
-                    <label>How much money did you spend on clothes today?</label>
-                </div>
-                <div class="checkboxes">
-                    <input type="radio" id="clothes-20" name="clothes" value="0" />
-                    <label for="clothes-20">about 20 €</label>
-                </div>
-                <div class="checkboxes">
-                    <input type="radio" id="clothes-50" name="clothes" value="1" />
-                    <label for="clothes-50">about 50 €</label>
-                </div>
-                <div class="checkboxes">
-                    <input type="radio" id="clothes-100" name="clothes" value="2" />
-                    <label for="clothes-100">about 100 €</label>
-                </div>
-                <div class="checkboxes">
-                    <input type="radio" id="clothes-200" name="clothes" value="3" />
-                    <label for="clothes-200">about 200 €</label>
-                </div>
-                <div class="checkboxes">
-                    <input type="radio" id="clothes-300" name="clothes" value="4" />
-                    <label for="clothes-300">300+ €</label>
-                </div>
-            </fieldset>
+      <details>
+        <summary id="other">Other</summary>
+        <fieldset class="fieldset">
+          <div class="text">
+            <label>How much money did you spend on clothes today?</label>
+          </div>
+          <div class="checkboxes">
+            <input type="radio" id="clothes-20" name="clothes" value="0" />
+            <label for="clothes-20">about 20 €</label>
+          </div>
+          <div class="checkboxes">
+            <input type="radio" id="clothes-50" name="clothes" value="1" />
+            <label for="clothes-50">about 50 €</label>
+          </div>
+          <div class="checkboxes">
+            <input type="radio" id="clothes-100" name="clothes" value="2" />
+            <label for="clothes-100">about 100 €</label>
+          </div>
+          <div class="checkboxes">
+            <input type="radio" id="clothes-200" name="clothes" value="3" />
+            <label for="clothes-200">about 200 €</label>
+          </div>
+          <div class="checkboxes">
+            <input type="radio" id="clothes-300" name="clothes" value="4" />
+            <label for="clothes-300">300+ €</label>
+          </div>
+        </fieldset>
 
-            <fieldset class="fieldset">
-                <div class="text">
-                    <label>How much money did you spend on culture and hobbys today?</label>
-                </div>
-                <div class="checkboxes">
-                    <input type="radio" id="culture-50" name="culture" value="0" />
-                    <label for="culture-50">30 - 50€</label>
-                </div>
-                <div class="checkboxes">
-                    <input type="radio" id="culture-100" name="culture" value="1" />
-                    <label for="culture-100">51 - 100€</label>
-                </div>
-                <div class="checkboxes">
-                    <input type="radio" id="culture-200" name="culture" value="2" />
-                    <label for="culture-200">101 - 200€</label>
-                </div>
-                <div class="checkboxes">
-                    <input type="radio" id="culture-350" name="culture" value="3" />
-                    <label for="culture-350">201 - 350€</label>
-                </div>
-                <div class="checkboxes">
-                    <input type="radio" id="culture-600" name="culture" value="4" />
-                    <label for="culture-600">351 - 600€</label>
-                </div>
-            </fieldset>
+        <fieldset class="fieldset">
+          <div class="text">
+            <label
+              >How much money did you spend on culture and hobbys today?</label
+            >
+          </div>
+          <div class="checkboxes">
+            <input type="radio" id="culture-50" name="culture" value="0" />
+            <label for="culture-50">30 - 50€</label>
+          </div>
+          <div class="checkboxes">
+            <input type="radio" id="culture-100" name="culture" value="1" />
+            <label for="culture-100">51 - 100€</label>
+          </div>
+          <div class="checkboxes">
+            <input type="radio" id="culture-200" name="culture" value="2" />
+            <label for="culture-200">101 - 200€</label>
+          </div>
+          <div class="checkboxes">
+            <input type="radio" id="culture-350" name="culture" value="3" />
+            <label for="culture-350">201 - 350€</label>
+          </div>
+          <div class="checkboxes">
+            <input type="radio" id="culture-600" name="culture" value="4" />
+            <label for="culture-600">351 - 600€</label>
+          </div>
+        </fieldset>
 
-            <fieldset class="fieldset">
-                <div class="text">
-                    <label>How much money did you spend on household devices
-                        recently?</label>
-                </div>
-                <div class="checkboxes">
-                    <input type="radio" id="household-devices-30" name="household-devices" value="0" />
-                    <label for="household-devices-30">30 - 50€</label>
-                </div>
-                <div class="checkboxes">
-                    <input type="radio" id="household-devices-50" name="household-devices" value="1" />
-                    <label for="household-devices-50">51 - 100€</label>
-                </div>
-                <div class="checkboxes">
-                    <input type="radio" id="household-devices-200" name="household-devices" value="2" />
-                    <label for="household-devices-200">101 - 200€</label>
-                </div>
-                <div class="checkboxes">
-                    <input type="radio" id="household-devices-300" name="household-devices" value="3" />
-                    <label for="household-devices-300">201 - 300€</label>
-                </div>
-                <div class="checkboxes">
-                    <input type="radio" id="household-devices-400" name="household-devices" value="4" />
-                    <label for="household-devices-400">301 - 400€</label>
-                </div>
-            </fieldset>
-        </details>
+        <fieldset class="fieldset">
+          <div class="text">
+            <label
+              >How much money did you spend on household devices
+              recently?</label
+            >
+          </div>
+          <div class="checkboxes">
+            <input
+              type="radio"
+              id="household-devices-30"
+              name="household-devices"
+              value="0"
+            />
+            <label for="household-devices-30">30 - 50€</label>
+          </div>
+          <div class="checkboxes">
+            <input
+              type="radio"
+              id="household-devices-50"
+              name="household-devices"
+              value="1"
+            />
+            <label for="household-devices-50">51 - 100€</label>
+          </div>
+          <div class="checkboxes">
+            <input
+              type="radio"
+              id="household-devices-200"
+              name="household-devices"
+              value="2"
+            />
+            <label for="household-devices-200">101 - 200€</label>
+          </div>
+          <div class="checkboxes">
+            <input
+              type="radio"
+              id="household-devices-300"
+              name="household-devices"
+              value="3"
+            />
+            <label for="household-devices-300">201 - 300€</label>
+          </div>
+          <div class="checkboxes">
+            <input
+              type="radio"
+              id="household-devices-400"
+              name="household-devices"
+              value="4"
+            />
+            <label for="household-devices-400">301 - 400€</label>
+          </div>
+        </fieldset>
+      </details>
 
-        <button id="save-button" style="float: right">save</button>
+      <button id="save-button" style="float: right">save</button>
     </div>
     <!--  evtl. einbindung ähnlich wie bei challenges -->
     <div class="login-popUp">
-        <div id="login">
-            <h2>Login</h2>
-            <form id="login-field">
-                <p>
-                    <input type="email" id="email" name="email" placeholder="E-Mail Address" required />
-                </p>
-                <p>
-                    <input type="password" id="password" name="password" placeholder="Password" required />
-                </p>
-                <p><input type="submit" id="sign-in" value="Sign in" /></p>
-            </form>
-            <div id="register-here">
-                <p>No account yet? <a id="login-button" href="#">Register now</a></p>
-            </div>
+      <div id="login">
+        <h2>Login</h2>
+        <form id="login-field">
+          <p>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="E-Mail Address"
+              required
+            />
+          </p>
+          <p>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+          </p>
+          <p><input type="submit" id="sign-in" value="Sign in" /></p>
+        </form>
+        <div id="register-here">
+          <p>No account yet? <a id="login-button" href="#">Register now</a></p>
         </div>
+      </div>
     </div>
     <div class="register-popUp">
-        <div id="register">
-            <h2>Register</h2>
-            <form id="register-field">
-                <p>
-                    <input type="text" id="usernameR" name="username" placeholder="Username" required />
-                </p>
-                <p>
-                    <input type="email" id="emailR" name="email" placeholder="E-Mail Address" required />
-                </p>
-                <p>
-                    <input type="password" id="passwordR" name="password" placeholder="Password (at least 8 tokens)" required />
-                </p>
-                <p>
-                    <input type="submit" id="create-account" name="create-account" value="Create Account" required />
-                </p>
-            </form>
-            <div id="back-to-login">
-                <p>Back to Login? <a id="register-button" href="#">Login</a></p>
-            </div>
+      <div id="register">
+        <h2>Register</h2>
+        <form id="register-field">
+          <p>
+            <input
+              type="text"
+              id="usernameR"
+              name="username"
+              placeholder="Username"
+              required
+            />
+          </p>
+          <p>
+            <input
+              type="email"
+              id="emailR"
+              name="email"
+              placeholder="E-Mail Address"
+              required
+            />
+          </p>
+          <p>
+            <input
+              type="password"
+              id="passwordR"
+              name="password"
+              placeholder="Password (at least 8 tokens)"
+              required
+            />
+          </p>
+          <p>
+            <input
+              type="submit"
+              id="create-account"
+              name="create-account"
+              value="Create Account"
+              required
+            />
+          </p>
+        </form>
+        <div id="back-to-login">
+          <p>Back to Login? <a id="register-button" href="#">Login</a></p>
         </div>
+      </div>
     </div>
     <template id="leaderboard-element-template">
-        <div class="leaderboard-element-container">
-            <div class="leaderboard-element-place">1</div>
-            <div class="leaderboard-element-name">Thorsten</div>
-            <div class="leaderboard-element-score">1328</div>
-        </div>
+      <div class="leaderboard-element-container">
+        <div class="leaderboard-element-place">1</div>
+        <div class="leaderboard-element-name">Thorsten</div>
+        <div class="leaderboard-element-score">1328</div>
+      </div>
     </template>
     <template id="history-element-template">
-        <div class="history-element-container">
-            <div class="history-element-description negative">
-                slept for 13 hours
-            </div>
-            <div class="history-element-score">-132</div>
+      <div class="history-element-container">
+        <div class="history-element-description negative">
+          slept for 13 hours
         </div>
+        <div class="history-element-score">-132</div>
+      </div>
     </template>
     <template id="friend-template">
-        <li class="friend" data-id="">
-            <p class="friend-name" name="friend-name"></p>
-            <input type="button" class="friend-button" name="friend-button" value="x">
-        </li>
+      <li class="friend" data-id="">
+        <p class="friend-name" name="friend-name"></p>
+        <input
+          type="button"
+          class="friend-button"
+          name="friend-button"
+          value="x"
+        />
+      </li>
     </template>
     <template id="leaderboard-template">
-        <article class="leaderboard-profile" data-id="">
-            <img src="../images/default_profile.png" class="leaderboard-picture">
-            <p class="leaderboard-name"></p>
-            <p class="leaderboard-value"></p>
-        </article>
+      <article class="leaderboard-profile" data-id="">
+        <img src="../images/default_profile.png" class="leaderboard-picture" />
+        <p class="leaderboard-name"></p>
+        <p class="leaderboard-value"></p>
+      </article>
     </template>
 
-
     <script src="https://cdn.jsdelivr.net/npm/appwrite@9.0.1/dist/iife/sdk.min.js"></script>
-    <script src="https://kit.fontawesome.com/300d45943a.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/300d45943a.js"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="../js/index.js"></script>
-</body>
+  </body>
 
-<!--  Template für die einzelnen widgets / cards der Challenges 
+  <!--  Template für die einzelnen widgets / cards der Challenges 
     mit template für offene Challenges kombinierbar? -->
-<template id="challenge-widget-template">
+  <template id="challenge-widget-template">
     <li class="card">
-        <div class="card-container">
-            <div class="card-content-container">
-                <h1 class="card-content" name="name" style="font-size: 18px"></h1>
-                <p class="card-content" name="length"></p>
-                <p class="card-content" name="points"></p>
+      <div class="card-container">
+        <div class="card-content-container">
+          <div class="title-card-container">
+            <h1 id="title-card" name="name" style="font-size: 18px"></h1>
+          </div>
+          <div class="numbers-outer-container">
+            <div class="numbers-container">
+              <p class="card-content" name="length"></p>
+              <p class="card-content" name="points"></p>
             </div>
-            <div class="card-content-btn-container" style="
+          </div>
+        </div>
+        <div
+          class="card-content-btn-container"
+          style="
             display: flex;
             flex-direction: column;
             justify-content: space-around;
-          ">
-                <button class="card-content-btn" name="approve" style="display: flex; flex-direction: column"></button>
-                <button class="card-content-btn" name="decline"></button>
-            </div>
+          "
+        >
+          <button
+            class="card-content-btn"
+            name="approve"
+            style="display: flex; flex-direction: column"
+          ></button>
+          <button class="card-content-btn" name="decline"></button>
         </div>
+      </div>
     </li>
-</template>
+  </template>
 
-<!--  Templete für die noch offenen Challenges  -->
-<template id="challenge-widget-template-open">
+  <!--  Templete für die noch offenen Challenges  -->
+  <template id="challenge-widget-template-open">
     <li class="card">
-        <div class="card-container">
-            <div class="card-content-container">
-                <h1 class="card-content" name="name" style="font-size: 18px"></h1>
-                <p class="card-content" name="length"></p>
-                <p class="card-content" name="points"></p>
-            </div>
-            <div class="card-content-btn-container" style="
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-          ">
-                <button class="card-content-btn" name="accept" style="display: flex; flex-direction: column"></button>
-            </div>
+      <div class="card-container">
+        <div class="card-content-container">
+          <div class="title-card-container">
+            <h1 id="title-card" name="name" style="font-size: 18px"></h1>
+          </div>
+          <div class="numbers-container">
+            <p class="card-content" name="length"></p>
+            <p class="card-content" name="points"></p>
+          </div>
         </div>
+        <div
+          class="card-content-btn-container"
+          style="display: flex; flex-direction: column; justify-content: start"
+        >
+          <button
+            class="card-content-btn"
+            name="accept"
+            style="display: flex; flex-direction: column"
+          ></button>
+        </div>
+      </div>
     </li>
-</template>
-
+  </template>
 </html>

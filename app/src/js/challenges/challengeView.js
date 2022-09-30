@@ -82,6 +82,11 @@ class ChallengeView extends Observable {
     return this._challenge;
   }
 
+  giveChallengeGreenButton() {
+    console.log("giving challenge green button ");
+    this.approveButtonLabel.classList.add("background-approve");
+  }
+
   // differentiating active and open challenges prob. in here
   initOpenListeners() {
     this.acceptButtonLabel.addEventListener("click", this.onAccept.bind(this));
