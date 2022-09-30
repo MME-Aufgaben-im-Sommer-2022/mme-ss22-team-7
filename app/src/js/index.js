@@ -24,7 +24,7 @@ var score = 0,
   userDocument = null,
   userListDocument = null;
 const logoutButton = document.querySelector(".logout-button"),
-  S_PER_DAY = 86400,
+  MS_PER_DAY = 8640000,
   entryButton = document.querySelector(".new-entry-button"),
   addFriendButton = document.getElementById("add-friend-button"),
   friendInput = document.getElementById("add-friend-input"),
@@ -97,7 +97,7 @@ function initData() {
     (response) => {
       console.log(response);
       userDocument = response;
-      //setScoreHistory(userDocument);
+      setScoreHistory(userDocument);
       fillHTML(userDocument);
       getEntries();
       getUsers();
@@ -444,15 +444,15 @@ function addFriend() {
   onAddFriend(friend);
 }
 
-// function setScoreHistory() {
-//   let dateDif = Math.floor((today - userDocument.LastLogin) / S_PER_DAY);
-//   for (let index = 0; index < dateDif; index++) {
-//     userDocument.ScoreHistory.push(userDocument.Score - 5 * index);
-//     //vllt abbau von punkten über zeit?
-//   }
-//   console.log(scoreHistory);
-//   addToLeaderboard(new Friend(userDocument));
-//   updateDBScore();
-// }
+function setScoreHistory() {
+  let dateDif = Math.floor((today - userDocument.LastLogin) / MS_PER_DAY);
+  for (let index = 0; index < dateDif; index++) {
+    userDocument.ScoreHistory.push(userDocument.Score - 5 * index);
+    //vllt abbau von punkten über zeit?
+  }
+  console.log(scoreHistory);
+  addToLeaderboard(new Friend(userDocument));
+  updateDBScore();
+}
 
 export { userID, userDocument, userListDocument };
