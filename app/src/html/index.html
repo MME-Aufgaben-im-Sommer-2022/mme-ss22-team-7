@@ -15,36 +15,30 @@
       <div class="main-container">
         <header>
           <div class="burger-menu-container">
-            <i
-              id="burger-menu-open"
-              class="fa-solid fa-align-justify fa-xl"
-            ></i>
+            <i id="burger-menu-open" class="fa-solid fa-align-justify"></i>
           </div>
           <div class="title-container">
             <h1 class="title">Greenbook</h1>
           </div>
           <div class="score-container">
-            <div class="score-title">My score</div>
             <div class="score">0</div>
+            <div class="score-title">My score</div>
           </div>
         </header>
         <main>
           <div class="stats-container">
             <div class="upper-stats-container">
-              <div class="co2-score-label">
-                CO2 <br />
-                Score
-              </div>
+              <div class="co2-score-label">CO2 - Score</div>
               <table class="score-category-table">
-                <tr>
-                  <th class="transport-score-label">Transport</th>
-                  <th class="food-score-label">Food</th>
-                  <th class="others-score-label">Others</th>
-                </tr>
-                <tr>
+                <tr class="label-categories-num">
                   <td class="transport-score">0</td>
                   <td class="food-score">0</td>
                   <td class="others-score">0</td>
+                </tr>
+                <tr class="label-categories">
+                  <th class="transport-score-label">Transport</th>
+                  <th class="food-score-label">Food</th>
+                  <th class="others-score-label">Others</th>
                 </tr>
               </table>
               <div class="entry-description">
@@ -531,32 +525,31 @@
     mit template für offene Challenges kombinierbar? -->
   <template id="challenge-widget-template">
     <li class="card">
-      <div class="card-container">
-        <div class="card-content-container">
-          <div class="title-card-container">
-            <h1 id="title-card" name="name" style="font-size: 18px"></h1>
+      <div class="card-content-container">
+        <div class="title-card-container">
+          <h1 id="title-card" name="name" style="font-size: 18px"></h1>
+        </div>
+      </div>
+      <div class="card-content-btn-container">
+        <div class="numbers-container">
+          <div class="length-container">
+            <p class="card-content" name="length"></p>
+            <p class="length-sub-text">time</p>
           </div>
-          <div class="numbers-outer-container">
-            <div class="numbers-container">
-              <p class="card-content" name="length"></p>
-              <p class="card-content" name="points"></p>
-            </div>
+          <div class="points-container">
+            <p class="card-content" name="points"></p>
+            <p class="points-sub-text">points</p>
           </div>
         </div>
-        <div
-          class="card-content-btn-container"
-          style="
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-          "
-        >
-          <button
-            class="card-content-btn"
-            name="approve"
-            style="display: flex; flex-direction: column"
-          ></button>
-          <button class="card-content-btn" name="decline"></button>
+
+        <div class="icons-container">
+          <!-- id anstatt class verwenden für die Auswahl in ChallengeView.js richtiges icon suchen -->
+          <div name="approve" class="card-icons-conatiner">
+            <i id="card-icon" class="fa-regular fa-check"></i>
+          </div>
+          <div name="decline" class="card-icons-conatiner">
+            <i id="card-icon" class="fa-regular fa-x"></i>
+          </div>
         </div>
       </div>
     </li>
@@ -565,25 +558,28 @@
   <!--  Templete für die noch offenen Challenges  -->
   <template id="challenge-widget-template-open">
     <li class="card">
-      <div class="card-container">
-        <div class="card-content-container">
-          <div class="title-card-container">
-            <h1 id="title-card" name="name" style="font-size: 18px"></h1>
-          </div>
-          <div class="numbers-container">
+      <div class="card-content-container">
+        <div class="title-card-container">
+          <h1 id="title-card" name="name" style="font-size: 18px"></h1>
+        </div>
+      </div>
+      <div class="card-content-btn-container">
+        <div class="numbers-container">
+          <div class="length-container">
             <p class="card-content" name="length"></p>
+            <p class="length-sub-text">time</p>
+          </div>
+          <div class="points-container">
             <p class="card-content" name="points"></p>
+            <p class="points-sub-text">points</p>
           </div>
         </div>
-        <div
-          class="card-content-btn-container"
-          style="display: flex; flex-direction: column; justify-content: start"
-        >
-          <button
-            class="card-content-btn"
-            name="accept"
-            style="display: flex; flex-direction: column"
-          ></button>
+
+        <div class="icons-container">
+          <!-- id anstatt class verwenden für die Auswahl in ChallengeView.js richtiges icon suchen -->
+          <div name="accept" class="card-icons-conatiner">
+            <i id="card-icon" class="fa-regular fa-arrow-up-from-bracket"></i>
+          </div>
         </div>
       </div>
     </li>
