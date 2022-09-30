@@ -6,7 +6,7 @@
     "extends": "eslint:recommended",
     "rules":
     {
-        "block-scoped-var": "error",
+  /*       "block-scoped-var": "error",
         "camelcase": "warn",
         "comma-dangle": ["error", "always-multiline"],
         "consistent-return": "error",
@@ -40,7 +40,7 @@
         "quotes": ["warn", "double"],
         "semi": "error",
         "strict": "error",
-        "vars-on-top": "error",
+        "vars-on-top": "error", */
         "yoda": "error"
     },
     "env":

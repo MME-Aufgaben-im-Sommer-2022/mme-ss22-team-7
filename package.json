@@ -19,7 +19,7 @@
     "dev": "npm-watch",
     "runDevelopementServer": "node start_dev_server.js",
     "build": "node build_for_deployment.js",
-    "check": "eslint app/src/images",
+    "check": "eslint app/src",
     "prebuild": "npm install && npm run check"
   },
   "author": "",
