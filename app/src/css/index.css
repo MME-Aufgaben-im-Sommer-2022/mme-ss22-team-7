@@ -214,7 +214,6 @@ html {
 
 header {
   grid-area: header;
-  background-color: #507325;
   display: flex;
   justify-content: space-evenly;
   align-items: stretch;
@@ -233,19 +232,20 @@ header {
 
 main {
   grid-area: main;
+  padding: 0.5em;
   flex-grow: 3;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: stretch;
-  background-color: #fff;
+  background-color: rgba(247, 247, 247, 0.95);
   border-radius: 0.5em;
 }
 
 footer {
   grid-area: footer;
-  background-color: #fff;
   border-radius: 0.5em;
+  color: #fff;
 }
 
 .burger-menu-container {
@@ -255,6 +255,7 @@ footer {
 
 #burger-menu-open {
   cursor: pointer;
+  font-size: x-large;
 }
 
 .title-container {
@@ -267,8 +268,8 @@ footer {
   height: 3vh;
   display: flex;
   justify-content: center;
-  font-style: italic;
   cursor: default;
+  font-size: 3em;
 }
 
 .score-container {
@@ -285,7 +286,7 @@ footer {
 }
 
 .score {
-  font-size: 2em;
+  font-size: 2.5em;
   cursor: default;
 }
 
@@ -298,38 +299,48 @@ hr {
   flex-grow: 2;
   height: 10vh;
 }
-/* .stats-container{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
 
 .upper-stats-container {
+  margin-top: 1em;
   display: flex;
   justify-content: space-evenly;
 }
 
 .co2-score-label {
-  flex-grow: 1;
+  text-align: start;
+  margin-left: 0.5em;
+  flex-grow: 0.5;
+  margin-top: 0.4em;
+  font-size: x-large;
 }
 
 .score-category-table {
   flex-grow: 1;
 }
 
+.label-categories-num > td {
+  font-size: x-large;
+}
+
+.label-categories > th {
+  font-size: small;
+}
+
 .entry-description {
   flex-grow: 1;
+  font-size: large;
 }
 
 .new-entry-button {
   flex-grow: 1;
-  background-color: #507325;
-  border-color: antiquewhite;
-  border-radius: 0.5em;
-  margin-top: 0.2em;
+  background-color: rgb(242, 225, 97);
+  border: none;
+  border-radius: 0.3em;
+  margin-top: -0.5em;
   margin-right: 0.4em;
+  font-size: large;
   cursor: pointer;
-  color: #fff;
+  box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
 }
 
 .new-entry-button:hover {
@@ -344,7 +355,7 @@ hr {
   margin: 2em;
   overflow-y: scroll;
   -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none; /* Firefox not working?? */
 }
 /* Hide scrollbar for Chrome, Safari and Opera */
 .canvas::-webkit-scrollbar {
@@ -655,8 +666,6 @@ hr {
   text-align: center;
   flex-grow: 1;
   height: 47vh;
-  background-color: #fff;
-  border-radius: 0.5em;
   overflow: hidden;
 }
 
@@ -664,11 +673,10 @@ hr {
   --start: 15%;
   color: #fff;
   position: relative;
-  background-color: #507325;
   padding: 10px;
   border-radius: 0.3em 0.3em 0 0;
   overflow: hidden;
-  font-size: x-large;
+  font-size: 1.8em;
   margin-bottom: 5px;
   cursor: default;
 }
@@ -756,14 +764,13 @@ hr {
   text-align: center;
   flex-grow: 1;
   height: 48vh;
-  background-color: #507325;
   border-radius: 0.5em;
   margin-top: 0.5em;
   color: #fff;
 }
 
 .history-header {
-  font-size: x-large;
+  font-size: 1.8em;
   margin-top: 5px;
   cursor: default;
 }

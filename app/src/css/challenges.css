@@ -37,7 +37,8 @@
 }
 
 .card {
-  background-color: #507325;
+  background-color: whitesmoke;
+
   margin: 0.3em;
   text-align: center;
   float: left;
@@ -46,31 +47,26 @@
   padding: 0.5em;
   box-shadow: 0 3px 6px 0 rgb(0, 0, 0, 0.2);
   list-style-type: none;
+  padding: 0;
 }
 
-.card-content-btn-container {
-  padding-left: 10px;
-}
-
-.card-container {
+.card {
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card-content-container {
-  min-width: 10em;
+  padding: 0.3em;
+  min-width: 12em;
   max-width: 20em;
   display: flex;
   flex-direction: column;
-  height: max-content;
+  justify-content: space-between;
 }
 
 .title-card-container {
   max-width: 17em;
-}
-
-.card-content {
-  font-weight: 50%;
-  margin: auto;
 }
 
 #title-card {
@@ -78,26 +74,52 @@
   word-break: normal;
 }
 
-.numbers-outer-container {
+.card-content-btn-container {
+  background-color: rgba(242, 225, 97, 0.569);
+  padding: 0.3em;
+  height: 3em;
   display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  justify-content: space-around;
+  display: row;
+  justify-content: space-between;
 }
 
 .numbers-container {
+  flex: 1;
   display: flex;
-  margin: 2 auto 2 auto;
+  justify-content: space-around;
 }
 
-.card-content-btn {
-  border: none;
-  border-radius: 0.2em;
-  margin: 0.2em;
-  padding: 6px;
-  color: black;
+.length-sub-text,
+.points-sub-text,
+.card-content {
+  margin: 0;
+  font-size: small;
+}
+
+.card-content {
+  font-size: large;
+}
+
+.icons-container {
+  display: flex;
+  flex-direction: row;
+  place-items: end;
+}
+
+.card-icons-conatiner {
   background-color: #fff;
-  cursor: pointer;
+  border-radius: 0.2em;
+  margin-left: 0.2em;
+  margin-bottom: 0.2em;
+  height: min-content;
+  height: 1.8em;
+  width: 1.8em;
+  display: flex;
+  place-content: center;
+}
+
+#card-icon {
+  place-self: center;
 }
 
 .background-approve {
@@ -105,7 +127,7 @@
   border: none;
 }
 
-.card-content-btn:hover {
+.card-icons-conatiner:hover {
   box-shadow: 0px 5px 10px 0px rgb(0, 0, 0, 0.2);
   opacity: 0.8;
 }
