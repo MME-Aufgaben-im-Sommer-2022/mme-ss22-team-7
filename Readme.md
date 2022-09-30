@@ -8,12 +8,12 @@ Dieses Repository bildet die Grundlage für Ihre Projektarbeit und wurde über d
 
 _Fassen Sie kurz die wichtigsten Features, die intendierte Zielgruppe und die grundlegende Motivation des Projekts zusammen. Nennen Sie die aktuell bereits implementierten Funktionen und verlinken Sie den aktuellsten Release._
 
-Mithilfe der Anwendung können Nutzer ihren CO2-Verbrauch berechnen und sich so besser einschätzen. Zudem soll die Anwendung motivieren den eigenen Verbrauch zu verringern.
+Mithilfe der Anwendung können Nutzer ihren CO2-Verbrauch berechnen und sich so besser einschätzen. Zudem soll die Anwendung spielerisch motivieren den eigenen Verbrauch zu verringern.
 
 Die wichtigsten Features bilden zum Einen, die erstellbaren CO2-Einträge und deren visuelle Darstellung auf der Hauptseite, zum Anderen aber auch das Vergleichen von Scores zwischen Freunden. Der Score entsteht durch eine Verrechnung zwischen erstellten Einträgen und erfolgreich absolvierten Challenges.
 
-Die stetig steigende CO2-Emission und deren schlechte Auswirkungen auf die Umwelt, sind ein universales Problem dieser Gesellschaft. Durch sie wird der Klimawandel beschleunigt und stellt so eine Gefahr für Mensch und Natur dar.
-Die Anwendung richtet sich an Menschen allen Alters, denen eine Verbesserung oder auch lediglich das Bewusstsein, des eigenen CO2-Verbrauchs, wichtig ist. Sie sollten durch das Leaderboard und die Challenges motiviert werden, sich stetig neu herauszufordern und zu verbessern. Somit können die Nutzer nicht nur über sich hinaus wachsen, sondern auch dazu beitragen, die CO2-Bilanz zu senken.
+Die stetig steigende CO2-Emission und deren schlechte Auswirkungen auf die Umwelt, sind ein weitreichendes Problem dieser Gesellschaft. Durch sie wird der Klimawandel beschleunigt und stellt so eine Gefahr für Mensch und Natur dar.
+Die Anwendung richtet sich an Menschen allen Alters, denen eine Verbesserung oder auch lediglich das Bewusstsein, des eigenen CO2-Verbrauchs, wichtig ist. Sie sollten durch das Leaderboard und die Challenges motiviert werden, sich stetig neu herauszufordern und zu verbessern. Somit können die Nutzer nicht nur über sich hinaus wachsen, sondern auch dazu beitragen die CO2-Bilanz zu senken.
 
 Implementierte Funktionen:
 - Das Anmelden: _Verlinkung des aktuellsten Release_
@@ -40,14 +40,16 @@ Von der Hauptseite aus kann der User mithilfe eines Burgermenüs sein Profil öf
 
 Zurück auf der Hauptseite kann der Nutzer mithilfe des "new Entry"-Buttons ein Popup öffnen. In diesem können verschiedene Angaben zum individuellen CO2-Verbrauch angegeben werden. Mit dem save-Button werden diese mit einem Score verrechnet und aktualisiert.
 
-Der Score wird auf der Hauptseite, als Zahl aber auch als grafische Abbildung dargestellt. _Der Graf des Nutzers kann mithilfe eines Buttons, mit dem Grafen eines Freundes auf Platz 1 im Leaderboard verglichen werden_ .
+Der Score wird auf der Hauptseite, als Zahl aber auch als grafische Abbildung dargestellt. Sowohl der Graf des Nutzers, als auch die Grafen der Freunde vom Leaderboards werden hier angezeigt.
 
-Das Leaderboard wird auf der rechten Seite des Hauptbildschirms angezeigt und listet die fünf Freunde mit dem höchsten Score nacheinander auf. 
+Das Leaderboard wird auf der rechten Seite des Hauptbildschirms angezeigt und listet die Freunde mit dem höchsten Score nacheinander auf. 
 
 Im unteren Teil der Hauptseite werden auswählbare Challenges angezeigt. Diese können mithilfe eines Buttons aktiviert und somit in ein Feld darüber verschoben werden. Die aktivierten Challenges zeigen den Fortschritt an, können aber auch abgebrochen oder abgeschlossen werden.
 
-So kann der Score mithilfe von neuen Einträgen mit negativen Werten und durch das erfolgreiche abschließen von Challenges mir positiven Wertem verrechnet werden. Ein Verlauf von absolvierten Challenges und erstellten Einträgen wird in der History angezeigt. Auch hier hat der Nutzer die Möglichkeit diese zu löschen. 
+So kann der Score mithilfe von neuen Einträgen mit negativen Werten und durch das erfolgreiche abschließen von Challenges mit positiven Wertem verrechnet werden. Ein Verlauf von absolvierten Challenges und erstellten Einträgen wird in der History angezeigt. Auch hier hat der Nutzer die Möglichkeit diese zu löschen. 
 
+## Anmerkungen zum Projekt
+Über Google Chrome und Safari wird die Anwendung richtig skaliert angezeigt. Bei Firefox können diesbezüglich Probleme auftreten.
 
 ## Team
 
@@ -58,6 +60,6 @@ _Listen Sie tabelarisch alle Teammitglieder mit Name, E-Mail-Adresse und Foto au
 Name | E-Mail-Adresse | Github-Nutzer | Foto | Komponenten der Anwendung
 --- | --- | --- | --- | ---
 Benedikt Boehlke | benedikt.boehlke@stud.uni-regensburg.de | Beneboehlke | ![Profilbild Benedikt B] | Challenges, Popup,...
-Natalie Röhrle | natalie.roehrle@stud.uni-regensburg.de | NaCesca | ![Profilbild Natalie R] | Layouts, Entries,...
+Natalie Röhrle | natalie.roehrle@stud.uni-regensburg.de | NaCesca | ![Profilbild Natalie R] | Layouts, Entries, Score...
 Florian Feist | florian.feist@stud.uni-regensburg.de | FeistFlo | ![Profilbild Florian F] | Haupt-Layout, Entries, Popup,...
 Johannes Klein | johannes.klein@stud.uni-regensburg.de | johnnyklein | ![Profilbild Johannes K] | Datenbank, Challenges,...

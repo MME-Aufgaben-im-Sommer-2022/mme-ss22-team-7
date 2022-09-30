@@ -5,5 +5,24 @@ export const Server = {
     userCol:'6311ed55783449414806',//Users
     challengesCol:'6311ed940fc46037cbac',//Challenges
     entriesCol:'63149d16cfc64429e974', //Entries
-    testCol:'6322dfcf83a0fe116778', //Test TODO: remove
+    storage:"632df784dc50c6e9ec45", //Storage
 };
+
+export function randColor () {
+    let color = colors[Math.floor(Math.random()*colors.length)];
+    colors.splice(colors.indexOf(color), 1);
+    return color;
+    
+}
+
+const colors = [
+    '#4dc9f6',
+    '#f67019',
+    '#f53794',
+    '#537bc4',
+    '#acc236',
+    '#166a8f',
+    '#00a950',
+    '#58595b',
+    '#8549ba'
+  ];
