@@ -48,7 +48,7 @@ html {
 #burger-menu-open {
   align-items: center;
   justify-content: center;
-  margin-top: 4vh;
+  margin-top: 5vh;
 }
 
 #burger-menu-close {
@@ -306,14 +306,6 @@ hr {
   margin-top: 1em;
   display: flex;
   justify-content: space-evenly;
-}
-
-.co2-score-label {
-  text-align: start;
-  margin-left: 0.5em;
-  flex-grow: 0.5;
-  margin-top: 0.4em;
-  font-size: x-large;
 }
 
 .score-category-table {
