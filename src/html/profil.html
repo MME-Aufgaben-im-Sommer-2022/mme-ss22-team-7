@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Profil</title>
+    <link rel="stylesheet" href="../css/profil.css" />
+    <script src="https://kit.fontawesome.com/300d45943a.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="profil-popup">
+        <div id="icon">
+            <i class="fa-solid fa-user" style="font-size: 2.5em;"></i>
+        </div>
+        <div>
+            <label id="profil-name">John</label>
+            <label id="profil-id">ID: 4356</label>
+        </div>
+        <hr>
+
+        <!-- search-field-->
+        <form id="search-field" method="get" action="suchen.php">
+            <p>
+                <input type="search" name="q" id="suchbegriff" placeholder="Add friend by ID" />
+                <input type="submit" id="add-button" value="+" />
+            </p>
+        </form>
+
+
+
+
+        <table id="friend-list">
+            <thead>
+                <tr>
+                    <th>Friend list</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Anna</td>
+                </tr>
+                <tr>
+                    <td>Luca</td>
+                </tr>
+                <tr>
+                    <td>Bene</td>
+
+                </tr>
+                <tr>
+                    <td>Manfred</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

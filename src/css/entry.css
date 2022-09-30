@@ -1,0 +1,68 @@
+body {
+    background-color:#83944c;
+    font-size: 1.6rem;
+    font-family: arial, "lucida console", "Open Sans", sans-serif;
+    color: #2b3e51
+}
+
+/*die Überschriften*/
+#food {
+    background-color: #7b4171;
+    font-weight: bold;
+    width: 10%;
+
+}
+
+#other {
+    background-color: #985046 ;
+    font-weight: bold;
+    width: 10%;
+}
+
+#transport {
+    background-color: #4c7494;
+    font-weight: bold;
+    width: 10%;
+}
+
+/*die einzelnen Felder*/
+.fieldset {
+    background-color:#faedcd;
+
+}
+
+/*die Beschreibungen zu den Angaben*/
+.text {
+    padding-bottom: 15px;
+    font-weight: bold;
+}
+
+.means-of-transport {
+    padding-bottom: 15px;
+}
+
+.checkboxes {
+    padding: 5px;
+}
+
+
+#text-thrift-shopping {
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+/*button*/
+#save-button {
+    background: #faedcd;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 4px;
+    border-color: #2b3e51;
+    cursor: pointer;
+    width: 160px;
+
+}
+
+#save-button:hover {
+    background-color:#c3cdca;
+}
