@@ -41,7 +41,9 @@
         "semi": "error",
         "strict": "error",
         "vars-on-top": "error", */
-        "yoda": "error"
+        "no-undef":"warn",
+        "yoda": "error",
+        "no-unused-vars": "warn"
     },
     "env":
     {
