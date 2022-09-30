@@ -12,7 +12,7 @@ Die Anwendung richtet sich an Menschen allen Alters, denen eine Verbesserung ode
 ## Implementierte Funktionen:
 Anmeldung, Registrierung, Das Erstellen eines Eintrags, Das Anzeigen des CO2-Verbrauchs, anhand eines Grafen, Annehmen von Challenges, Das Bearbeiten von aktiven Challenges, Hinzufügen von Freunden, Die Darstellung der History, Die Darstellung des Leaderboards
 
-Aktueller Release: (https://github.com/MME-Aufgaben-im-Sommer-2022/mme-ss22-team-7/releases/tag/v0.3.0)
+Aktueller Release: https://github.com/MME-Aufgaben-im-Sommer-2022/mme-ss22-team-7/releases/tag/v0.4.0
 
 ## Beschreibung & Anleitung
 
