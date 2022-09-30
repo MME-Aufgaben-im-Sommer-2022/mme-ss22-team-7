@@ -1,8 +1,4 @@
-# Vorlage für MME-Projekte
-
-Dieses Repository bildet die Grundlage für Ihre Projektarbeit und wurde über die Annahme der _Classroom_-Aufgabe automatisch erstellt. Hinweise zum Aufbau der vorgegebenen Struktur und Hilfswerkzeuge finden Sie im [Dev Guide](./DevGuide.md). **Achten Sie während der Entwicklung stets darauf, dass der Code in Ihrem Repository zu jeder Zeit über `npm run build` fehlerfrei gebaut und veröffentlicht werden kann.**
-
-**Ergänzen Sie im Laufe der Entwicklung die folgenden Punkte in dieser Readme-Datei!**
+**Achten Sie während der Entwicklung stets darauf, dass der Code in Ihrem Repository zu jeder Zeit über `npm run build` fehlerfrei gebaut und veröffentlicht werden kann.**
 
 ## Projekt
 
@@ -15,24 +11,16 @@ Die wichtigsten Features bilden zum Einen, die erstellbaren CO2-Einträge und de
 Die stetig steigende CO2-Emission und deren schlechte Auswirkungen auf die Umwelt, sind ein weitreichendes Problem dieser Gesellschaft. Durch sie wird der Klimawandel beschleunigt und stellt so eine Gefahr für Mensch und Natur dar.
 Die Anwendung richtet sich an Menschen allen Alters, denen eine Verbesserung oder auch lediglich das Bewusstsein, des eigenen CO2-Verbrauchs, wichtig ist. Sie sollten durch das Leaderboard und die Challenges motiviert werden, sich stetig neu herauszufordern und zu verbessern. Somit können die Nutzer nicht nur über sich hinaus wachsen, sondern auch dazu beitragen die CO2-Bilanz zu senken.
 
-Implementierte Funktionen:
-- Das Anmelden: _Verlinkung des aktuellsten Release_
-- Das Registrieren: _Verlinkung des aktuellsten Release_
-- Das Erstellen eines Eintrags: _Verlinkung des aktuellsten Release_
-- Das Bearbeiten von getätigten Einträgen: _Verlinkung des aktuellsten Release_
-- Das Anzeigen des Verbrauchs, anhand eines Grafen: _Verlinkung des aktuellsten Release_
-- Das Annehmen von Challenges: _Verlinkung des aktuellsten Release_
-- Das Bearbeiten von aktiven Challenges: _Verlinkung des aktuellsten Release_
-- Das Suchen und Hinzufügen von Freunden: _Verlinkung des aktuellsten Release_
-- Die Darstellung der History: _Verlinkung des aktuellsten Release_
-- Die Darstellung des Leaderboards: _Verlinkung des aktuellsten Release_
+## Implementierte Funktionen:
+Anmeldung, Registrierung, Das Erstellen eines Eintrags, Das Anzeigen des CO2-Verbrauchs, anhand eines Grafen, Annehmen von Challenges, Das Bearbeiten von aktiven Challenges, Hinzufügen von Freunden, Die Darstellung der History, Die Darstellung des Leaderboards
 
-
+Aktueller Release: https://github.com/MME-Aufgaben-im-Sommer-2022/mme-ss22-team-7/releases/tag/v0.1.0
 
 ## Beschreibung & Anleitung
 
 _Beschreiben Sie die zentralen Funktionen Ihrer Anwendung und deren Verwendung. Nutzen Sie dazu Screenshots und/oder Videos. Verlinken Sie ein min. 60-sekündiges Demo-Video, das die Verwendung aller wichtigen Funktionen zeigt und in Form eines Audio-Kommentars beschreibt._
---> Screenshots, Video und Audioaufnahme fehlen!!
+
+_--> Screenshots, Video und Audioaufnahme fehlen!!_
 
 Die Anwendung startet mit der Möglichkeit, dass der Nutzer sich anmelden kann oder über eine Verlinkung registrieren kann. Hierfür werden Username und Passwort oder Username, Passwort und eine E-Mail Adresse benötigt. Anschließend wird der Nutzer auf die Hauptseite der Greenbook Anwendung geleitet. Diese bietet einen Überblick über die meisten Funktionen, wie der Anzeige des aktuellen Scores, des Leaderboards, des Grafen, der Challenges oder der History.
 
@@ -51,15 +39,12 @@ So kann der Score mithilfe von neuen Einträgen mit negativen Werten und durch d
 ## Anmerkungen zum Projekt
 Über Google Chrome und Safari wird die Anwendung richtig skaliert angezeigt. Bei Firefox können diesbezüglich Probleme auftreten.
 
+
 ## Team
-
-_Listen Sie tabelarisch alle Teammitglieder mit Name, E-Mail-Adresse und Foto auf. Halten Sie für jedes Mitglied kurz fest, welchen Teilbereich der Anwendung die jeweilige Person maßgeblich bearbeitet hat._
-
-
 
 Name | E-Mail-Adresse | Github-Nutzer | Foto | Komponenten der Anwendung
 --- | --- | --- | --- | ---
-Benedikt Boehlke | benedikt.boehlke@stud.uni-regensburg.de | Beneboehlke | ![Profilbild Benedikt B] | Challenges, Popup,...
-Natalie Röhrle | natalie.roehrle@stud.uni-regensburg.de | NaCesca | ![Profilbild Natalie R] | Layouts, Entries, Score...
-Florian Feist | florian.feist@stud.uni-regensburg.de | FeistFlo | ![Profilbild Florian F] | Haupt-Layout, Entries, Popup,...
-Johannes Klein | johannes.klein@stud.uni-regensburg.de | johnnyklein | ![Profilbild Johannes K] | Datenbank, Challenges,...
+Benedikt Boehlke | benedikt.boehlke@stud.uni-regensburg.de | Beneboehlke | ![Profilbild Benedikt B](https://user-images.githubusercontent.com/69862866/193319121-75b981dd-8045-4902-a33b-91fa0bd1f579.JPG) | Challenges, Popup, Profil, finales Layout
+Natalie Röhrle | natalie.roehrle@stud.uni-regensburg.de | NaCesca | ![Profilbild Natalie R](https://user-images.githubusercontent.com/69862866/193300953-9921a989-57e6-46c8-b7e1-40bf7ab8b859.jpeg) | Layouts, Entries, Score, Repository
+Florian Feist | florian.feist@stud.uni-regensburg.de | FeistFlo | ![Profilbild Florian F](https://user-images.githubusercontent.com/69862866/193308492-fbfad382-d304-484f-a33d-7c8cdb7cbd1d.jpeg) | Haupt-Layout, Entries, Popup, Impressum
+Johannes Klein | johannes.klein@stud.uni-regensburg.de | johnnyklein | ![Profilbild Johannes K](https://user-images.githubusercontent.com/69862866/193325973-419a2a55-16eb-404b-80e7-2d8064b7fcdc.jpg) | Datenbank, Challenges, History

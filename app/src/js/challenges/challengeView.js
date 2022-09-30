@@ -60,8 +60,8 @@ class ChallengeView extends Observable {
     this.nameLabel.innerHTML = `${value.challengeName}`;
     this.lengthLabel.innerHTML = `${value.Length}`;
     this.pointsLabel.innerHTML = `${value.Score}`;
-    this.approveButtonLabel.innerHTML = `done`;
-    this.declineButtonLabel.innerHTML = `cancel`;
+    // this.approveButtonLabel.innerHTML = `done`;
+    // this.declineButtonLabel.innerHTML = `cancel`;
   }
 
   get challenge() {
@@ -75,7 +75,7 @@ class ChallengeView extends Observable {
     this.nameLabel.innerHTML = `${value.challengeName}`;
     this.lengthLabel.innerHTML = `${value.Length}`;
     this.pointsLabel.innerHTML = `${value.Score}`;
-    this.acceptButtonLabel.innerHTML = `accept`;
+    // this.acceptButtonLabel.innerHTML = `accept`;
   }
 
   get challengeOpen() {

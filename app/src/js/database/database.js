@@ -21,7 +21,7 @@ let api = {
   getAccount: () => {
     return account.get();
   },
-  
+
   createSession: (email, password) => {
     return account.createEmailSession(email, password);
   },
@@ -48,7 +48,7 @@ let api = {
     ]);
   },
   myDocument: (myID) => {
-    console.log(userID);
+    console.log(myID);
     return database.getDocument(Server.userCol, myID);
   },
 
@@ -58,7 +58,7 @@ let api = {
   getUserListDocuments: () => {
     return database.listDocuments(Server.userCol);
   },
-  
+
   getEntryDocuments: () => {
     return database.listDocuments(Server.entriesCol);
   },
@@ -79,7 +79,10 @@ let api = {
   updateDocument: (collectionId, documentId, data, read, write) => {
     return database.updateDocument(collectionId, documentId, data, read, write);
   },
-  updateUserCl: (documentId, data, read, write) => {
+  updateUserCl: (documentId, data) => {
+    return database.updateDocument(Server.userCol, documentId, data);
+  },
+  updateUserLastLogin: (documentId, data, read, write) => {
     return database.updateDocument(
       Server.userCol,
       documentId,
@@ -87,10 +90,6 @@ let api = {
       read,
       write
     );
-  },
-  updateUserLastLogin: (documentId, data, read, write) => {
-    return database.updateDocument(Server.userCol, documentId, data, read,
-      write);
   },
 
   deleteDocument: (collectionId, documentId) => {
