@@ -175,19 +175,6 @@ function computeOpenChallenges(response, listIds) {
   return validArr;
 }
 
-// function cleanChallenges(challenges) {
-//   let validChallenges = [];
-//   challenges.documents.forEach((challenge) => {
-//     delete challenge.$collection;
-//     delete challenge.$createdAt;
-//     delete challenge.$read;
-//     delete challenge.$write;
-//     delete challenge.$updatedAt;
-//     validChallenges.push(challenge);
-//   });
-//   return validChallenges;
-// }
-
 //array with all entry documents of user
 function initEntries(entries) {
   console.log(entries); //TODO: show entries in history

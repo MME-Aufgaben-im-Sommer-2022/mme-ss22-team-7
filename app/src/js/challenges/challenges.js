@@ -6,25 +6,6 @@ import api from "../database/database.js";
  * challenges.js erstellt für alle challenges eine card und kümmert sich um alles generelle
  */
 
-//erneuert die openChallenge und activeChallenge array DB Einträge
-function changeChallengeState(
-  activeChallenges,
-  challengesTimes,
-  completedChallenges
-) {
-  console.log(activeChallenges);
-  api
-    .updateChallenges(activeChallenges, challengesTimes, completedChallenges)
-    .then(
-      (response) => {
-        console.log(response);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-}
-
 class Challenges {
   constructor(
     listOpen,
@@ -101,11 +82,6 @@ class Challenges {
     }
   }
 
-  /**
-   *
-   * alles abwärts vermutlich irgendwann in challengeView??
-   */
-
   declineChallenge(challenge) {
     const ChallengeViews = this.ChallengeViews;
     const index = ChallengeViews.findIndex(
@@ -127,7 +103,7 @@ class Challenges {
 
     this.listChallengesUiOpen.push(challenge);
 
-    changeChallengeState(
+    this.changeChallengeState(
       this.computeActiveChallenges(this.listChallengesUiActive),
       this.listActiveChallengesTime,
       this.listChallengesUiCompleted
@@ -138,9 +114,6 @@ class Challenges {
     this.populateChallenges(tempArrChallenge, false);
   }
 
-  /**
-   * not fully functional yet
-   */
   approveChallenge(challenge) {
     const indexTimeStamp = this.listChallengesUiActive.findIndex(
       (item) => item.challengeName == challenge.challengeName
@@ -153,7 +126,7 @@ class Challenges {
 
     let goalTime = Math.floor(challengeLengthMil + timeDuration);
 
-    if (Date.now() < goalTime) {
+    if (Date.now() > goalTime) {
       return true;
     } else false;
   }
@@ -170,8 +143,8 @@ class Challenges {
     console.log(this.listChallengesUiCompleted);
 
     if (this.approveChallenge(challenge)) {
-      console.log("item supposed to be ready to be finished ");
-      //add success animation if possible timewise
+      //add success animation if possible; also check at the beginning
+      //(when created) and change the color of the button?
       ChallengeViews[index].remove();
       this.ChallengeViews.splice(index, 1);
 
@@ -186,7 +159,7 @@ class Challenges {
 
       console.log(this.listActiveChallengesTime);
 
-      changeChallengeState(
+      this.changeChallengeState(
         this.computeActiveChallenges(this.listChallengesUiActive),
         this.listActiveChallengesTime,
         this.computeActiveChallenges(this.listActiveChallengesTime)
@@ -224,7 +197,7 @@ class Challenges {
 
     console.log(this.listActiveChallengesTime);
 
-    changeChallengeState(
+    this.changeChallengeState(
       this.computeActiveChallenges(this.listChallengesUiActive),
       this.listActiveChallengesTime,
       this.listChallengesUiCompleted
@@ -235,23 +208,19 @@ class Challenges {
     this.populateChallenges(tempArrChallenge, true);
   }
 
-  /**
-   * not really necessary anymore
-   */
-
-  deactivateChallenge() {
-    this.status = "deactivated";
-    this.notifyAll(new Event("deactivate", this));
-  }
-  // when challengeLength is 0, the challenge can be completed
-  completeChallenge() {
-    if (this.challengeLengthLeft() === 0) {
-      this.status = "completed";
-      this.notifyAll(new Event("complete", this));
-    }
-  }
-  challengeLengthLeft() {
-    return this.length - (Date.now() - this.startDate);
+  // verändert den status der aktiven und abgeschlossenen Challenges im backend
+  changeChallengeState(activeChallenges, challengesTimes, completedChallenges) {
+    console.log(activeChallenges);
+    api
+      .updateChallenges(activeChallenges, challengesTimes, completedChallenges)
+      .then(
+        (response) => {
+          console.log(response);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   }
 }
 
