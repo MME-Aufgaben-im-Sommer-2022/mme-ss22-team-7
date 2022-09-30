@@ -778,6 +778,7 @@ hr {
   height: 43vh;
   border-radius: 0.5em;
   overflow: hidden;
+  margin-top: 0.5em;
 }
 
 .history-header {
@@ -785,7 +786,6 @@ hr {
   margin-top: 5px;
   cursor: default;
 }
-
 
 .history-element-container {
   display: flex;
@@ -844,7 +844,7 @@ hr {
   color: rgba(247, 247, 247, 0.9);
   text-decoration: none;
 }
-.history-button{
+.history-button {
   margin-top: 0;
   margin-bottom: 0;
   margin-right: 6px;
