@@ -9,16 +9,8 @@ import Leaderboard from "./friends/Leaderboard.js";
 import { onCreateAccount } from "./Login/SignUp.js";
 import {
   updateLeaderboardList,
-  addToLeaderboard
+  addToLeaderboard,
 } from "./friends/Leaderboard.js";
-
-
-// challenges.js wird angesprochen
-const listChallenges = document.querySelector(".active_container");
-const listOpenChallenges = document.querySelector(".open_container");
-const challenges = new Challenges(listChallenges, true);
-const challengesOpen = new Challenges(listOpenChallenges, false);
-
 
 var score = 0,
   today = Math.floor(Date.now() / 1000),
@@ -32,7 +24,7 @@ var score = 0,
   userDocument = null,
   userListDocument = null;
 const logoutButton = document.querySelector(".logout-button"),
-  S_PER_DAY = 86400,
+  MS_PER_DAY = 8640000,
   entryButton = document.querySelector(".new-entry-button"),
   addFriendButton = document.getElementById("add-friend-button"),
   friendInput = document.getElementById("add-friend-input"),
@@ -52,24 +44,19 @@ const logoutButton = document.querySelector(".logout-button"),
   registerCloseEl = document.querySelector("#create-account"),
   websiteEl = document.querySelector("#website"),
   profile = document.querySelector(".profile-container"),
-  emailR = document.getElementById('emailR'),
-  passwordR = document.getElementById('passwordR'),
-  usernameR = document.getElementById('usernameR'),
-  email = document.getElementById('email'),
-  profileNameEl = document.getElementById('profile-name'),
-  profilePic = document.getElementById('profile-img'),
-  password = document.getElementById('password');
-
+  emailR = document.getElementById("emailR"),
+  passwordR = document.getElementById("passwordR"),
+  usernameR = document.getElementById("usernameR"),
+  email = document.getElementById("email"),
+  profileNameEl = document.getElementById("profile-name"),
+  profilePic = document.getElementById("profile-img"),
+  password = document.getElementById("password");
 
 entryButton.addEventListener("click", onPopUp);
 logoutButton.addEventListener("click", onLogout);
 addFriendButton.addEventListener("click", addFriend);
 hamburger.addEventListener("click", toggleMenu);
 closeIcon.addEventListener("click", toggleMenu);
-
-
-
-
 
 entryPopUp.style.display = "none";
 const inputs = initInputs();
@@ -105,29 +92,121 @@ function updateScore(val) {
   updateLeaderboardList(userID, score);
 }
 
-function updateDBScore() {
-  api.updateUserCl(userData.$id, {
-    Score: score,
-    TransportScore: transportScore,
-    FoodScore: foodScore,
-    OtherScore: otherScore,
-    LastLogin: today,
-    ScoreHistory: userDocument.ScoreHistory
-  }, "", "").then(response => { console.log(response) }, error => {
-    console.log(error);
+function initData() {
+  api.myDocument(userID).then(
+    (response) => {
+      console.log(response);
+      userDocument = response;
+      setScoreHistory(userDocument);
+      fillHTML(userDocument);
+      getEntries();
+      getUsers();
+      score = response.Score;
+      transportScore = response.TransportScore;
+      foodScore = response.FoodScore;
+      otherScore = response.OtherScore;
+      scoreEl.innerHTML = score;
+      transportScoreEl.innerHTML = transportScore;
+      foodScoreEl.innerHTML = foodScore;
+      otherScoreEl.innerHTML = otherScore;
+
+      initChallenges(response);
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
+  api.getEntryDocuments().then(
+    (response) => {
+      initEntries(response);
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
+  api.getChallengeDocuments().then((response) => {
+    console.log(response);
   });
 }
 
-function initData() {
-  api.myDocument(userID).then(response => {
-    userDocument = response;
-    setScoreHistory(userDocument);
-    fillHTML(userDocument);
-    getEntries();
-    getUsers();
-  }, error => {
-    console.log(error);
+function initChallenges(userData) {
+  const listOpenChallenges = document.querySelector(".open_container");
+  const listChallenges = document.querySelector(".active_container");
+  api.getChallengeDocuments().then(
+    (response) => {
+      let validActiveChallenges = computeActiveChallenges(
+        response,
+        userData.ActiveChallenges
+      );
+      let validOpenChallenges = computeOpenChallenges(
+        response,
+        userData.ActiveChallenges
+      );
+
+      console.log(userData.ActiveChallengesTime);
+
+      const challengesOpen = new Challenges(
+        listOpenChallenges,
+        listChallenges,
+        validOpenChallenges,
+        validActiveChallenges,
+        userData.ActiveChallengesTime,
+        userData.CompletedChallenges
+      );
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
+}
+
+function computeActiveChallenges(response, listIds) {
+  let validArr = [];
+  response.documents.forEach((all) => {
+    listIds.forEach((id) => {
+      if (all.$id == id) {
+        validArr.push(all);
+      }
+    });
   });
+  return validArr;
+}
+
+function computeOpenChallenges(response, listIds) {
+  let validArr = response.documents;
+  for (let index = 0; index < validArr.length; index++) {
+    listIds.forEach((element) => {
+      if (validArr[index].$id == element) {
+        validArr.splice(index, 1);
+      }
+    });
+  }
+  return validArr;
+}
+
+function updateDBScore() {
+  api
+    .updateUserCl(
+      userData.$id,
+      {
+        Score: score,
+        TransportScore: transportScore,
+        FoodScore: foodScore,
+        OtherScore: otherScore,
+        LastLogin: today,
+        ScoreHistory: userDocument.ScoreHistory,
+      },
+      "",
+      ""
+    )
+    .then(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
 }
 
 function fillHTML(response) {
@@ -143,24 +222,29 @@ function fillHTML(response) {
 }
 
 function getEntries() {
-  api.getEntryDocuments().then(response => {
-    console.log(response);
-    initEntries(response);
-  }, error => {
-    console.log(error);
-  });
+  api.getEntryDocuments().then(
+    (response) => {
+      console.log(response);
+      initEntries(response);
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
 }
 
 function getUsers() {
-  api.getUserListDocuments().then(response => {
-    console.log(response);
-    userListDocument = response;
-    fillFriendList();
-  }, error => {
-    console.log(error);
-  });
+  api.getUserListDocuments().then(
+    (response) => {
+      console.log(response);
+      userListDocument = response;
+      fillFriendList();
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
 }
-
 
 //array with all entry documents of user
 function initEntries(entries) {
@@ -168,12 +252,15 @@ function initEntries(entries) {
 }
 
 function deleteEntry(id, score) {
-  api.deleteEntry(id).then(response => {
-    console.log(response);
-    updateScore(-score);
-  }, error => {
-    console.log(error);
-  });
+  api.deleteEntry(id).then(
+    (response) => {
+      console.log(response);
+      updateScore(-score);
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
 }
 
 function toggleMenu() {
@@ -187,28 +274,32 @@ function toggleMenu() {
 }
 
 function checkForSession() {
-  api.getAccount().then(response => {
-    console.log(response);
-    userData = response;
-    userID = response.$id;
-    onLoginClose();
-  }, error => {});
+  api.getAccount().then(
+    (response) => {
+      console.log(response);
+      userData = response;
+      userID = response.$id;
+      onLoginClose();
+    },
+    (error) => {}
+  );
 }
 
 function handleEntryData(entryData) {
   let val = 0;
   //TODO: Eingabe "0" bei Fahrzeugen blockieren!
-  entryData.forEach(el => {
+  entryData.forEach((el) => {
     console.log(el.value, el.name);
-    val += 20;
-    //TODO:el.value ist string, mit score verbinden und zu string machen
-    api.createEntry({ Name: el.el, CO2: 40 })
-      .then(response => {
+    val += el.value;
+    api.createEntry({ Name: el.el, CO2: 40 }).then(
+      (response) => {
         console.log(response);
         //create score entry
-      }, error => {
+      },
+      (error) => {
         console.log(error);
-      });
+      }
+    );
     updateScore(val);
   });
 
@@ -243,13 +334,15 @@ function createUserSession() {
     pw = password.value;
   email.value = "";
   password.value = "";
-  api.createSession(el,
-    pw).then(response => {
-    console.log(response);
-    onLoginClose();
-  }, error => {
-    console.log(error);
-  });
+  api.createSession(el, pw).then(
+    (response) => {
+      console.log(response);
+      onLoginClose();
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
 }
 
 function onLoginClose() {
@@ -257,14 +350,17 @@ function onLoginClose() {
   loginPopUp.style.display = "none";
   registerPopUp.style.display = "none";
   websiteEl.classList.remove("website-hidden");
-  userData = api.getAccount().then(response => {
-    userData = response;
-    userID = userData.$id;
-    console.log(response);
-    initData();
-  }, error => {
-    console.log(error);
-  });
+  userData = api.getAccount().then(
+    (response) => {
+      userData = response;
+      userID = userData.$id;
+      console.log(response);
+      initData();
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
 }
 
 //creates a new user account
@@ -276,14 +372,17 @@ function createAccount() {
   emailR.value = "";
   passwordR.value = "";
   usernameR.value = "";
-  api.createAccount(el, pw, un).then(function(response) {
-    console.log(response);
-    userData = response;
-    userID = userData.$id;
-    onRegisterClose(el, pw, );
-  }, function(error) {
-    console.log(error);
-  });
+  api.createAccount(el, pw, un).then(
+    function (response) {
+      console.log(response);
+      userData = response;
+      userID = userData.$id;
+      onRegisterClose(el, pw);
+    },
+    function (error) {
+      console.log(error);
+    }
+  );
 }
 
 //closes register popUp and creates session
@@ -292,37 +391,51 @@ function onRegisterClose(el, pw) {
   loginPopUp.style.display = "none";
   registerPopUp.style.display = "none";
   websiteEl.classList.remove("website-hidden");
-  api.createSession(el,
-    pw).then(response => {
-    console.log(response);
-    createUserDocument();
-    getUsers();
-  }, error => {
-    console.log(error);
-  });
+  api.createSession(el, pw).then(
+    (response) => {
+      console.log(response);
+      createUserDocument();
+      getUsers();
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
 }
 
 //creates a user document in the user collection
 function createUserDocument() {
   console.log(userData.$id);
-  api.createUserDocument(userData.$id, {
-      UserName: userData.name,
-      email: userData.email
-    }, "", "")
-    .then(response => {
-      console.log(response);
-    }, error => {
-      console.log(error);
-    });
+  api
+    .createUserDocument(
+      userData.$id,
+      {
+        UserName: userData.name,
+        email: userData.email,
+      },
+      "",
+      ""
+    )
+    .then(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
 }
 
 function onLogout() {
-  api.deleteCurrentSession().then(response => {
-    console.log(response);
-    window.location.reload();
-  }, error => {
-    console.log(error);
-  });
+  api.deleteCurrentSession().then(
+    (response) => {
+      console.log(response);
+      window.location.reload();
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
 }
 
 function addFriend() {
@@ -332,7 +445,7 @@ function addFriend() {
 }
 
 function setScoreHistory() {
-  let dateDif = Math.floor((today - userDocument.LastLogin) / S_PER_DAY);
+  let dateDif = Math.floor((today - userDocument.LastLogin) / MS_PER_DAY);
   for (let index = 0; index < dateDif; index++) {
     userDocument.ScoreHistory.push(userDocument.Score - 5 * index);
     //vllt abbau von punkten über zeit?
@@ -342,32 +455,4 @@ function setScoreHistory() {
   updateDBScore();
 }
 
-
-
-
-
-//doesnt work yet
-/* profilePic.addEventListener("change", function(event) {
-  image.src = URL.createObjectURL(event.target.files[0]);
-  console.log("image loaded"+"image.src");
-}); */
-
-
-
-// const hamburger = document.querySelector("#burger-menu"),
-//   closeIcon = document.querySelector("#x-burger-menu"),
-//   profile = document.querySelector(".profile-container"),
-
-//hamburger.addEventListener("click", toggleMenu);
-//closeIcon.addEventListener("click", toggleMenu);
-
-// function toggleMenu() {
-//   if (profile.classList.contains("showMenu")) {
-//     profile.classList.remove("showMenu");
-//     closeIcon.style.display = "none";
-//   } else {
-//     profile.classList.add("showMenu");
-//     closeIcon.style.display = "block";
-//   }
-// }
 export { userID, userDocument, userListDocument };

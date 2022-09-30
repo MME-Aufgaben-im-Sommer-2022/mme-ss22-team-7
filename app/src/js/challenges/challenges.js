@@ -6,310 +6,226 @@ import api from "../database/database.js";
  * challenges.js erstellt für alle challenges eine card und kümmert sich um alles generelle
  */
 
-//hollt liste aller challenges aus der datenbank
-function getChallenges (){
- api.getChallengeDocuments().then(response => {
-  console.log(response);
-  //vllt hier befehl für populate oder so
-}, error => {
-  console.log(error);
-});
-}
-//erneuert die openChallenge und activeChallenge array DB Einträge
-function changeChallengeState (activeChallenges, completedChallenges){
-  api.updateChallenges(activeChallenges, completedChallenges).then(response => {
-   console.log(response);
- }, error => {
-   console.log(error);
- });
- }
- 
-
-let activeChallenges = [
-    {
-      tid: "aaa",
-      name: "aone ja und so soll die challenge gemacht werden ( zusätzliche Erklärung) mehr text mehr text mehr text ",
-      length: 4,
-      completed: false,
-      Uid: "u273942947329",
-      startDate: 40922,
-      endDate: 110922,
-      scoreValue: 13,
-      active: true,
-    },
-    {
-      tid: "bbb",
-      name: "bone",
-      length: 4,
-      completed: false,
-      Uid: "u273942947329",
-      startDate: 40922,
-      endDate: 110922,
-      scoreValue: 13,
-      active: true,
-    },
-    {
-      tid: "ccc",
-      name: "cone",
-      length: 4,
-      completed: false,
-      Uid: "u273942947329",
-      startDate: 40922,
-      endDate: 110922,
-      scoreValue: 13,
-      active: true,
-    },
-    {
-      tid: "aaa",
-      name: "aone",
-      length: 4,
-      completed: false,
-      Uid: "u273942947329",
-      startDate: 40922,
-      endDate: 110922,
-      scoreValue: 13,
-      active: true,
-    },
-    {
-      tid: "bbb",
-      name: "bone",
-      length: 4,
-      completed: false,
-      Uid: "u273942947329",
-      startDate: 40922,
-      endDate: 110922,
-      scoreValue: 13,
-      active: true,
-    },
-    {
-      tid: "ccc",
-      name: "cone",
-      length: 4,
-      completed: false,
-      Uid: "u273942947329",
-      startDate: 40922,
-      endDate: 110922,
-      scoreValue: 13,
-      active: true,
-    },
-    {
-      tid: "aaa",
-      name: "aone",
-      length: 4,
-      completed: false,
-      Uid: "u273942947329",
-      startDate: 40922,
-      endDate: 110922,
-      scoreValue: 13,
-      active: true,
-    },
-    {
-      tid: "bbb",
-      name: "bone",
-      length: 4,
-      completed: false,
-      Uid: "u273942947329",
-      startDate: 40922,
-      endDate: 110922,
-      scoreValue: 13,
-      active: true,
-    },
-    {
-      tid: "ccc",
-      name: "cone",
-      length: 4,
-      completed: false,
-      Uid: "u273942947329",
-      startDate: 40922,
-      endDate: 110922,
-      scoreValue: 13,
-      active: true,
-    },
-    {
-      tid: "aaa",
-      name: "aone",
-      length: 4,
-      completed: false,
-      Uid: "u273942947329",
-      startDate: 40922,
-      endDate: 110922,
-      scoreValue: 13,
-      active: true,
-    },
-    {
-      tid: "bbb",
-      name: "bone",
-      length: 4,
-      completed: false,
-      Uid: "u273942947329",
-      startDate: 40922,
-      endDate: 110922,
-      scoreValue: 13,
-      active: true,
-    },
-    {
-      tid: "ccc",
-      name: "cone",
-      length: 4,
-      completed: false,
-      Uid: "u273942947329",
-      startDate: 40922,
-      endDate: 110922,
-      scoreValue: 13,
-      active: true,
-    },
-    {
-      tid: "aaa",
-      name: "aone",
-      length: 4,
-      completed: false,
-      Uid: "u273942947329",
-      startDate: 40922,
-      endDate: 110922,
-      scoreValue: 13,
-      active: true,
-    },
-    {
-      tid: "bbb",
-      name: "bone",
-      length: 4,
-      completed: false,
-      Uid: "u273942947329",
-      startDate: 40922,
-      endDate: 110922,
-      scoreValue: 13,
-      active: true,
-    },
-    {
-      tid: "ccc",
-      name: "cone",
-      length: 4,
-      completed: false,
-      Uid: "u273942947329",
-      startDate: 40922,
-      endDate: 110922,
-      scoreValue: 13,
-      active: true,
-    },
-  ],
-  openChallenges = [
-    {
-      tid: "aaa",
-      name: "aOpen",
-      length: 4,
-      completed: false,
-      Uid: "u273942947329",
-      startDate: 40922,
-      endDate: 110922,
-      scoreValue: 13,
-      active: false,
-    },
-    {
-      tid: "bbb",
-      name: "bOpen",
-      length: 4,
-      completed: false,
-      Uid: "u273942947329",
-      startDate: 40922,
-      endDate: 110922,
-      scoreValue: 13,
-      active: false,
-    },
-    {
-      tid: "ccc",
-      name: "cOpen",
-      length: 4,
-      completed: false,
-      Uid: "u273942947329",
-      startDate: 40922,
-      endDate: 110922,
-      scoreValue: 13,
-      active: false,
-    },
-  ];
-
 class Challenges {
-  constructor(listA, bool) {
-    this.listA = listA;
+  constructor(
+    listOpen,
+    listActive,
+    listChallengesUiOpen,
+    listChallengesUiActive,
+    listActiveChallengesTime,
+    listChallengesUiCompleted
+  ) {
+    this.listOpen = listOpen;
+    this.listActive = listActive;
+    this.listChallengesUiOpen = listChallengesUiOpen;
+    this.listChallengesUiActive = listChallengesUiActive;
+    this.listActiveChallengesTime = listActiveChallengesTime;
+    this.listChallengesUiCompleted = listChallengesUiCompleted;
     this.ChallengeViews = [];
-    console.log(bool);
-    
-    
+
+    this.populateChallenges(this.listChallengesUiOpen, false);
+
+    this.populateChallenges(this.listChallengesUiActive, true);
+  }
+
+  populateChallenges(challenges, bool) {
+    if (challenges.length > 0) {
+      challenges.forEach((challenge) =>
+        this.addChallenge(Challenge.fromObject(challenge), bool)
+      );
+    }
+  }
+
+  computeActiveChallenges() {
+    let validActiveIds = [];
+    this.listChallengesUiActive.forEach((element) => {
+      validActiveIds.push(element.$id);
+    });
+    return validActiveIds;
+  }
+
+  getOpenChallenges() {
+    api.getChallengeDocuments().then(
+      (response) => {
+        this.openChallenges = this.cleanChallenges(response);
+        console.log(this.openChallenges);
+        this.populateChallenges(this.openChallenges);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  addChallenge(challenge, bool) {
+    const ChallengeViews = this.ChallengeViews;
+
+    const challengeView = new ChallengeView(bool);
 
     if (bool) {
-      // backend aktive Challenges holen
-      this.populateChallenges(activeChallenges);
-    } else {
-      // offene Challenges holen
-      this.populateChallenges(openChallenges);
-    }
-  }
+      if (this.approveChallenge(challenge)) {
+        challengeView.giveChallengeGreenButton();
+      }
 
-  populateChallenges(challenges) {
-    // creating a challengeItem
-    challenges.forEach((challenge) =>
-      this.addChallenge(Challenge.fromObject(challenge))
-    );
-  }
-
-  addChallenge(challenge) {
-    const ChallengeViews = this.ChallengeViews;
-    /**
-     *  WICHTIG!!
-     *   need to compute weather the Challenge is active or inactive ( list active challenges vs all challenges )
-     *  */
-    let challengeActtive = false;
-    const challengeView = new ChallengeView(challengeActtive);
-    challengeView.addEventListener("decline", (event) =>
-      this.declineChallenge(challenge)
-    );
-    if (challengeActtive) {
+      challengeView.addEventListener("decline", (event) =>
+        this.declineChallenge(challenge)
+      );
+      challengeView.addEventListener("approve", (event) =>
+        this.finishChallenge(challenge)
+      );
       challengeView.challenge = challenge;
+      ChallengeViews.push(challengeView);
+      this.listActive.appendChild(challengeView.element);
     } else {
+      challengeView.addEventListener("accept", (event) =>
+        this.acceptChallenge(challenge)
+      );
       challengeView.challengeOpen = challenge;
+      ChallengeViews.push(challengeView);
+      this.listOpen.appendChild(challengeView.element);
     }
-    ChallengeViews.push(challengeView);
-    // is challengeView.element right? the element?
-    this.listA.appendChild(challengeView.element);
   }
-
-  /**
-   *
-   * alles abwärts vermutlich irgendwann in challengeView
-   */
 
   declineChallenge(challenge) {
-    // sort challenge back into open challenges
-    console.log("got to decline: " + challenge);
+    const ChallengeViews = this.ChallengeViews;
+    const index = ChallengeViews.findIndex(
+      (challengeView) =>
+        challengeView.challenge.challengeName === challenge.challengeName
+    );
+    if (index < 0) return;
+
+    ChallengeViews[index].remove();
+    this.ChallengeViews.splice(index, 1);
+
+    const indexActive = this.listChallengesUiActive.findIndex(
+      (item) => item.challengeName == challenge.challengeName
+    );
+    if (indexActive < 0) return;
+
+    this.listChallengesUiActive.splice(indexActive, 1);
+    this.listActiveChallengesTime.splice(indexActive, 1);
+
+    this.listChallengesUiOpen.push(challenge);
+
+    this.changeChallengeState(
+      this.computeActiveChallenges(this.listChallengesUiActive),
+      this.listActiveChallengesTime,
+      this.listChallengesUiCompleted
+    );
+
+    let tempArrChallenge = [];
+    tempArrChallenge.push(challenge);
+    this.populateChallenges(tempArrChallenge, false);
+  }
+
+  approveChallenge(challenge) {
+    const indexTimeStamp = this.listChallengesUiActive.findIndex(
+      (item) => item.challengeName == challenge.challengeName
+    );
+    if (indexTimeStamp < 0) return;
+
+    const timeDuration = this.listActiveChallengesTime[indexTimeStamp];
+
+    // evtl ein *24 zu viel!
+    let challengeLengthMil = challenge.Length * 24 * 60 * 1000;
+
+    let goalTime = Math.floor(challengeLengthMil + timeDuration);
+
+    if (Date.now() > goalTime) {
+      return true;
+    } else false;
   }
 
   finishChallenge(challenge) {
-    activeChallenges.forEach((element) => {
-      if (element.id === challenge.id) {
-        // remove challenge from active Challenges in backend
-        activeChallenges.splice(activeChallenges[element - 1], 0);
-      }
-    });
-    // add score related to the challenge to the users score
-  }
+    const ChallengeViews = this.ChallengeViews;
 
-  activateChallenge() {
-    this.status = "active";
-    this.notifyAll(new Event("activate", this));
-  }
-  deactivateChallenge() {
-    this.status = "deactivated";
-    this.notifyAll(new Event("deactivate", this));
-  }
-  // when challengeLength is 0, the challenge can be completed
-  completeChallenge() {
-    if (this.challengeLengthLeft() === 0) {
-      this.status = "completed";
-      this.notifyAll(new Event("complete", this));
+    const index = ChallengeViews.findIndex(
+      (challengeView) =>
+        challengeView.challenge.challengeName === challenge.challengeName
+    );
+    if (index < 0) return;
+
+    console.log(this.listChallengesUiCompleted);
+
+    if (this.approveChallenge(challenge)) {
+      //add success animation if possible; also check at the beginning
+      //(when created) and change the color of the button?
+      ChallengeViews[index].remove();
+      this.ChallengeViews.splice(index, 1);
+
+      const indexItem = this.listChallengesUiActive.findIndex(
+        (item) => item.challengeName == challenge.challengeName
+      );
+
+      this.listChallengesUiActive.splice(indexItem, 1);
+      this.listActiveChallengesTime.splice(indexItem, 1);
+
+      this.listChallengesUiCompleted.push(challenge);
+
+      console.log(this.listActiveChallengesTime);
+
+      this.changeChallengeState(
+        this.computeActiveChallenges(this.listChallengesUiActive),
+        this.listActiveChallengesTime,
+        this.computeActiveChallenges(this.listActiveChallengesTime)
+      );
+    } else {
+      // some anitmation on the item (shaking eg.)
+      console.log("time hase not run out for this challenge ");
+      return;
     }
   }
-  challengeLengthLeft() {
-    return this.length - (Date.now() - this.startDate);
+
+  acceptChallenge(challenge) {
+    const ChallengeViews = this.ChallengeViews;
+    const index = ChallengeViews.findIndex(
+      (challengeView) =>
+        challengeView.challenge.challengeName === challenge.challengeName
+    );
+    if (index < 0) return;
+
+    ChallengeViews[index].remove();
+    this.ChallengeViews.splice(index, 1);
+
+    const indexOpen = this.listChallengesUiOpen.findIndex(
+      (item) => item.challengeName == challenge.challengeName
+    );
+    if (indexOpen < 0) return;
+
+    this.listChallengesUiOpen.splice(indexOpen, 1);
+
+    let timeNow = Date.now();
+    console.log(timeNow);
+
+    this.listActiveChallengesTime.push(timeNow);
+    this.listChallengesUiActive.push(challenge);
+
+    console.log(this.listActiveChallengesTime);
+
+    this.changeChallengeState(
+      this.computeActiveChallenges(this.listChallengesUiActive),
+      this.listActiveChallengesTime,
+      this.listChallengesUiCompleted
+    );
+
+    let tempArrChallenge = [];
+    tempArrChallenge.push(challenge);
+    this.populateChallenges(tempArrChallenge, true);
+  }
+
+  // verändert den status der aktiven und abgeschlossenen Challenges im backend
+  changeChallengeState(activeChallenges, challengesTimes, completedChallenges) {
+    console.log(activeChallenges);
+    api
+      .updateChallenges(activeChallenges, challengesTimes, completedChallenges)
+      .then(
+        (response) => {
+          console.log(response);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   }
 }
 

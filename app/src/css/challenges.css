@@ -21,13 +21,11 @@
 
 .active_container,
 .open_container {
-  max-width: 1400px;
   display: flex;
   flex-direction: row;
-  max-height: 5em;
+  max-height: 12em;
   overflow-x: auto;
   /* overflow-y: hidden; */
-  white-space: nowrap;
   margin-right: 0.5em;
 }
 
@@ -38,26 +36,16 @@
   justify-content: left;
 }
 
-.new-challenge-label {
-  background-color: #a77e55;
-  color: black;
-  text-align: center;
-  height: 3vh;
-  padding: 0.5em;
-  border-bottom-right-radius: 0.5em;
-  border-bottom-left-radius: 0.5em;
-}
-
 .card {
-  background-color: rgb(187, 203, 164);
+  background-color: #507325;
   margin: 0.3em;
   text-align: center;
   float: left;
   width: fit-content;
-  padding: 3px;
   border-radius: 0.2em;
   padding: 0.5em;
   box-shadow: 0 3px 6px 0 rgb(0, 0, 0, 0.2);
+  list-style-type: none;
 }
 
 .card-content-btn-container {
@@ -68,38 +56,56 @@
   display: flex;
 }
 
+.card-content-container {
+  min-width: 10em;
+  max-width: 20em;
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+}
+
+.title-card-container {
+  max-width: 17em;
+}
+
 .card-content {
   font-weight: 50%;
   margin: auto;
 }
 
-/**
-* wird alles abwärts irgendwo verwendet?
-*/
+#title-card {
+  overflow-wrap: break-word;
+  word-break: normal;
+}
 
-.btn {
-  border-bottom-right-radius: 15px;
-  border-bottom-left-radius: 15px;
+.numbers-outer-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-around;
+}
+
+.numbers-container {
+  display: flex;
+  margin: 2 auto 2 auto;
+}
+
+.card-content-btn {
   border: none;
-  outline: 10vh;
-  display: inline-block;
-  height: 60px;
-  padding: 8px;
-  color: white;
-  background-color: #83944c;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
-
-a {
-  text-decoration: none;
-  font-size: 22px;
+  border-radius: 0.2em;
+  margin: 0.2em;
+  padding: 6px;
   color: black;
+  background-color: #fff;
+  cursor: pointer;
 }
 
-button:hover,
-a:hover {
-  opacity: 0.7;
+.background-approve {
+  background-color: rgb(108, 194, 108);
+  border: none;
+}
+
+.card-content-btn:hover {
+  box-shadow: 0px 5px 10px 0px rgb(0, 0, 0, 0.2);
+  opacity: 0.8;
 }

@@ -34,8 +34,8 @@ html {
   width: 18rem;
   height: 100%;
   z-index: 20;
- /*  background-color: rgb(215, 248, 248); */
- background-color: white;
+  /*  background-color: rgb(215, 248, 248); */
+  background-color: white;
   transform: translateY(-110%);
   border-radius: 12px;
   box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
@@ -65,18 +65,18 @@ html {
   display: grid;
   justify-content: center;
 }
-#profil-name{
+#profil-name {
   font-weight: 600;
   font-size: 20px;
   margin: 10px;
 }
-.logout-button{
+.logout-button {
   padding: 5px;
   justify-content: center;
-  background-color: #357960;
+  background-color: #507325;
   border-radius: 3px;
   color: white;
-  border-color: #357960;
+  border-color: #507325;
   position: absolute;
   right: 5%;
 }
@@ -93,24 +93,24 @@ html {
   padding: 12px 20px 12px 40px;
   font-size: 14px;
 }
-#add-friend-button{
+#add-friend-button {
   margin-left: 0;
   width: 28px;
   height: 28px;
-  background-color: #357960;
-  border-color: #357960;
+  background-color: #507325;
+  border-color: #507325;
   color: white;
   border-radius: 5px;
 }
 
 .friend-list {
   padding: 0;
-  margin:0;
+  margin: 0;
   display: grid;
 }
 
 /* Style the list items */
- .friend {
+.friend {
   cursor: pointer;
   position: relative;
   padding: 6px 8px 6px 40px;
@@ -140,8 +140,8 @@ html {
   top: 0;
   bottom: 0;
   border-radius: 5px;
-  border-color: #357960;
-  background-color: #357960;
+  border-color: #507325;
+  background-color: #507325;
   color: white;
 }
 .profile-pic {
@@ -187,8 +187,6 @@ html {
   height: 2em;
 }
 
-
-
 /*
 ----------------------  main application  -------------------------------------------------------------------------------------
 */
@@ -198,7 +196,7 @@ html {
   grid-template-columns: minmax(200px, 1600px);
   justify-content: center;
   color: black;
-  background: url("../images/blaetter.jpg") no-repeat center center fixed;
+  background: url("../images/big_leafes.jpg") no-repeat center center fixed;
   /* Bildquelle: https://unsplash.com */
   background-size: cover;
 }
@@ -216,11 +214,12 @@ html {
 
 header {
   grid-area: header;
-  background-color: #83944c;
+  background-color: #507325;
   display: flex;
   justify-content: space-evenly;
   align-items: stretch;
   border-radius: 0.5em;
+  color: #fff;
 }
 
 .sidebar {
@@ -239,21 +238,23 @@ main {
   flex-direction: column;
   justify-content: start;
   align-items: stretch;
-  background-color: antiquewhite;
+  background-color: #fff;
   border-radius: 0.5em;
 }
 
-
-
 footer {
   grid-area: footer;
-  background-color: #faedcd;
+  background-color: #fff;
   border-radius: 0.5em;
 }
 
 .burger-menu-container {
   flex-grow: 1;
   text-align: center;
+}
+
+#burger-menu-open {
+  cursor: pointer;
 }
 
 .title-container {
@@ -266,6 +267,8 @@ footer {
   height: 3vh;
   display: flex;
   justify-content: center;
+  font-style: italic;
+  cursor: default;
 }
 
 .score-container {
@@ -278,10 +281,12 @@ footer {
 }
 
 .score-title {
+  cursor: default;
 }
 
 .score {
   font-size: 2em;
+  cursor: default;
 }
 
 hr {
@@ -292,7 +297,6 @@ hr {
   text-align: center;
   flex-grow: 2;
   height: 10vh;
-  
 }
 /* .stats-container{
   display: flex;
@@ -319,29 +323,43 @@ hr {
 
 .new-entry-button {
   flex-grow: 1;
-  background-color: #357960;
+  background-color: #507325;
   border-color: antiquewhite;
   border-radius: 0.5em;
   margin-top: 0.2em;
   margin-right: 0.4em;
-}
-/* #diagram-canvas {
-  background-color: #b99776;
-  margin-top: 2em;
-  height: 80%;
-  width: 90%;
-} */
-.canvas{
-  position: relative;
-  margin: 2em;
-}
-#diagram-canvas {
-/* margin-left: 1em;
-margin-right: 1em;
-margin-top: 4em; */
-margin: 1em;
+  cursor: pointer;
+  color: #fff;
 }
 
+.new-entry-button:hover {
+  box-shadow: 0px 5px 10px 0px rgb(0, 0, 0, 0.2);
+  opacity: 0.8;
+}
+
+.canvas {
+  height: 80%;
+  width: 95%;
+  position: relative;
+  margin: 2em;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.canvas::-webkit-scrollbar {
+  display: none;
+}
+
+#diagram-canvas {
+  margin: 1em;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/*
+----------------------  footer  -------------------------------------------------------------------------------------
+*/
 
 /*
 ----------------------  new Entry  -------------------------------------------------------------------------------------
@@ -395,8 +413,8 @@ margin: 1em;
   left: 10%;
   text-align: center;
   background: white;
+  border-radius: 0.5em;
 }
-
 
 .website-hidden {
   opacity: 0;
@@ -404,33 +422,34 @@ margin: 1em;
 }
 
 .entry-popUp {
-  background-color: #83944c;
+  background-color: #507325;
   font-size: 1.6rem;
   font-family: arial, "lucida console", "Open Sans", sans-serif;
   color: #2b3e51;
 }
 
 #food {
-  background-color: #7b4171;
+  background-color: #cd7459e2;
   font-weight: bold;
   width: 10%;
 }
 
 #other {
-  background-color: #985046;
+  background-color: #b33e24e2;
   font-weight: bold;
   width: 10%;
 }
 
 #transport {
-  background-color: #4c7494;
+  background-color: #b0742592;
   font-weight: bold;
   width: 10%;
+  border-radius: 0.5em 0 0 0;
 }
 
 /*die einzelnen Felder*/
 .fieldset {
-  background-color: #faedcd;
+  background-color: #fff;
 }
 
 /*die Beschreibungen zu den Angaben*/
@@ -493,7 +512,7 @@ margin: 1em;
 
 /* grüne Box */
 .login-popUp > #login {
-  background-color: #83944c;
+  background-color: #507325;
   width: 35%;
   text-align: center;
   margin: 30px auto;
@@ -532,13 +551,18 @@ margin: 1em;
   text-align: center;
 }
 
-.login-popUp > #register-here {
+#register-here {
   background-color: #eeedf1;
   color: #87888a;
   font-size: 14px;
   width: 100%;
   padding: 8px 0;
   border-radius: 0 0 7px 7px;
+}
+
+#login-button {
+  font-size: medium;
+  color: blue;
 }
 
 /*
@@ -567,7 +591,7 @@ margin: 1em;
 
 /* grüne Box */
 .register-popUp > #register {
-  background-color: #83944c;
+  background-color: #507325;
   width: 35%;
   text-align: center;
   margin: 30px auto;
@@ -609,13 +633,18 @@ margin: 1em;
   margin: auto;
 }
 
-.register-popUp > #back-to-login {
+#back-to-login {
   background-color: #eeedf1;
   color: #87888a;
   font-size: 14px;
   width: 100%;
   padding: 8px 0;
   border-radius: 0 0 7px 7px;
+}
+
+#register-button {
+  font-size: medium;
+  color: blue;
 }
 
 /*
@@ -635,13 +664,13 @@ margin: 1em;
   --start: 15%;
   color: #fff;
   position: relative;
-  background-color: #357960;
-  padding:10px;
+  background-color: #507325;
+  padding: 10px;
   border-radius: 0.3em 0.3em 0 0;
   overflow: hidden;
   font-size: x-large;
   margin-bottom: 5px;
-  
+  cursor: default;
 }
 
 .leaderboard-element-container {
@@ -652,20 +681,15 @@ margin: 1em;
   background-color: antiquewhite;
   border-radius: 0 0 12px 12px;
   padding: 15px 15px 20px;
-  
 }
-
 
 .leaderboard-list {
   padding: 0;
-  margin:0;
+  margin: 0;
   display: grid;
   row-gap: 8px;
   scroll-behavior: auto;
 }
-
-
-
 
 .leaderboard-profile {
   margin-left: 5px;
@@ -677,20 +701,25 @@ margin: 1em;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
-  cursor: pointer;
   background-color: #fff;
 }
 
 .leaderboard-profile:first-child {
-  background-color:  #AF9500;
-  
+  background-color: #e8b603;
 }
 .leaderboard-profile:nth-child(2) {
-  background-color: #D7D7D7;
+  background-color: #9f5e5e;
 }
 .leaderboard-profile:nth-child(3) {
-  background-color: #AD8A56;
-}  
+  background-color: #b0742592;
+}
+.leaderboard-profile:nth-child(4) {
+  background-color: #cd7459e2;
+}
+.leaderboard-profile:nth-child(5) {
+  background-color: #b33e24e2;
+}
+
 .leaderboard-picture {
   max-width: 100%;
   width: 40px;
@@ -719,15 +748,6 @@ margin: 1em;
   box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.4);
 }
 
-
-
-
-
-
-
-
-
-
 /*
 ----------------------  history  -------------------------------------------------------------------------------------
   */
@@ -736,14 +756,16 @@ margin: 1em;
   text-align: center;
   flex-grow: 1;
   height: 48vh;
-  background-color: #83944c;
+  background-color: #507325;
   border-radius: 0.5em;
   margin-top: 0.5em;
+  color: #fff;
 }
 
 .history-header {
   font-size: x-large;
   margin-top: 5px;
+  cursor: default;
 }
 
 .history-element-container {
